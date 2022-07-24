@@ -1,14 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
-#leaf {
+.leaf {
     font-family: 'Bebas Neue', Arial, Helvetica, sans-serif;
     color: #47817F;
     display: inline;
     padding-right: 4px;
 }
 
-#skateshop {
+.skateshop {
     font-family: 'Bebas Neue', Arial, Helvetica, sans-serif;
     color: black;
     display: inline;
+}
+
+.footer-logo {
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
