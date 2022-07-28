@@ -18,6 +18,20 @@
     padding-bottom: 20px;
 }
 
-.banner-logo {
-    
+.right-nav {
+    z-index: 999;
+    position: absolute;
+    right: 0%;
+    top: 105px;
+    display: inline;
+    text-decoration: none;
+}
+
+#user-icon, #cart-icon {
+    display: inline;
+    font-size: 1.8rem;
+}
+
+#user-item {
+    margin-right: 0;
 }
