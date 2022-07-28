@@ -21,9 +21,9 @@
 .right-nav {
     z-index: 999;
     position: absolute;
-    right: 0%;
-    top: 105px;
-    display: inline;
+    left: 50%;
+    top: 155px;
+    transform: translateX(-50%);
     text-decoration: none;
 }
 
