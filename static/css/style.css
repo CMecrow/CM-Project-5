@@ -27,11 +27,19 @@
     text-decoration: none;
 }
 
-#user-icon, #cart-icon {
-    display: inline;
-    font-size: 1.8rem;
+#search-container {
+    bottom: 3px;
 }
 
-#user-item {
+#search-bar, #user-item, #cart-item {
     margin-right: 0;
+}
+
+#user-icon, #cart-icon {
+    display: inline;
+    font-size: 1.5rem;
+}
+
+.fa-search {
+    font-size: 1.4rem
 }
