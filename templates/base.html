@@ -54,7 +54,7 @@
     </div> -->
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top" id="main-nav">
         <div class="container">
             <a class="navbar-brand" href="#"><h1 class="leaf">Leaf</h1><h1 class="skateshop">Skateshop</h1></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
@@ -85,14 +85,14 @@
             </div>
             <!-- <div class="col-12 col-lg-4 my-auto py-1 py-lg-0"> -->
             <!-- </div> -->
-            <div class="right-nav d-none d-lg-block">
+            <div class="right-nav">
                 <ul class="navbar-nav">
                     <li class="nav-item" id="search-bar">
                         <form method="GET" action="">
                             <div class="input-group w-100" id="search-container">
                                 <input class="form-control border border-black rounded" id="search-bar" type="text" name="q" placeholder="Search">
                                 <div class="input-group-append" id="search-icon">
-                                    <button class="form-control btn btn-black rounded nav-link" type="submit">
+                                    <button class="form-control btn btn-black rounded nav-link" id="search-button" type="submit">
                                         <span class="icon">
                                             <i class="fa fa-search"></i>
                                         </span>
@@ -101,10 +101,10 @@
                             </div>
                         </form>
                     </li>
-                    <li class="nav-item" id="user-item">
+                    <li class="nav-item d-none d-lg-block" id="user-item">
                         <a class="nav-link" id="user-icon" href=""><i class="fa fa-user"></i></a>
                     </li>
-                    <li class="nav-item" id="cart-item">
+                    <li class="nav-item d-none d-lg-block" id="cart-item">
                         <a class="nav-link" id="cart-icon" href=""><i class="fa fa-shopping-cart"></i></a>
                     </li>
                 </ul>

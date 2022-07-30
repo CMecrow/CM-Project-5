@@ -43,3 +43,28 @@
 .fa-search {
     font-size: 1.4rem
 }
+
+.green-hr {
+    display: none;
+}
+
+@media screen and (max-width: 991px) {
+
+    .right-nav {
+        position: fixed;
+        top: 10px;
+        z-index: 100;
+        width: 100%;
+        padding-right: 16px;
+    }
+
+    #main-nav {
+        padding-top: 30px;
+    }
+
+    #search-button {
+        padding-left: 10px;
+        bottom: 20%;
+    }
+
+}
