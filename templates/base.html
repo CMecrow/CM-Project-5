@@ -56,7 +56,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top" id="main-nav">
         <div class="container">
-            <a class="navbar-brand" href="#"><h1 class="leaf">Leaf</h1><h1 class="skateshop">Skateshop</h1></a>
+            <a class="navbar-brand" href="{% url 'home' %}"><h1 class="leaf">Leaf</h1><h1 class="skateshop">Skateshop</h1></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -76,7 +76,7 @@
                         <a class="nav-link" href="">Clothing</a>
                     </li>
                     <li class="nav-item d-lg-none">
-                        <a class="nav-link" href="">Account</a>
+                        <a class="nav-link" href="{% url 'account_login' %}">Account</a>
                     </li>
                     <li class="nav-item d-lg-none">
                         <a class="nav-link" href="">Basket</a>
@@ -102,7 +102,7 @@
                         </form>
                     </li>
                     <li class="nav-item d-none d-lg-block" id="user-item">
-                        <a class="nav-link" id="user-icon" href=""><i class="fa fa-user"></i></a>
+                        <a class="nav-link" id="user-icon" href="{% url 'account_login' %}"><i class="fa fa-user"></i></a>
                     </li>
                     <li class="nav-item d-none d-lg-block" id="cart-item">
                         <a class="nav-link" id="cart-icon" href=""><i class="fa fa-shopping-cart"></i></a>
