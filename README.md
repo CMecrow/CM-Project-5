@@ -59,7 +59,36 @@ These epics can then be broken down further into individual user stories:
     - Answer user questions
 
 These user stories were added to a kanabn board created in Projects in Github. The kanban board contains four columns:
-- Backlog: This is where user stories that may not be added in this iteration of the project are kept.
-- Todo: Where all essential user stories that have not yet been worked on are stored.
+- Backlog: This is where user stories that may not be added in this iteration of the project are kept. Refering to the MoSCoW prioritization categories, these can be considered 'could have'.
+- Todo: Where all essential user stories that have not yet been worked on are stored, these can be considered 'must have'.
 - In Progress: Where all user stories that are currently being worked on are located.
 - Done: All completed user stories.
+
+--- 
+
+### Site Theme
+
+- The overall layout used was taken from [tooplate.com](https://www.tooplate.com/view/2114-pixie). This was done to speed up project completion in the given timeframe, with more time being allocated to site functionality and the backend. As with using any template, there was a lot of customisation required to wire up the pages using Django, and also tweaks to the html and css to suit the project. For example, the inclusion of a searchbar was included as a 'must have' feature in the userstories. The template also did not come with any account pages, so they were implimented via editing the allauth pages instead, making sure they fit the overall theme of the site. The banner image was changed to one more fitting for the site content, along with the colour scheme to fit with the 'leaf' name of the shop.
+
+---
+
+## Wireframes
+
+#### Desktop Homepage
+![https://i.imgur.com/Ll4mx1L](https://i.imgur.com/Ll4mx1L.jpg "Desktop Homepage Wireframe")
+
+#### Desktop Products Page
+![https://i.imgur.com/FC1jq19](https://i.imgur.com/FC1jq19.jpg "Desktop Products Page")
+
+#### Mobile Wireframes
+![https://i.imgur.com/11KdD5p](https://i.imgur.com/11KdD5p.jpg "Mobile Wireframes")
+
+---
+
+## Features
+
+### Existing Features
+
+### Homepage
+
+- The homepage design was chosen to have a large strong image imediately on display to the user, working as a clear indication as to the site content, and what sort of products may be found on the store. The store logo 'Leaf Skateshop' was designed to stand strongly in the center of the page with plenty of spacing and a heavy font. The name would dictate the general colour scheme, using a lot of dark green and black for accessibility reasons as well as overall stlying. As discussed below, the page includes a brief 'who we are' statement along with a 'call to action' button. There are also a small selection of the latest added products viewable on the page, again working as an imediate indication as to the nature of the store.
