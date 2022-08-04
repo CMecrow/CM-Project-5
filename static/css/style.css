@@ -53,10 +53,26 @@
     display: none;
 }
 
+.current-nav {
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+    text-align: center;
+    line-height: 38px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    font-weight: 700;
+    color: #bbbaba;
+}
+
+#page-pagination {
+    margin: auto;
+}
+
 @media screen and (max-width: 991px) {
 
     .right-nav {
-        position: fixed;
+        position: absolute;
         top: 10px;
         z-index: 100;
         width: 100%;
