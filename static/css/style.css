@@ -76,7 +76,8 @@
         top: 10px;
         z-index: 100;
         width: 100%;
-        padding-right: 16px;
+        padding-left: 100px;
+        padding-right: 124px;
     }
 
     #main-nav {
@@ -88,4 +89,20 @@
         bottom: 20%;
     }
 
+}
+
+@media screen and (max-width: 768px) {
+
+    .right-nav {
+        padding-left: 43px;
+        padding-right: 54px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+
+    .right-nav {
+        padding-right: 16px;
+        padding-left: 0;
+    }
 }
