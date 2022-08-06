@@ -7,7 +7,7 @@
  *  Owl Carousel - Core
  */
 .owl-carousel {
-  display: none;
+  display: inline-block;
   width: 100%;
   -webkit-tap-highlight-color: transparent;
   /* position relative and z-index fix webkit rendering fonts issue */
@@ -21,7 +21,7 @@
     /* fix firefox animation glitch */ }
   .owl-carousel .owl-stage:after {
     content: ".";
-    display: block;
+    display: inline-block;
     clear: both;
     visibility: hidden;
     line-height: 0;
@@ -47,7 +47,7 @@
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none; }
   .owl-carousel .owl-item img {
-    display: block;
+    display: inline-block;
     width: 100%; }
   .owl-carousel .owl-nav.disabled,
   .owl-carousel .owl-dots.disabled {
@@ -70,10 +70,10 @@
     padding: 0 !important;
     font: inherit; }
   .owl-carousel.owl-loaded {
-    display: block; }
+    display: inline-block; }
   .owl-carousel.owl-loading {
     opacity: 0;
-    display: block; }
+    display: inline-block; }
   .owl-carousel.owl-hidden {
     opacity: 0; }
   .owl-carousel.owl-refresh .owl-item {
@@ -95,7 +95,7 @@
 
 /* No Js */
 .no-js .owl-carousel {
-  display: block; }
+  display: inline-block; }
 
 /*
  *  Owl Carousel - Animate Plugin

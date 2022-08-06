@@ -1,8 +1,12 @@
 from django.shortcuts import render
+from products.models import Product
 
 # Create your views here.
 
 
 def index(request):
     """Return index page"""
-    return render(request, 'home/index.html')
+    product = Product.objects.all()
+    new_products = Product.objects.order_by('-date_added')[:4]
+    return render(request, 'home/index.html', {'products': product,
+                                               'new_products': new_products})
