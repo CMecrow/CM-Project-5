@@ -162,6 +162,7 @@ a {
 	border: 1px solid #eee;
 	padding: 20px;
 	transition: all 0.5s;
+	min-height: 322px;
 }
 .featured-item:hover {
 	opacity: 0.9;

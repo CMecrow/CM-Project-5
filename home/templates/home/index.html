@@ -37,7 +37,7 @@
             <div class="row posts">
                {% for product in new_products %}
                <div class="item new col-lg-3 col-sm-6 col-xs-6">
-                  <a href="single-product.html">
+                  <a href="single-product.html" class="product-link">
                      <div class="featured-item">
                         {% if product.image %}
                         <img src="{{ product.image.url }}" alt="">
