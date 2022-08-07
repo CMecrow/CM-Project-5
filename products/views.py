@@ -23,9 +23,11 @@ def product_detail(request, product_id):
     """Show an individual product"""
 
     product = get_object_or_404(Product, pk=product_id)
+    related_products = Product.objects.filter(category=product.category).exclude(pk=product_id).order_by('?')[:4]
 
     context = {
         'product': product,
+        'related_products': related_products,
     }
 
     return render(request, 'products/product_detail.html', context)
