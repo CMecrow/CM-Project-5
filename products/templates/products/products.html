@@ -28,7 +28,7 @@
   <div class="row posts">
     {% for product in products %}
     <div class="item new col-lg-4 col-sm-6">
-      <a href="{{ url 'product_detail' product.id }}">
+      <a href="{% url 'product_detail' product.id %}">
         <div class="featured-item">
           {% if product.image %}
           <img src="{{ product.image.url }}" alt="{{ product.name }}">

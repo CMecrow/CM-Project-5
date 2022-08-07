@@ -22,7 +22,7 @@ def all_products(request):
 def product_detail(request, product_id):
     """Show an individual product"""
 
-    product = get_object_or_404(Product, sku=product_id)
+    product = get_object_or_404(Product, pk=product_id)
 
     context = {
         'product': product,
