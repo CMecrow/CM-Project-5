@@ -1,5 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from .models import Product
+from django.db.models import Q
 from django.core.paginator import Paginator
 
 # Create your views here.
@@ -8,9 +9,20 @@ from django.core.paginator import Paginator
 def all_products(request):
     """Show all products"""
 
+    full_products = Product.objects.all()
     pagination = Paginator(Product.objects.all(), 9)
     page_num = request.GET.get('page')
     products = pagination.get_page(page_num)
+    query = None
+
+    if request.GET:
+        if 'q' in request.GET:
+            query = request.GET['q']
+            if not query:
+                return redirect(reverse('products'))
+            
+            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            products = full_products.filter(queries)
 
     context = {
         'products': products,
