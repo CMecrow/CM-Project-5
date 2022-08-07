@@ -24,12 +24,23 @@
           {% endif %}
         </div>
       </div>
-      <div class="col-md-8 col-sm-12">
-        <div id="filters">
+      <div class="col-md-8 col-sm-12 align-items-end">
+        <!-- <div id="filters">
           <a class="product-sorting" id="sort-new" href="{% url 'products' %}?sort=date_added&direction=desc"><h6>Newest</h6></a>
           <a class="product-sorting" href="{% url 'products' %}?sort=price&direction=asc"><h6>Lowest Price</h6></a>
           <a class="product-sorting" href="{% url 'products' %}?sort=price&direction=desc"><h6>Highest Price</h6></a>
-        </div>
+        </div> -->
+        <div class="search-container">
+          <select id="sort-selector" class="custom-select custom-select-sm rounded border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+              <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
+              <option value="date_added_desc" {% if current_sorting == 'date_added_desc' %}selected{% endif %}>Date, New to Old</option>
+              <option value="date_added_asc" {% if current_sorting == 'date_added_asc' %}selected{% endif %}>Date, Old to New</option>
+              <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price, Low to High)</option>
+              <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price High to Low</option>
+              <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name A-Z</option>
+              <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name Z-A</option>
+          </select>
+      </div>
       </div>
     </div>
   </div>

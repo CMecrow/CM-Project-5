@@ -91,6 +91,18 @@
     padding-left: 0px;
 }
 
+.search-container {
+    float: right;
+    width: 50%;
+    max-width: 350px;
+    margin-top: 15px;
+}
+
+.custom-select:focus {
+    border-color: #47817F;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(71, 129, 127, 0.6);
+}
+
 @media screen and (max-width: 991px) {
 
     .right-nav {
@@ -122,6 +134,11 @@
     .right-nav {
         padding-left: 43px;
         padding-right: 54px;
+    }
+
+    .search-container {
+        float: left;
+        max-width: 240px;
     }
 }
 
