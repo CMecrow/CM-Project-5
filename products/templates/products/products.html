@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load leaf_parameters %}
 
 {% block content %}
 <!-- Page Content -->
@@ -50,12 +51,12 @@
         <ul>
           {% if products.has_previous %}
           <!-- <li><a href="?page=1"></i></a></li> -->
-          <li><a href="?page={{ products.previous_page_number }}"><i class="fa fa-arrow-left"></i></a></li>
+          <li><a href="{% my_url products.previous_page_number 'page' request.GET.urlencode %}"><i class="fa fa-arrow-left"></i></a></li>
           {% else %}
           <li class="current-nav"><i class="fa fa-arrow-left"></i></li>
           {% endif %}
           {% if products.has_next %}
-          <li><a href="?page={{ products.next_page_number }}"><i class="fa fa-arrow-right"></i></a></li>
+          <li><a href="{% my_url products.next_page_number 'page' request.GET.urlencode %}"><i class="fa fa-arrow-right"></i></a></li>
           {% else %}
           <li class="current-nav"><i class="fa fa-arrow-right"></i></li>
           {% endif %}
