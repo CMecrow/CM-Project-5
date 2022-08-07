@@ -68,5 +68,30 @@ This worked fine for the all products view but proved an issue when navigating w
 
 This was a really tricky fix. I eventually stumbled on [this document](https://simpleisbetterthancomplex.com/snippet/2016/08/22/dealing-with-querystring-parameters.html), along with [this youtube walkthrough](https://www.youtube.com/watch?v=dkJ3uqkdCcY) which provided the applied solution of creating a custom template tag to deconstruct the url, pass it through a function and return it as required.
 
+Template tag:
+
+        from django import template
+
+
+        register = template.Library()
+
+        @register.simple_tag
+        def my_url(value, field_name, urlencode=None):
+        url = '?{}={}'.format(field_name, value)
+
+        if urlencode:
+                querystring = urlencode.split('&')
+                filtered_querystring = filter(lambda p: p.split('=')[0]!=field_name, querystring)
+                encoded_querystring = '&'.join(filtered_querystring)
+                url = '{}&{}'.format(url, encoded_querystring)
+
+        
+        return url
+
+Restructured href on page navigation:
+
+        href="{% my_url products.previous_page_number 'page' request.GET.urlencode %}"
+        href="{% my_url products.next_page_number 'page' request.GET.urlencode %}"
+
 
 
