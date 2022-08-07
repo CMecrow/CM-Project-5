@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.db.models import Q
+from django.db.models.functions import Lower
 from django.core.paginator import Paginator
 from .models import Product, Category
 
@@ -23,9 +24,8 @@ def all_products(request):
             sortkey = request.GET['sort']
             sort = sortkey
             if sortkey == 'name':
-                sortkey = 'lower_name'
+                # sortkey = 'lower_name'
                 products = full_products.annotate(lower_name=Lower('name'))
-
             if 'direction' in request.GET:
                 direction = request.GET['direction']
                 if direction == 'desc':
@@ -35,7 +35,6 @@ def all_products(request):
             pagination = Paginator(sorted_products, 9)
             page_num = request.GET.get('page')
             products = pagination.get_page(page_num)
-
 
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')

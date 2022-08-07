@@ -88,7 +88,7 @@ Template tag:
         
         return url
 
-Restructured href on page navigation:
+Restructured href on  navigation:
 
         href="{% my_url products.previous_page_number 'page' request.GET.urlencode %}"
         href="{% my_url products.next_page_number 'page' request.GET.urlencode %}"

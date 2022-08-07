@@ -31,16 +31,21 @@
           <a class="product-sorting" href="{% url 'products' %}?sort=price&direction=desc"><h6>Highest Price</h6></a>
         </div> -->
         <div class="search-container">
-          <select id="sort-selector" class="custom-select custom-select-sm rounded border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
-              <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
-              <option value="date_added_desc" {% if current_sorting == 'date_added_desc' %}selected{% endif %}>Date, New to Old</option>
-              <option value="date_added_asc" {% if current_sorting == 'date_added_asc' %}selected{% endif %}>Date, Old to New</option>
-              <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price, Low to High)</option>
-              <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price High to Low</option>
-              <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name A-Z</option>
-              <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name Z-A</option>
+          <select id="sort-selector"
+            class="custom-select custom-select-sm rounded border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+            <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
+            <option value="date_added_desc" {% if current_sorting == 'date_added_desc' %}selected{% endif %}>Date, New
+              to Old</option>
+            <option value="date_added_asc" {% if current_sorting == 'date_added_asc' %}selected{% endif %}>Date, Old to
+              New</option>
+            <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price, Low to High
+            </option>
+            <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price High to Low
+            </option>
+            <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name A-Z</option>
+            <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name Z-A</option>
           </select>
-      </div>
+        </div>
       </div>
     </div>
   </div>
@@ -71,12 +76,14 @@
         <ul>
           {% if products.has_previous %}
           <!-- <li><a href="?page=1"></i></a></li> -->
-          <li><a href="{% my_url products.previous_page_number 'page' request.GET.urlencode %}"><i class="fa fa-arrow-left"></i></a></li>
+          <li><a href="{% my_url products.previous_page_number 'page' request.GET.urlencode %}"><i
+                class="fa fa-arrow-left"></i></a></li>
           {% else %}
           <li class="current-nav"><i class="fa fa-arrow-left"></i></li>
           {% endif %}
           {% if products.has_next %}
-          <li><a href="{% my_url products.next_page_number 'page' request.GET.urlencode %}"><i class="fa fa-arrow-right"></i></a></li>
+          <li><a href="{% my_url products.next_page_number 'page' request.GET.urlencode %}"><i
+                class="fa fa-arrow-right"></i></a></li>
           {% else %}
           <li class="current-nav"><i class="fa fa-arrow-right"></i></li>
           {% endif %}
@@ -86,5 +93,27 @@
   </div>
 </div>
 <!-- Featred Page Ends Here -->
+<script type="text/javascript">
+  $('#sort-selector').change(function() {
+      var selector = $(this);
+      var currentUrl = new URL(window.location);
+
+      var selectedVal = selector.val();
+      if(selectedVal != "reset"){
+          var sort = selectedVal.split("_")[0];
+          var direction = selectedVal.split("_")[1];
+
+          currentUrl.searchParams.set("sort", sort);
+          currentUrl.searchParams.set("direction", direction);
+
+          window.location.replace(currentUrl);
+      } else {
+          currentUrl.searchParams.delete("sort");
+          currentUrl.searchParams.delete("direction");
+
+          window.location.replace(currentUrl);
+      }
+  })
+</script>
 
 {% endblock %}

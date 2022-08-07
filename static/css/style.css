@@ -148,4 +148,9 @@
         padding-right: 16px;
         padding-left: 0;
     }
+
+    .search-container {
+        width: 100%;
+        max-width: 100%;
+    }
 }
