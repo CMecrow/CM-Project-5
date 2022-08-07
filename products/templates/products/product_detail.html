@@ -36,7 +36,7 @@
           </form>
           <div class="down-content">
             <div class="categories">
-              <h6>Category: <span><a href="#">{{ product.category }}</a></span></h6>
+              <h6>Category: <span><a href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a></span></h6>
             </div>
           </div>
         </div>

@@ -38,8 +38,8 @@ def all_products(request):
 
 
         if 'category' in request.GET:
-            categories = request.GET['category']
-            filtered_products = full_products.filter(category__name=categories).order_by('-date_added')
+            categories = request.GET['category'].split(',')
+            filtered_products = full_products.filter(category__name__in=categories).order_by('-date_added')
             categories = Category.objects.filter(name__in=categories)
             pagination = Paginator(filtered_products, 9)
             page_num = request.GET.get('page')
