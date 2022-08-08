@@ -8,12 +8,9 @@ from .models import Product, Category
 
 
 def all_products(request):
-    """Show all products"""
+    """ A view to show all products, including sorting and search queries """
 
-    full_products = Product.objects.all()
-    pagination = Paginator(full_products, 9)
-    page_num = request.GET.get('page')
-    products = pagination.get_page(page_num)
+    products = Product.objects.all()
     query = None
     categories = None
     sort = None
@@ -24,39 +21,35 @@ def all_products(request):
             sortkey = request.GET['sort']
             sort = sortkey
             if sortkey == 'name':
-                # sortkey = 'lower_name'
-                products = full_products.annotate(lower_name=Lower('name'))
+                sortkey = 'lower_name'
+                products = products.annotate(lower_name=Lower('name'))
+            if sortkey == 'category':
+                sortkey = 'category__name'
             if 'direction' in request.GET:
                 direction = request.GET['direction']
                 if direction == 'desc':
                     sortkey = f'-{sortkey}'
-
-            sorted_products = full_products.order_by(sortkey)
-            pagination = Paginator(sorted_products, 9)
-            page_num = request.GET.get('page')
-            products = pagination.get_page(page_num)
+            products = products.order_by(sortkey)
 
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
-            filtered_products = full_products.filter(category__name__in=categories).order_by('-date_added')
+            products = products.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
-            pagination = Paginator(filtered_products, 9)
-            page_num = request.GET.get('page')
-            products = pagination.get_page(page_num)
 
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
                 return redirect(reverse('products'))
-            
+
             queries = Q(name__icontains=query) | Q(description__icontains=query)
-            filtered_products = full_products.filter(queries)
-            pagination = Paginator(filtered_products, 9)
-            page_num = request.GET.get('page')
-            products = pagination.get_page(page_num)
+            products = products.filter(queries)
 
     current_sorting = f'{sort}_{direction}'
-    
+
+    pagination = Paginator(products, 9)
+    page_num = request.GET.get('page')
+    products = pagination.get_page(page_num)    
+
     context = {
         'products': products,
         'search_term': query,
@@ -65,6 +58,65 @@ def all_products(request):
     }
 
     return render(request, 'products/products.html', context)
+
+# def all_products(request):
+#     """Show all products"""
+
+#     full_products = Product.objects.all()
+#     pagination = Paginator(full_products, 9)
+#     page_num = request.GET.get('page')
+#     products = pagination.get_page(page_num)
+#     query = None
+#     categories = None
+#     sort = None
+#     direction = None
+
+#     if request.GET:
+#         if 'sort' in request.GET:
+#             sortkey = request.GET['sort']
+#             sort = sortkey
+#             if sortkey == 'name':
+#                 sortkey = 'lower_name'
+#                 products = full_products.annotate(lower_name=Lower('name'))
+#             if 'direction' in request.GET:
+#                 direction = request.GET['direction']
+#                 if direction == 'desc':
+#                     sortkey = f'-{sortkey}'
+
+#             sorted_products = full_products.order_by(sortkey)
+#             pagination = Paginator(sorted_products, 9)
+#             page_num = request.GET.get('page')
+#             products = pagination.get_page(page_num)
+
+#         if 'category' in request.GET:
+#             categories = request.GET['category'].split(',')
+#             filtered_products = full_products.filter(category__name__in=categories)
+#             categories = Category.objects.filter(name__in=categories)
+#             pagination = Paginator(filtered_products, 9)
+#             page_num = request.GET.get('page')
+#             products = pagination.get_page(page_num)
+
+#         if 'q' in request.GET:
+#             query = request.GET['q']
+#             if not query:
+#                 return redirect(reverse('products'))
+            
+#             queries = Q(name__icontains=query) | Q(description__icontains=query)
+#             filtered_products = full_products.filter(queries)
+#             pagination = Paginator(filtered_products, 9)
+#             page_num = request.GET.get('page')
+#             products = pagination.get_page(page_num)
+
+#     current_sorting = f'{sort}_{direction}'
+
+#     context = {
+#         'products': products,
+#         'search_term': query,
+#         'current_categories': categories,
+#         'current_sorting': current_sorting,
+#     }
+
+#     return render(request, 'products/products.html', context)
 
 
 def product_detail(request, product_id):
