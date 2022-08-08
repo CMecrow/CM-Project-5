@@ -22,7 +22,6 @@
           <h1>All Products</h1>
           {% endif %}
           {% endif %}
-          <h1>{{ current_sorting }}</h1>
         </div>
       </div>
       <div class="col-md-8 col-sm-12 align-items-end">
@@ -35,16 +34,16 @@
           <select id="sort-selector"
             class="custom-select custom-select-sm rounded border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
             <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
-            <option value="date_added_desc" {% if current_sorting == 'date_added_desc' %}selected{% endif %}>Date, New
+            <option value="date_added-desc" {% if current_sorting == 'date_added-desc' %}selected{% endif %}>Date, New
               to Old</option>
-            <option value="date_added_asc" {% if current_sorting == 'date_added_asc' %}selected{% endif %}>Date, Old to
+            <option value="date_added-asc" {% if current_sorting == 'date_added-asc' %}selected{% endif %}>Date, Old to
               New</option>
-            <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price, Low to High
+            <option value="price-asc" {% if current_sorting == 'price-asc' %}selected{% endif %}>Price, Low to High
             </option>
-            <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price High to Low
+            <option value="price-desc" {% if current_sorting == 'price-desc' %}selected{% endif %}>Price High to Low
             </option>
-            <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name A-Z</option>
-            <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name Z-A</option>
+            <option value="name-asc" {% if current_sorting == 'name-asc' %}selected{% endif %}>Name A-Z</option>
+            <option value="name-desc" {% if current_sorting == 'name-desc' %}selected{% endif %}>Name Z-A</option>
           </select>
         </div>
       </div>
@@ -101,8 +100,8 @@
 
       var selectedVal = selector.val();
       if(selectedVal != "reset"){
-          var sort = selectedVal.split("_")[0];
-          var direction = selectedVal.split("_")[1];
+          var sort = selectedVal.split("-")[0];
+          var direction = selectedVal.split("-")[1];
 
           currentUrl.searchParams.set("sort", sort);
           currentUrl.searchParams.set("direction", direction);
