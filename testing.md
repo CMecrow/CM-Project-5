@@ -48,7 +48,7 @@ This workaround solved the immediate problem and products were successfuly displ
 
 ### Pagination
 
-Site pagination was accomplished in two steps across the site. The following is the code for the all products view, without any filtering applied:
+Site pagination was initially first accomplished in two steps across the site. The following is the code for the all products view, without any filtering applied:
 
         full_products = Product.objects.all()
         pagination = Paginator(full_products, 9)
@@ -92,6 +92,8 @@ Restructured href on  navigation:
 
         href="{% my_url products.previous_page_number 'page' request.GET.urlencode %}"
         href="{% my_url products.next_page_number 'page' request.GET.urlencode %}"
+
+When writing the view for all_products, I built it in stages, for example first ensuring that all products were displayed with pagination applied, then filters could be applied and also paginated etc etc. Because of this approach, I ended up repeating the pagination in each section unnecessarily. This then caused issue when trying to impliment the Sort By dropdown menu, where sorting could be applied on All Products, but as soon as a filter or search query was applied, the sorting would not work. This tripped me up for a long time until I decided to simplify the code in the view and apply the pagination at the end of the view. This fixed the error and caused the sorting to work as expected.
 
 
 
