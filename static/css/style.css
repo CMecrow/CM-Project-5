@@ -54,6 +54,11 @@
     font-size: 1.4rem
 }
 
+.product-count {
+    display: inline;
+    vertical-align: top;
+}
+
 .green-hr {
     display: none;
 }
@@ -127,6 +132,19 @@
 
 .continue-browsing i {
     padding-right: 10px;
+}
+
+/* .bag-table-header {
+    text-align: center;
+}
+
+.bag-table tr td {
+    padding: 0;
+    text-align: center;
+} */
+
+.bag-product-image {
+    width: 150px;
 }
 
 @media screen and (max-width: 991px) {

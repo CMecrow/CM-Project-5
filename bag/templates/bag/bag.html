@@ -3,29 +3,82 @@
 
 {% block content %}
 <div class="single-product">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="section-heading">
-            <div class="line-dec"></div>
-            <h1>Shopping Bag</h1>
-          </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-heading">
+          <div class="line-dec"></div>
+          <h1>Shopping Bag</h1>
         </div>
-        <div class="col-md-6">
-          {% if bag_items %}
-            <div class="table-responsive rounded"></div>
-          {% else %}
-            <h4>Your bag is currently empty.</h4>
-            <h5 class="continue-browsing"><a href="{% url 'products' %}"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i>Continue browsing</a></h5>
-          {% endif %}
+      </div>
+      <div class="col-md-6">
+        {% if bag_items %}
+        <div class="table-responsive rounded">
+          <table class="table table-sm table-borderless bag-table">
+            <thead class="bag-table-header">
+              <tr>
+                <th scope="col">Product</th>
+                <!-- <th scope="col"></th> -->
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Subtotal</th>
+              </tr>
+            </thead>
+            {% for item in bag_items %}
+            <tr>
+              <td>
+                <img class="bag-product-image" src="{{ item.product.image.url }}">
+                <p><strong>{{ item.product.name }}</strong></p>
+                <p>{{ item.product.sku }}</p>
+              </td>
+              <td>
+                <p><strong>£{{ item.product.price }}</strong></p>
+              </td>
+              <td>
+                <p><strong>{{ item.quantity }}</strong></p>
+              </td>
+              <td>
+                <p><strong>£{{ item.product.price }}</strong></p>
+              </td>
+            </tr>
+            {% endfor %}
+            <tr>
+              <td>
+                <h6>Bag Total: £{{ total }}</h6>
+                <h6>Delivery: £{{ delivery }}</h6>
+                <h5>Grand Total: £{{ grand_total }}</h5>
+                {% if free_delivery_delta > 0 %}
+                <p class="text-danger">Your baskest is {{ free_delivery_delta }} short for free delivery!</p>
+                {% endif %}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="main-button">
+                  <a href="{% url 'products' %}">Continue Browsing</a>
+                </div>
+              </td>
+              <td>
+                <div class="main-button">
+                  <a href="{% url 'products' %}">Checkout</a>
+                </div>
+              </td>
+            </tr>
+          </table>
         </div>
-        <div class="col-md-6">
-          <div class="right-content">
-            
-          </div>
+        {% else %}
+        <h4>Your bag is currently empty.</h4>
+        <h5 class="continue-browsing"><a href="{% url 'products' %}"><i class="fa fa-arrow-circle-left"
+              aria-hidden="true"></i>Continue browsing</a></h5>
+        {% endif %}
+      </div>
+      <div class="col-md-6">
+        <div class="right-content">
+
         </div>
       </div>
     </div>
   </div>
+</div>
 
 {% endblock %}
