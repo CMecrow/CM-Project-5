@@ -134,6 +134,24 @@
     padding-right: 10px;
 }
 
+.size-select {
+    margin-left: 10px;
+	width: 200px;
+	height: 44px;
+	line-height: 42px;
+	font-size: 14px;
+	font-weight: 700;
+	color: #4a4a4a;
+	display: inline-block;
+	text-align: center;
+	outline: none;
+	border: 1px solid #eee;
+}
+
+.quantity-select {
+    padding-top: 40px
+}
+
 /* .bag-table-header {
     text-align: center;
 }

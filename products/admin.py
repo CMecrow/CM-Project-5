@@ -7,6 +7,8 @@ class ProductAdmin(admin.ModelAdmin):
         'sku',
         'name',
         'category',
+        'clothes_sizes',
+        'skate_sizes',
         'price',
         'image',
         'date_added',

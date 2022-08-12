@@ -29,6 +29,7 @@
               <td>
                 <img class="bag-product-image" src="{{ item.product.image.url }}">
                 <p><strong>{{ item.product.name }}</strong></p>
+                <p>Size: {% if item.product.skate_sizes %}{{ item.size }}{% elif item.product.clothes_sizes %}{{ item.size }}{% else %}N/A{% endif %}</p>
                 <p>{{ item.product.sku }}</p>
               </td>
               <td>
@@ -44,11 +45,11 @@
             {% endfor %}
             <tr>
               <td>
-                <h6>Bag Total: £{{ total }}</h6>
-                <h6>Delivery: £{{ delivery }}</h6>
-                <h5>Grand Total: £{{ grand_total }}</h5>
+                <h6>Bag Total: £{{ total|floatformat:2 }}</h6>
+                <h6>Delivery: £{{ delivery|floatformat:2 }}</h6>
+                <h5>Grand Total: £{{ grand_total|floatformat:2 }}</h5>
                 {% if free_delivery_delta > 0 %}
-                <p class="text-danger">Your baskest is {{ free_delivery_delta }} short for free delivery!</p>
+                <p class="text-danger">Your baskest is £{{ free_delivery_delta }} short for free delivery!</p>
                 {% endif %}
               </td>
             </tr>
