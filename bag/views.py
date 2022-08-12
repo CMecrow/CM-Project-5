@@ -13,12 +13,41 @@ def add_to_bag(request, item_id):
 
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
+    skate_size = None
+
+    if 'skate_size' in request.POST:
+        skate_size = request.POST['skate_size']
+
+    clothes_size = None
+
+    if 'clothes_size' in request.POST:
+        clothes_size = request.POST['clothes_size']
+        
     bag = request.session.get('bag', {})
 
-    if item_id in list(bag.keys()):
-        bag[item_id] += quantity
+    if skate_size:
+        if item_id in list(bag.keys()):
+            if skate_size in bag[item_id]['skates_by_size'].keys():
+                bag[item_id]['skates_by_size'][skate_size] += quantity
+            else:
+                bag[item_id]['skates_by_size'][skate_size] = quantity
+        else:
+            bag[item_id] = {'skates_by_size': {skate_size: quantity}}
+
+    elif clothes_size:
+        if item_id in list(bag.keys()):
+            if clothes_size in bag[item_id]['clothes_by_size'].keys():
+                bag[item_id]['clothes_by_size'][clothes_size] += quantity
+            else:
+                bag[item_id]['clothes_by_size'][clothes_size] = quantity
+        else:
+            bag[item_id] = {'clothes_by_size': {clothes_size: quantity}}
+
     else:
-        bag[item_id] = quantity
+        if item_id in list(bag.keys()):
+            bag[item_id] += quantity
+        else:
+            bag[item_id] = quantity
 
     request.session['bag'] = bag
     return redirect(redirect_url)
