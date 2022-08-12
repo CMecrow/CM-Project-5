@@ -51,14 +51,31 @@
             </select>
             <br>
             {% endif %}
-            <label for="quantity" class="quantity-select">Quantity:</label>
-            <input name="quantity" type="number" class="quantity-text" id="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
-            <input type="submit" class="button" value="Add To Bag">
+            <div class="input-group" id="quantity-group">
+              <label for="quantity" class="quantity-select">Quantity:</label>
+              <div class="input-group-prepend">
+                <button class="decrement-qty btn btn-black rounded-0" data-item_id="{{ product.id }}"
+                  id="decrement-qty_{{ product.id }}">
+                  <i class="fa fa-minus" aria-hidden="true"></i>
+                </button>
+              </div>
+              <input name="quantity" type="number" class="quantity-text" id="quantity" value="1" min="1" max="99"
+                data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+              <div class="input-group-append">
+                <button class="increment-qty btn btn-black rounded-0" data-item_id="{{ product.id }}"
+                  id="increment-qty_{{ product.id }}">
+                  <i class="fa fa-plus" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+            <input id="add-to-bag-btn" type="submit" class="button" value="Add To Bag">
             <input type="hidden" name="redirect_url" value="{{ request.path }}">
           </form>
           <div class="down-content">
             <div class="categories">
-              <h6>Category: <span><a href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a></span></h6>
+              <h6>Category: <span><a
+                    href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a></span>
+              </h6>
             </div>
           </div>
         </div>
@@ -81,21 +98,21 @@
 </div>
 <div class="featured container no-gutter">
   <div class="row posts">
-     {% for product in related_products %}
-     <div class="item new col-lg-3 col-sm-6 col-xs-6">
-        <a href="{% url 'product_detail' product.id %}" class="product-link">
-           <div class="featured-item">
-              {% if product.image %}
-              <img src="{{ product.image.url }}" alt="{{ product.name }}">
-              {% else %}
-              <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-              {% endif %}
-              <h4>{{ product.name }}</h4>
-              <h6>£{{ product.price }}</h6>
-           </div>
-        </a>
-     </div>
-     {% endfor %}
+    {% for product in related_products %}
+    <div class="item new col-lg-3 col-sm-6 col-xs-6">
+      <a href="{% url 'product_detail' product.id %}" class="product-link">
+        <div class="featured-item">
+          {% if product.image %}
+          <img src="{{ product.image.url }}" alt="{{ product.name }}">
+          {% else %}
+          <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+          {% endif %}
+          <h4>{{ product.name }}</h4>
+          <h6>£{{ product.price }}</h6>
+        </div>
+      </a>
+    </div>
+    {% endfor %}
   </div>
 </div>
 <!-- Similar Ends Here -->
