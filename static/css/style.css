@@ -152,14 +152,14 @@
     background-color: white;
 }
 
-#quantity {
-    margin-left: 0;
-}
-
 .quantity-select {
     margin-bottom: 0;
     margin-top: 10px;
     text-align: center;
+}
+
+.quantity-text {
+    margin-left: 0 !important;
 }
 
 #quantity-group {
@@ -170,16 +170,6 @@
     margin-top: 20px;
     margin-left: 0;
 }
-
-
-/* .bag-table-header {
-    text-align: center;
-}
-
-.bag-table tr td {
-    padding: 0;
-    text-align: center;
-} */
 
 .bag-product-image {
     width: 150px;
