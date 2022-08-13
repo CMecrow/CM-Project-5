@@ -175,6 +175,15 @@
     width: 150px;
 }
 
+.bag-quantity {
+    border: none;
+    text-align: center;
+}
+
+.update-link, .remove-item {
+    cursor: pointer;
+}
+
 @media screen and (max-width: 991px) {
 
     .right-nav {
