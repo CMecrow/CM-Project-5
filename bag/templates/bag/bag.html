@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load bag_tools %}
 
 {% block content %}
 <div class="single-product">
@@ -72,7 +73,7 @@
                 {% endif %}
               </td>
               <td>
-                <p><strong>£{{ item.product.price }}</strong></p>
+                <p><strong>£{{ item.product.price | calc_subtotal:item.quantity }}</strong></p>
               </td>
             </tr>
             {% endfor %}
