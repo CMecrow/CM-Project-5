@@ -11,7 +11,7 @@
           <h1>Shopping Bag</h1>
         </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-12">
         {% if bag_items %}
         {{ bag_items }}
         <br>
@@ -64,7 +64,12 @@
                   </div>
                 </form>
                 <a class="update-link text-info"><small>Update</small></a>
-                <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-size="{{ item.size }}"><small>Remove</small></a>
+                {% if item.product.skate_sizes %}
+                <p>Hello</p>
+                <a class="remove-item remove-skate-item text-danger float-right" id="remove_{{ item.item_id }}" data-bag_skate_size="{{ item.size }}"><small>Remove</small></a>
+                {% elif item.product.clothes_sizes %}
+                <a class="remove-item remove-clothes-item text-danger float-right" id="remove_{{ item.item_id }}" data-bag_clothes_size="{{ item.size }}"><small>Remove</small></a>
+                {% endif %}
               </td>
               <td>
                 <p><strong>£{{ item.product.price }}</strong></p>
@@ -101,34 +106,54 @@
               aria-hidden="true"></i>Continue browsing</a></h5>
         {% endif %}
       </div>
-      <div class="col-md-6">
+      <!-- <div class="col-md-6">
         <div class="right-content">
 
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
 {% include 'products/includes/quantity_input_script.html' %}
 <script type="text/javascript">
   // Update quantity on click
-  $('.update-link').click(function(e) {
-      var form = $(this).prev('.update-form');
-      form.submit();
+  $('.update-link').click(function (e) {
+    var form = $(this).prev('.update-form');
+    form.submit();
   })
 
-  // Remove item and reload on click
-  $('.remove-item').click(function(e) {
-      var csrfToken = "{{ csrf_token }}";
-      var itemId = $(this).attr('id').split('remove_')[1];
-      var size = $(this).data('size');
-      var url = `/bag/remove/${itemId}`;
-      var data = {'csrfmiddlewaretoken': csrfToken, 'size': size};
+  // Remove item with Skate Size and reload on click
+  $('.remove-skate-item').click(function (e) {
+    var csrfToken = "{{ csrf_token }}";
+    var itemId = $(this).attr('id').split('remove_')[1];
+    var size = $(this).data('bag_skate_size');
+    var url = `/bag/remove/${itemId}/`;
+    var data = {
+      'csrfmiddlewaretoken': csrfToken,
+      'bag_skate_size': size
+    };
 
-      $.post(url, data)
-       .done(function() {
-           location.reload();
-       });
+    $.post(url, data)
+      .done(function () {
+        location.reload();
+      });
+  })
+
+  // Remove item with Clothes Size and reload on click
+  $('.remove-clothes-item').click(function (e) {
+    var csrfToken = "{{ csrf_token }}";
+    var itemId = $(this).attr('id').split('remove_')[1];
+    var size = $(this).data('bag_clothes_size');
+    var url = `/bag/remove/${itemId}/`;
+    var data = {
+      'csrfmiddlewaretoken': csrfToken,
+      'bag_clothes_size': size
+    };
+
+    $.post(url, data)
+      .done(function () {
+        location.reload();
+      });
   })
 </script>
 {% endblock %}
