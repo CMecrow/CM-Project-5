@@ -162,7 +162,7 @@
     margin-left: 0 !important;
 }
 
-#quantity-group {
+#quantity-product-group {
     margin-top: 20px;
 }
 
@@ -172,7 +172,7 @@
 }
 
 .bag-product-image {
-    width: 150px;
+    width: 200px;
 }
 
 .bag-quantity {
@@ -182,6 +182,29 @@
 
 .update-link, .remove-item {
     cursor: pointer;
+}
+
+.remove-item {
+    padding-left: 30px;
+}
+
+tr.product-tr>td, tr.bag-costs>td {
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+  }
+
+
+
+.product-tr {
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+#continue-button {
+    padding-right: 20px;
+}
+
+#checkout-button, #continue-button {
+    display: inline-block;
 }
 
 @media screen and (max-width: 991px) {
