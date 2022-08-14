@@ -242,6 +242,37 @@ tr.product-tr>td, tr.bag-costs>td {
     padding-right: 20px !important;
 }
 
+.message-product-row {
+    height: 120px;
+    width: 100%;
+}
+
+.bag-notification-wrapper {
+    height: 120px;
+    background: white;
+    overflow-x: hidden;
+    overflow-y: auto;
+    justify-content: center;
+}
+
+.message-product-image {
+    width: auto;
+    height: 100px;
+    float: top;
+}
+
+.message-image-container {
+    display: inline-block;
+}
+
+.message-product-info {
+    display: inline-block;
+}
+
+.message-success-bag {
+    background: white;
+}
+
 @media screen and (max-width: 991px) {
 
     .right-nav {
