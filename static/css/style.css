@@ -238,6 +238,10 @@ tr.product-tr>td, tr.bag-costs>td {
     display: inline-block;
 }
 
+.close-toast {
+    padding-right: 20px !important;
+}
+
 @media screen and (max-width: 991px) {
 
     .right-nav {
