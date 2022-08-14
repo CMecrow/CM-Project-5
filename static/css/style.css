@@ -207,6 +207,37 @@ tr.product-tr>td, tr.bag-costs>td {
     display: inline-block;
 }
 
+.message-container {
+    text-align: center;
+    min-height: 42px;
+    top: 0px;
+    display: block;
+    width: 100%;
+    position: fixed;
+    z-index: 99999999;
+}
+
+.custom-toast {
+    overflow: visible;
+    min-height: 42px;
+}
+
+.toast-body {
+    min-height: 42px;
+}
+
+.toast-body-text {
+    margin-top: 8px;
+}
+
+.toast-capper {
+    height: 2px;
+}
+
+.toast-text {
+    display: inline-block;
+}
+
 @media screen and (max-width: 991px) {
 
     .right-nav {

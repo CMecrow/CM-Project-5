@@ -56,6 +56,13 @@
             </div>
         </div>
     </div>
+    {% if messages %}
+    <div class="message-container">
+        {% for message in messages %}
+        {% include 'includes/toasts/toast_success.html' %}
+        {% endfor %}
+    </div>
+    {% endif %}
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top" id="main-nav">
@@ -211,6 +218,6 @@
 
 </html>
 
-</body>
-
-</html>
+<script type="text/javascript">
+    $('.toast').toast('show');
+</script>
