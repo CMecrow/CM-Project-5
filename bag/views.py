@@ -7,7 +7,11 @@ from products.models import Product
 def view_bag(request):
     """A view to return the shopping bag"""
 
-    return render(request, 'bag/bag.html')
+    context = {
+        'hide_message_bag': True
+    }
+
+    return render(request, 'bag/bag.html', context)
 
 
 def add_to_bag(request, item_id):
