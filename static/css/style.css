@@ -263,10 +263,16 @@ tr.product-tr>td, tr.bag-costs>td {
 
 .message-image-container {
     display: inline-block;
+    vertical-align: top;
 }
 
 .message-product-info {
     display: inline-block;
+}
+
+.message-product-name {
+    height: auto;
+    max-width: 160px;
 }
 
 .message-success-bag {
@@ -295,6 +301,10 @@ tr.product-tr>td, tr.bag-costs>td {
 
     .single-product {
         padding-top: 0px;
+    }
+
+    .message-product-name {
+        width: auto;
     }
 
 }
