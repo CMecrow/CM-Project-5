@@ -24,7 +24,7 @@
                             {{ order_form.county | as_crispy_field }}
                             {{ order_form.postcode | as_crispy_field }}
                             {{ order_form.country | as_crispy_field }}
-                            <div class="form-check form-check-inline float-right mr-0">
+                            <div class="form-check form-check-inline mr-0">
                                 {% if user.is_authenticated %}
                                 <label class="form-check-label" for="id-save-info">Save this delivery information to my
                                     profile</label>
@@ -59,7 +59,11 @@
                         {% for item in bag_items %}
                         <div class="col-12 checkout-summary-product">
                             <div class="message-image-container">
+                                {% if item.product.image %}
                                 <img class="message-product-image" src="{{ item.product.image.url }}">
+                                {% else %}
+                                <img class="message-product-image" src="{{ MEDIA_URL }}noimage.png">
+                                {% endif %}
                             </div>
                             <div class="message-product-info">
                                 <p class="my-0 message-product-name"><strong>{{ item.product.name }}</strong></p>

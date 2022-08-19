@@ -20,7 +20,11 @@
             {% for item in bag_items %}
             <div class=" col-lg-2 col-md-6 col-sm-12 bag-summary-product">
                 <div class="message-image-container">
-                    <img class="message-product-image" src="{{ item.product.image.url }}">
+                    {% if item.product.image %}
+                    <img class="message-product-image" src="{{ item.product.image.url }}" alt="{{ product.name }}">
+                    {% else %}
+                    <img class="message-product-image" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                    {% endif %}
                 </div>
                 <div class="message-product-info">
                     <p class="my-0 message-product-name"><strong>{{ item.product.name }}</strong></p>
