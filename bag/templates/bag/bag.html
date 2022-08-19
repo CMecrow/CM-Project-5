@@ -30,7 +30,9 @@
               <td>
                 <img class="bag-product-image" src="{{ item.product.image.url }}">
                 <p><strong>{{ item.product.name }}</strong></p>
-                <p>Size: {% if item.product.skate_sizes %}{{ item.size|upper }}{% elif item.product.clothes_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
+                <p>Size:
+                  {% if item.product.skate_sizes %}{{ item.size|upper }}{% elif item.product.clothes_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}
+                </p>
                 <p>{{ item.product.sku }}</p>
               </td>
               <td>
@@ -46,8 +48,9 @@
                         <i class="fa fa-minus" aria-hidden="true"></i>
                       </button>
                     </div>
-                    <input class="qty_input bag-quantity quantity-text" name="quantity" type="number" value="{{ item.quantity }}" min="1" max="99"
-                      data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
+                    <input class="qty_input bag-quantity quantity-text" name="quantity" type="number"
+                      value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}"
+                      id="id_qty_{{ item.item_id }}">
                     <div class="input-group-append">
                       <button class="increment-qty btn btn-black rounded-0" data-item_id="{{ item.item_id }}"
                         id="increment-qty_{{ item.item_id }}">
@@ -63,9 +66,11 @@
                 </form>
                 <a class="update-link text-info"><small>Update</small></a>
                 {% if item.product.skate_sizes %}
-                <a class="remove-item remove-skate-item text-danger" id="remove_{{ item.item_id }}" data-bag_skate_size="{{ item.size }}"><small>Remove</small></a>
+                <a class="remove-item remove-skate-item text-danger" id="remove_{{ item.item_id }}"
+                  data-bag_skate_size="{{ item.size }}"><small>Remove</small></a>
                 {% else %}
-                <a class="remove-item remove-clothes-item text-danger" id="remove_{{ item.item_id }}" data-bag_clothes_size="{{ item.size }}"><small>Remove</small></a>
+                <a class="remove-item remove-clothes-item text-danger" id="remove_{{ item.item_id }}"
+                  data-bag_clothes_size="{{ item.size }}"><small>Remove</small></a>
                 {% endif %}
               </td>
               <td>
