@@ -285,7 +285,6 @@ tr.product-tr>td, tr.bag-costs>td {
 
 .return-container {
     padding-left: 0px;
-    text-align: center;
 }
 
 .return-to-bag {
@@ -294,6 +293,12 @@ tr.product-tr>td, tr.bag-costs>td {
 
 .checkout-summary-product {
     display: inline-block;
+}
+
+.checkout-cost {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-weight: bold;
 }
 
 #payment-form {

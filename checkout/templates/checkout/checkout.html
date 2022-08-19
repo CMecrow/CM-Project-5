@@ -5,34 +5,6 @@
 {% block content %}
 <div class="single-product">
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="section-heading">
-                    <div class="line-dec"></div>
-                    <h1>Order Summary</h1>
-                </div>
-                <div class="row checkout-order-summary">
-                    {% for item in bag_items %}
-                    <div class=" col-lg-2 col-md-6 col-sm-12 checkout-summary-product">
-                        <div class="message-image-container">
-                            <img class="message-product-image" src="{{ item.product.image.url }}">
-                        </div>
-                        <div class="message-product-info">
-                            <p class="my-0 message-product-name"><strong>{{ item.product.name }}</strong></p>
-                            <p class="my-0 small">Size:
-                            {% if item.product.skate_sizes %}{{ item.size|upper }}{% elif item.product.clothes_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}
-                            </p>
-                            <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
-                <div class="col-12 return-container">
-                    <h5 class="return-to-bag"><a href="{% url 'products' %}"><i class="fa fa-arrow-circle-left"
-                        aria-hidden="true"></i>Return to Shopping Bag</a></h5>
-                </div>
-            </div>
-        </div>
         <form action="{% url 'checkout' %}" method="POST" id="payment-form">
             <div class="row">
                 <div class="col-md-12 col-lg-6">
@@ -41,13 +13,11 @@
                         <h1 class="checkout-head">Delivery</h1>
                         {% csrf_token %}
                         <fieldset class="rounded mb-5">
-                            <!-- <legend class="fieldset-label text-muted">Details</legend> -->
                             {{ order_form.full_name | as_crispy_field }}
                             {{ order_form.email | as_crispy_field }}
                             {{ order_form.phone_number | as_crispy_field }}
                         </fieldset>
                         <fieldset class="rounded mb-5">
-                            <!-- <legend class="fieldset-label text-muted px-2 w-auto">Delivery</legend> -->
                             {{ order_form.street_address1 | as_crispy_field }}
                             {{ order_form.street_address2 | as_crispy_field }}
                             {{ order_form.town_or_city | as_crispy_field }}
@@ -69,29 +39,63 @@
                                 {% endif %}
                             </div>
                         </fieldset>
+                        <fieldset class="rounded px-3">
+                            <div class="line-dec"></div>
+                            <h1 class="checkout-head">Payment</h1>
+                            <div class="mb-3" id="card-element"></div>
+
+                            <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+                            <input type="hidden" value="{{ client_secret }}" name="client_secret">
+                        </fieldset>
                     </div>
                 </div>
                 <div class="col-md-12 col-lg-6">
                     <div class="section-heading">
                         <div class="line-dec"></div>
-                        <h1 class="checkout-head">Payment</h1>
+                        <h1 class="checkout-head">Order Summary</h1>
                     </div>
-                    <fieldset class="rounded px-3">
-                        <!-- <legend class="fieldset-label text-muted px-2 w-auto">Payment</legend> -->
-                        <div class="mb-3" id="card-element"></div>
-
-                        <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
-                        <input type="hidden" value="{{ client_secret }}" name="client_secret">
-                    </fieldset>
-                    <!-- <div class="main-button">
-                        <a href="{% url 'view_bag' %}">Return to Shopping Bag</a>
-                      </div> -->
+                    <hr>
+                    <div class="row checkout-order-summary">
+                        {% for item in bag_items %}
+                        <div class="col-12 checkout-summary-product">
+                            <div class="message-image-container">
+                                <img class="message-product-image" src="{{ item.product.image.url }}">
+                            </div>
+                            <div class="message-product-info">
+                                <p class="my-0 message-product-name"><strong>{{ item.product.name }}</strong></p>
+                                <p class="my-0 small">Size:
+                                    {% if item.product.skate_sizes %}{{ item.size|upper }}{% elif item.product.clothes_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}
+                                </p>
+                                <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
+                                <p><strong>£{{ item.product.price | calc_subtotal:item.quantity }}</strong></p>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="col-12 return-container">
+                        <h5 class="return-to-bag"><a href="{% url 'products' %}"><i class="fa fa-arrow-circle-left"
+                                    aria-hidden="true"></i>Return to Shopping Bag</a></h5>
+                    </div>
+                    <hr>
+                    <div class="row text-black checkout-cost">
+                        <div class="col-4">
+                            <p class="my-0">Order Total:</p>
+                            <p class="my-0">Delivery:</p>
+                            <p class="my-0">Grand Total:</p>
+                        </div>
+                        <div class="col-3">
+                            <p class="my-0">£{{ total | floatformat:2 }}</p>
+                            <p class="my-0">£{{ delivery | floatformat:2 }}</p>
+                            <p class="my-0">£{{ grand_total | floatformat:2 }}</p>
+                        </div>
+                    </div>
+                    <hr>
                     <div class="main-button" id="submit-button">
                         <a href="{% url 'checkout' %}">Complete Purchase</a>
                     </div>
                 </div>
             </div>
-        </form>
+    </div>
     </form>
 </div>
 {% endblock %}
