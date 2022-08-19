@@ -118,7 +118,7 @@
     padding-bottom: 40px;
 }
 
-.continue-browsing a {
+.continue-browsing, .return-to-bag a {
 	font-size: 17px;
 	font-weight: 700;
 	color: #1e1e1e;
@@ -126,11 +126,11 @@
 	transition: all 0.5s;
 }
 
-.continue-browsing a:hover {
+.continue-browsing, .return-to-bag a:hover {
 	color: #47817F;
 }
 
-.continue-browsing i {
+.continue-browsing, .return-to-bag i {
     padding-right: 10px;
 }
 
@@ -277,6 +277,27 @@ tr.product-tr>td, tr.bag-costs>td {
 
 .message-success-bag {
     background: white;
+}
+
+.checkout-head {
+    margin-bottom: 40px;
+}
+
+.return-container {
+    padding-left: 0px;
+    text-align: center;
+}
+
+.return-to-bag {
+    padding-top: 20px;
+}
+
+.checkout-summary-product {
+    display: inline-block;
+}
+
+#payment-form {
+    width: 100%;
 }
 
 @media screen and (max-width: 991px) {

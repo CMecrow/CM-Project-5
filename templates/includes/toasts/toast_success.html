@@ -18,7 +18,7 @@
         <p class="logo-font bg-white text-black py-1">Your Bag ({{ product_count }})</p>
         <div class="row bag-notification-wrapper">
             {% for item in bag_items %}
-            <div class=" col-lg-2 col-md-6 col-sm-12 message-individual-product">
+            <div class=" col-lg-2 col-md-6 col-sm-12 bag-summary-product">
                 <div class="message-image-container">
                     <img class="message-product-image" src="{{ item.product.image.url }}">
                 </div>
