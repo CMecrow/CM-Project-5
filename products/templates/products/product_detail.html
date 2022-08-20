@@ -115,9 +115,11 @@
     {% endfor %}
   </div>
 </div>
-<!-- Similar Ends Here -->
-{% include 'products/includes/quantity_input_script.html' %}
+<!-- Related products Ends Here -->
+{% endblock %}
 
+{% block postloadjs %}
+{% include 'products/includes/quantity_input_script.html' %}
 {% endblock %}
 
 
