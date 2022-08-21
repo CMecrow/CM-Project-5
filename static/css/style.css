@@ -305,8 +305,12 @@ tr.product-tr>td, tr.bag-costs>td {
     width: 100%;
 }
 
-#submit-button {
-    padding-bottom: 15px;
+#submit-button, #submit-button:focus, #submit-button:hover {
+    background-color: white;
+    border: none;
+    box-shadow: none!important;
+    outline: 0;
+    cursor: pointer;
 }
 
 .StripeElement,

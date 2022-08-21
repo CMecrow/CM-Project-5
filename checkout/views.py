@@ -1,10 +1,9 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
 from django.conf import settings
-from .forms import OrderForm
-from bag.contexts import bag_contents
-
 import stripe
+from bag.contexts import bag_contents
+from .forms import OrderForm
 
 
 def checkout(request):
@@ -25,7 +24,7 @@ def checkout(request):
         amount=stripe_total,
         currency=settings.STRIPE_CURRENCY,
     )
-
+    
     order_form = OrderForm()
 
     if not stripe_public_key:

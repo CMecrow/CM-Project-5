@@ -76,7 +76,7 @@
                         {% endfor %}
                     </div>
                     <div class="col-12 return-container">
-                        <h5 class="return-to-bag"><a href="{% url 'products' %}"><i class="fa fa-arrow-circle-left"
+                        <h5 class="return-to-bag"><a href="{% url 'view_bag' %}"><i class="fa fa-arrow-circle-left"
                                     aria-hidden="true"></i>Return to Shopping Bag</a></h5>
                     </div>
                     <hr>
@@ -93,9 +93,11 @@
                         </div>
                     </div>
                     <hr>
-                    <div class="main-button" id="submit-button">
-                        <a href="{% url 'checkout' %}">Complete Purchase</a>
-                    </div>
+                    <button id="submit-button">
+                        <div class="main-button">
+                            <p>Complete Purchase</p>
+                        </div>
+                    </button>
                 </div>
             </div>
     </div>
