@@ -55,7 +55,7 @@ class OrderLineItem(models.Model):
     order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
     product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)
     product_clothes_size = models.CharField(max_length=2, null=True, blank=True) # XS, S, M, L, XL
-    product_skates_size = models.CharField(max_length=3, null=True, blank=True) # UK6, UK7, UK8, UK9, UK10, UK11
+    product_skates_size = models.CharField(max_length=4, null=True, blank=True) # UK6, UK7, UK8, UK9, UK10, UK11
     quantity = models.IntegerField(null=False, blank=False, default=0)
     lineitem_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
 
