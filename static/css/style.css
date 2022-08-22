@@ -12,7 +12,7 @@
 
 .leaf {
     font-family: 'Bebas Neue', Arial, Helvetica, sans-serif;
-    color: #47817F;
+    color: #47817F !important;
     display: inline;
     padding-right: 4px;
 }
@@ -305,12 +305,36 @@ tr.product-tr>td, tr.bag-costs>td {
     width: 100%;
 }
 
+#submit-button {
+    padding-left: 0;
+}
+
 #submit-button, #submit-button:focus, #submit-button:hover {
     background-color: white;
     border: none;
     box-shadow: none!important;
     outline: 0;
     cursor: pointer;
+}
+
+#loading-overlay {
+    /* display: none; */
+    border: 1px solid black;
+    background: white;
+    top: 35%;
+    left: 35%;
+    right: 35%;
+    bottom: 35%;
+    position: fixed;
+    width: 30%;
+    height: 30%;
+    z-index: 9999;
+}
+
+#loading-contents {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .StripeElement,
