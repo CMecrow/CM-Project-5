@@ -6,6 +6,8 @@ import stripe
 from checkout.webhook_handler import StripeWH_Handler
 
 
+@require_POST
+@csrf_exempt
 def webhook(request):
     """Listen for webhooks from Stripe"""
     # Setup
@@ -19,7 +21,7 @@ def webhook(request):
 
     try:
         event = stripe.Webhook.construct_event(
-        payload, sig_header, wh_secret
+                payload, sig_header, wh_secret
         )
     except ValueError as e:
         # Invalid payload
