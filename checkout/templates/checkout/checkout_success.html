@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="single-product">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-lg-6">
+                <div class="section-heading">
+                    <div class="line-dec"></div>
+                    <h1 class="checkout-head">Order Complete</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block postloadjs %}
+{{ stripe_public_key|json_script:"id_stripe_public_key" }}
+{{ client_secret|json_script:"id_client_secret" }}
+<script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
+{% endblock %}
