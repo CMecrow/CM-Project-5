@@ -318,7 +318,7 @@ tr.product-tr>td, tr.bag-costs>td {
 }
 
 #loading-overlay {
-    /* display: none; */
+    display: none;
     border: 1px solid black;
     background: white;
     top: 35%;
