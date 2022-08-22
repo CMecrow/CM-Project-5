@@ -49,6 +49,7 @@ def checkout(request):
                                 quantity=quantity,
                                 product_clothes_size=size,
                             )
+                            order_line_item.save()
                     else:
                         for size, quantity in item_data['skates_by_size'].items():
                             order_line_item = OrderLineItem(
@@ -57,7 +58,7 @@ def checkout(request):
                                 quantity=quantity,
                                 product_skates_size=size,
                             )                            
-                        order_line_item.save()
+                            order_line_item.save()
 
                 except Product.DoesNotExist:
                     messages.error(request, (

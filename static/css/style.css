@@ -344,6 +344,14 @@ tr.product-tr>td, tr.bag-costs>td {
     border: 1px solid #dee2e6!important;
 }
 
+.order-section {
+    padding-top: 10px;
+}
+
+.order-confirmation-wrapper {
+    padding-bottom: 40px;
+}
+
 @media screen and (max-width: 991px) {
 
     .right-nav {
