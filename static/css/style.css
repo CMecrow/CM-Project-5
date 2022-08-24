@@ -301,6 +301,15 @@ tr.product-tr>td, tr.bag-costs>td {
     font-weight: bold;
 }
 
+select, select option {
+    color: black;
+}
+
+select:invalid, select option[value=""] {
+    color: #aab7c4 !important;
+}
+
+
 #payment-form {
     width: 100%;
 }
