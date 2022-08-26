@@ -246,9 +246,9 @@ tr.product-tr>td, tr.bag-costs>td {
     display: inline-block;
 }
 
-.close-toast {
+/* .close-toast {
     padding-right: 20px !important;
-}
+} */
 
 .message-product-row {
     height: 120px;
@@ -551,6 +551,10 @@ select:invalid, select option[value=""] {
 
     .message-product-name {
         width: auto;
+    }
+
+    .order-history {
+        padding-bottom: 40px;
     }
 
 }
