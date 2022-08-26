@@ -12,12 +12,12 @@
                         <div class="line-dec"></div>
                         <h1 class="checkout-head">Delivery</h1>
                         {% csrf_token %}
-                        <fieldset class="rounded mb-5">
+                        <fieldset class="mb-5">
                             {{ order_form.full_name | as_crispy_field }}
                             {{ order_form.email | as_crispy_field }}
                             {{ order_form.phone_number | as_crispy_field }}
                         </fieldset>
-                        <fieldset class="rounded mb-5">
+                        <fieldset class="mb-5">
                             {{ order_form.street_address1 | as_crispy_field }}
                             {{ order_form.street_address2 | as_crispy_field }}
                             {{ order_form.town_or_city | as_crispy_field }}
@@ -39,7 +39,7 @@
                                 {% endif %}
                             </div>
                         </fieldset>
-                        <fieldset class="rounded">
+                        <fieldset>
                             <div class="line-dec"></div>
                             <h1 class="checkout-head">Payment</h1>
                             <div class="mb-3" id="card-element"></div>
@@ -102,7 +102,7 @@
             </div>
     </div>
     </form>
-    <div id="loading-overlay" class="shadow-lg p-3 mb-5 bg-white rounded">
+    <div id="loading-overlay" class="shadow-lg p-3 mb-5 bg-white">
         <div id="loading-contents" class="section-heading">
             <h1 id="placing-order">Placing Order...</h1>
             <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>

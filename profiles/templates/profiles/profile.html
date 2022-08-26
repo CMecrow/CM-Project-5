@@ -5,14 +5,36 @@
 <div class="single-product">
     <div class="container">
         <div class="row">
-            <div class="col-12">
+            <div class="col-md-12 col-lg-6">
                 <div class="section-heading">
                     <div class="line-dec"></div>
-                    <h1 class="checkout-head">My Profile</h1>
-                </div>                
+                    <h1 class="checkout-head">My Details</h1>
+                </div>
+                <hr>
+                <form class="mt-3 profile-form" action="{% url 'profile' %}" method="POST" id="profile-update-form">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button id="submit-button">
+                        <div class="main-button" id="update-details-btn">
+                            <p>Update My Details</p>
+                        </div>
+                    </button>
+                </form>
+
+            </div>
+            <div class="col-md-12 col-lg-6">
+                <div class="section-heading">
+                    <div class="line-dec"></div>
+                    <h1 class="checkout-head">My Orders</h1>
+                </div>
+                <hr>
             </div>
         </div>
     </div>
 </div>
 
+{% endblock %}
+
+{% block postloadjs %}
+    <script type="text/javascript" src="{% static 'profiles/js/countryfield.js' %}"></script>
 {% endblock %}
