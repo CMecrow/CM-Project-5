@@ -1,13 +1,12 @@
 {% extends "account/base.html" %}
 
+
 {% load i18n %}
 {% load account socialaccount %}
 
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
-{% block content %}
-
-<h1>{% trans "Sign In" %}</h1>
+{% block inner_content %}
 
 {% get_providers as socialaccount_providers %}
 
@@ -29,18 +28,28 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 {% include "socialaccount/snippets/login_extra.html" %}
 
 {% else %}
-<p>{% blocktrans %}If you have not created an account yet, then please
-<a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+<h2 class="text-center">Already Registered?</h2>
+<p class="text-center">{% blocktrans %}If you have an account with us, please log in.
+{% endblocktrans %}</p>
 {% endif %}
+<hr>
 
 <form class="login" method="POST" action="{% url 'account_login' %}">
   {% csrf_token %}
-  {{ form.as_p }}
+  {{ form|crispy }}
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
-  <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-  <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
+  <div class="main-button text-center account-spacing">
+    <button class="sign-in-button" type="submit">{% trans "Sign In" %}</button>
+  </div>
+  <a class="button secondaryAction" id="forgot-password" href="{% url 'account_reset_password' %}"><p>{% trans "Forgot your password?" %}</p></a>  
 </form>
+<hr>
+<h4 class="text-center">New Here?</h4>
+<p class="text-center">Registration is quick and easy.</p>
+<div class="main-button text-center account-spacing">
+  <a type="submit" href="{{ signup_url }}">Create an account</a>
+</div>
 
 {% endblock %}
