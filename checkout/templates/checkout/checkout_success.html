@@ -11,7 +11,6 @@
                     <h1 class="checkout-head">Order Complete</h1>
                 </div>                
             </div>
-            <!-- <div class="row"> -->
                 <div class="col-12 col-lg-6 order-confirmation-wrapper">
                     <div class="p-2 border">
                         <div class="row">
@@ -174,6 +173,10 @@
                             </div>
                         </div>
                     </div>
+                    {% if from_profile %}
+                    <h5 class="continue-browsing" id="back-to-profile"><a href="{% url 'profile' %}"><i class="fa fa-arrow-circle-left"
+                        aria-hidden="true"></i>Back to Profile</a></h5>
+                    {% endif %}
                 </div>
             </div>
         </div>
