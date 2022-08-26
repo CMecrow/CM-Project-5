@@ -174,8 +174,11 @@
                         </div>
                     </div>
                     {% if from_profile %}
-                    <h5 class="continue-browsing" id="back-to-profile"><a href="{% url 'profile' %}"><i class="fa fa-arrow-circle-left"
+                    <h5 class="continue-browsing back-to-btn"><a href="{% url 'profile' %}"><i class="fa fa-arrow-circle-left"
                         aria-hidden="true"></i>Back to Profile</a></h5>
+                    {% else %}
+                    <h5 class="continue-browsing back-to-btn"><a href="{% url 'products' %}"><i class="fa fa-arrow-circle-left"
+                        aria-hidden="true"></i>Continue Browsing</a></h5>
                     {% endif %}
                 </div>
             </div>

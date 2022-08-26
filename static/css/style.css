@@ -521,8 +521,8 @@ select:invalid, select option[value=""] {
     overflow-y: auto;
 }
 
-#back-to-profile {
-    padding-bottom: 0;
+.back-to-btn {
+    padding-bottom: 0px !important;
 }
 
 @media screen and (max-width: 991px) {
