@@ -146,22 +146,6 @@
     padding-right: 10px;
 }
 
-.admin-edit, .admin-delete {
-    display: inline-block;
-}
-
-.admin-links a p i {
-    padding-right: 6px;
-}
-
-.admin-edit {
-    padding-right: 10px;
-}
-
-.admin-edit p:hover, .admin-delete p:hover {
-    color: #47817F;
-}
-
 .size-select {
     margin-left: 10px;
 	width: 200px;
@@ -219,9 +203,7 @@
 tr.product-tr>td, tr.bag-costs>td {
     padding-bottom: 1rem;
     padding-top: 1rem;
-  }
-
-
+}
 
 .product-tr {
     border-bottom: 1px solid rgba(0,0,0,.1);
@@ -265,10 +247,6 @@ tr.product-tr>td, tr.bag-costs>td {
 .toast-text {
     display: inline-block;
 }
-
-/* .close-toast {
-    padding-right: 20px !important;
-} */
 
 .message-product-row {
     height: 120px;
@@ -543,6 +521,59 @@ select:invalid, select option[value=""] {
 
 .back-to-btn {
     padding-bottom: 0px !important;
+}
+
+/* Product Admin */
+
+.admin-edit, .admin-delete {
+    display: inline-block;
+}
+
+.admin-links a p i {
+    padding-right: 6px;
+}
+
+.admin-edit {
+    padding-right: 10px;
+}
+
+.admin-edit p:hover, .admin-delete p:hover {
+    color: #47817F;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type="file"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.custom-checkbox .custom-control-label::before {
+    border-radius: 0;
+    border-color: #47817F;
+}
+
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+    background-color: #47817F;
+    border-color: #47817F;
+    border-radius: 0;
+}
+
+#select-image-widget {
+    padding-left: 0;
+    padding-bottom: 20px;
+}
+
+#select-image-widget:hover {
+    color: #47817F
 }
 
 @media screen and (max-width: 991px) {

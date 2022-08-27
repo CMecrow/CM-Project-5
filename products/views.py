@@ -81,7 +81,7 @@ def product_detail(request, product_id):
 def add_product(request):
     """Admin add a product to the store"""
     if not request.user.is_superuser:
-        messages.error(request, 'Error, only site admins can access this page')
+        messages.error(request, 'Only site admins can access this page')
         return redirect(reverse('home'))
 
     if request.method == 'POST':
@@ -108,7 +108,7 @@ def add_product(request):
 def edit_product(request, product_id):
     """Edit an existing product"""
     if not request.user.is_superuser:
-        messages.error(request, 'Error, only site admins can access this page')
+        messages.error(request, 'Only site admins can access this page')
         return redirect(reverse('home'))
 
     product = get_object_or_404(Product, pk=product_id)
@@ -137,9 +137,9 @@ def edit_product(request, product_id):
 def delete_product(request, product_id):
     """Delete an existing product"""
     if not request.user.is_superuser:
-        messages.error(request, 'Error, only site admins can access this page')
+        messages.error(request, 'Only site admins can access this page')
         return redirect(reverse('home'))
-        
+
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
     messages.success(request, f'Successfully deleted {product.name}')
