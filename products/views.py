@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
 from django.core.paginator import Paginator
@@ -60,64 +61,64 @@ def all_products(request):
 
     return render(request, 'products/products.html', context)
 
-def all_products(request):
-    """Show all products"""
+# def all_products(request):
+#     """Show all products"""
 
-    full_products = Product.objects.all()
-    pagination = Paginator(full_products, 9)
-    page_num = request.GET.get('page')
-    products = pagination.get_page(page_num)
-    query = None
-    categories = None
-    sort = None
-    direction = None
+#     full_products = Product.objects.all()
+#     pagination = Paginator(full_products, 9)
+#     page_num = request.GET.get('page')
+#     products = pagination.get_page(page_num)
+#     query = None
+#     categories = None
+#     sort = None
+#     direction = None
 
-    if request.GET:
-        if 'sort' in request.GET:
-            sortkey = request.GET['sort']
-            sort = sortkey
-            if sortkey == 'name':
-                sortkey = 'lower_name'
-                products = full_products.annotate(lower_name=Lower('name'))
-            if 'direction' in request.GET:
-                direction = request.GET['direction']
-                if direction == 'desc':
-                    sortkey = f'-{sortkey}'
+#     if request.GET:
+#         if 'sort' in request.GET:
+#             sortkey = request.GET['sort']
+#             sort = sortkey
+#             if sortkey == 'name':
+#                 sortkey = 'lower_name'
+#                 products = full_products.annotate(lower_name=Lower('name'))
+#             if 'direction' in request.GET:
+#                 direction = request.GET['direction']
+#                 if direction == 'desc':
+#                     sortkey = f'-{sortkey}'
 
-            sorted_products = full_products.order_by(sortkey)
-            pagination = Paginator(sorted_products, 9)
-            page_num = request.GET.get('page')
-            products = pagination.get_page(page_num)
+#             sorted_products = full_products.order_by(sortkey)
+#             pagination = Paginator(sorted_products, 9)
+#             page_num = request.GET.get('page')
+#             products = pagination.get_page(page_num)
 
-        if 'category' in request.GET:
-            categories = request.GET['category'].split(',')
-            filtered_products = full_products.filter(category__name__in=categories)
-            categories = Category.objects.filter(name__in=categories)
-            pagination = Paginator(filtered_products, 9)
-            page_num = request.GET.get('page')
-            products = pagination.get_page(page_num)
+#         if 'category' in request.GET:
+#             categories = request.GET['category'].split(',')
+#             filtered_products = full_products.filter(category__name__in=categories)
+#             categories = Category.objects.filter(name__in=categories)
+#             pagination = Paginator(filtered_products, 9)
+#             page_num = request.GET.get('page')
+#             products = pagination.get_page(page_num)
 
-        if 'q' in request.GET:
-            query = request.GET['q']
-            if not query:
-                return redirect(reverse('products'))
+#         if 'q' in request.GET:
+#             query = request.GET['q']
+#             if not query:
+#                 return redirect(reverse('products'))
             
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
-            filtered_products = full_products.filter(queries)
-            pagination = Paginator(filtered_products, 9)
-            page_num = request.GET.get('page')
-            products = pagination.get_page(page_num)
+#             queries = Q(name__icontains=query) | Q(description__icontains=query)
+#             filtered_products = full_products.filter(queries)
+#             pagination = Paginator(filtered_products, 9)
+#             page_num = request.GET.get('page')
+#             products = pagination.get_page(page_num)
 
-    current_sorting = f'{sort}_{direction}'
+#     current_sorting = f'{sort}_{direction}'
 
-    context = {
-        'products': products,
-        'search_term': query,
-        'current_categories': categories,
-        'current_sorting': current_sorting,
-    }
+#     context = {
+#         'products': products,
+#         'search_term': query,
+#         'current_categories': categories,
+#         'current_sorting': current_sorting,
+#     }
 
-    return render(request, 'products/products.html', context)
+#     return render(request, 'products/products.html', context)
 
 
 def product_detail(request, product_id):
@@ -136,10 +137,21 @@ def product_detail(request, product_id):
 
 def add_product(request):
     """Admin add a product to the store"""
-    form = ProductForm()
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added product to the store')
+            return redirect(reverse('add_product'))
+        else:
+            messages.error(request, 'Failed to add product to the store, please check form')
+    else:
+        form = ProductForm()
+
     template = 'products/add_product.html'
     context = {
-        'form': form
+        'form': form,
+        'hide_message_bag': True,
     }
 
     return render(request, template, context)

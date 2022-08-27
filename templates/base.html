@@ -83,13 +83,24 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'products' %}?category=clothing">Clothing</a>
                     </li>
-                    {% if user.is_authenticated %}
+                    {% if request.user.is_authenticated %}
                     <li class="nav-item d-lg-none">
                         <a class="nav-link" href="{% url 'profile' %}">Account</a>
                     </li>
                     {% else %}
                     <li class="nav-item d-lg-none">
                         <a class="nav-link" href="{% url 'account_login' %}">Account</a>
+                    </li>
+                    {% endif %}
+                    {% if request.user.is_superuser %}
+                    <li class="nav-item d-lg-none">
+                        <a class="nav-link" href="{% url 'add_product' %}">Add Product</a>
+                    </li>
+                    <li class="nav-item d-lg-none">
+                        <a class="nav-link" href="{% url 'add_product' %}">Edit Product</a>
+                    </li>
+                    <li class="nav-item d-lg-none">
+                        <a class="nav-link" href="{% url 'add_product' %}">Delete Product</a>
                     </li>
                     {% endif %}
                     <li class="nav-item d-lg-none">
@@ -115,7 +126,7 @@
                             </div>
                         </form>
                     </li>
-                    {% if user.is_authenticated %}
+                    {% if request.user.is_authenticated %}
                     <li class="nav-item d-none d-lg-block" id="user-item">
                         <a class="nav-link" id="user-icon" href="{% url 'profile' %}"><i class="fa fa-user"></i></a>
                     </li>
@@ -123,6 +134,18 @@
                     <li class="nav-item d-none d-lg-block" id="user-item">
                         <a class="nav-link" id="user-icon" href="{% url 'account_login' %}"><i class="fa fa-user"></i></a>
                     </li>
+                    {% endif %}
+                    {% if request.user.is_superuser %}
+                    <div class="dropdown show" id="admin-toggle">
+                        <li class="nav-item d-none d-lg-block" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="admin-link" id="user-icon"><i class="fa fa-lock"></i></a>
+                        </li>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item"  href="{% url 'add_product' %}">Add Product</a>
+                            <a class="dropdown-item" href="#">Edit Product</a>
+                            <a class="dropdown-item" href="#">Delete Product</a>
+                        </div>
+                    </div>
                     {% endif %}
                     <li class="nav-item d-none d-lg-block" id="cart-item">
                         <a class="nav-link" id="cart-icon" href="{% url 'view_bag' %}"><i class="fa fa-shopping-cart"></i>
