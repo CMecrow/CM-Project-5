@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="single-product">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-lg-6">
+                <div class="section-heading">
+                    <div class="line-dec"></div>
+                    <h1 class="checkout-head">Add Product</h1>
+                </div>
+                <form method="POST" action="{% url 'add_product' %}" class="form add_product_form" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form | crispy }}
+                <button id="submit-button">
+                    <div class="main-button" id="add_product_btn">
+                        <p>Add Product To Store</p>
+                    </div>
+                </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
