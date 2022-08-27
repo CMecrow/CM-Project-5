@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 from django.core.paginator import Paginator
@@ -61,65 +62,6 @@ def all_products(request):
 
     return render(request, 'products/products.html', context)
 
-# def all_products(request):
-#     """Show all products"""
-
-#     full_products = Product.objects.all()
-#     pagination = Paginator(full_products, 9)
-#     page_num = request.GET.get('page')
-#     products = pagination.get_page(page_num)
-#     query = None
-#     categories = None
-#     sort = None
-#     direction = None
-
-#     if request.GET:
-#         if 'sort' in request.GET:
-#             sortkey = request.GET['sort']
-#             sort = sortkey
-#             if sortkey == 'name':
-#                 sortkey = 'lower_name'
-#                 products = full_products.annotate(lower_name=Lower('name'))
-#             if 'direction' in request.GET:
-#                 direction = request.GET['direction']
-#                 if direction == 'desc':
-#                     sortkey = f'-{sortkey}'
-
-#             sorted_products = full_products.order_by(sortkey)
-#             pagination = Paginator(sorted_products, 9)
-#             page_num = request.GET.get('page')
-#             products = pagination.get_page(page_num)
-
-#         if 'category' in request.GET:
-#             categories = request.GET['category'].split(',')
-#             filtered_products = full_products.filter(category__name__in=categories)
-#             categories = Category.objects.filter(name__in=categories)
-#             pagination = Paginator(filtered_products, 9)
-#             page_num = request.GET.get('page')
-#             products = pagination.get_page(page_num)
-
-#         if 'q' in request.GET:
-#             query = request.GET['q']
-#             if not query:
-#                 return redirect(reverse('products'))
-            
-#             queries = Q(name__icontains=query) | Q(description__icontains=query)
-#             filtered_products = full_products.filter(queries)
-#             pagination = Paginator(filtered_products, 9)
-#             page_num = request.GET.get('page')
-#             products = pagination.get_page(page_num)
-
-#     current_sorting = f'{sort}_{direction}'
-
-#     context = {
-#         'products': products,
-#         'search_term': query,
-#         'current_categories': categories,
-#         'current_sorting': current_sorting,
-#     }
-
-#     return render(request, 'products/products.html', context)
-
 
 def product_detail(request, product_id):
     """Show an individual product"""
@@ -135,8 +77,13 @@ def product_detail(request, product_id):
     return render(request, 'products/product_detail.html', context)
 
 
+@login_required
 def add_product(request):
     """Admin add a product to the store"""
+    if not request.user.is_superuser:
+        messages.error(request, 'Error, only site admins can access this page')
+        return redirect(reverse('home'))
+
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
@@ -157,8 +104,13 @@ def add_product(request):
     return render(request, template, context)
 
 
+@login_required
 def edit_product(request, product_id):
     """Edit an existing product"""
+    if not request.user.is_superuser:
+        messages.error(request, 'Error, only site admins can access this page')
+        return redirect(reverse('home'))
+
     product = get_object_or_404(Product, pk=product_id)
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES, instance=product)
@@ -181,8 +133,13 @@ def edit_product(request, product_id):
     return render(request, template, context)
 
 
+@login_required
 def delete_product(request, product_id):
     """Delete an existing product"""
+    if not request.user.is_superuser:
+        messages.error(request, 'Error, only site admins can access this page')
+        return redirect(reverse('home'))
+        
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
     messages.success(request, f'Successfully deleted {product.name}')
