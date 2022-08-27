@@ -41,28 +41,17 @@
     bottom: 3px;
 }
 
-#search-bar, #user-item, #cart-item, #dropdownMenuButton {
+#search-bar, #user-item, #cart-item, #admin-item {
     margin-right: 0;
 }
 
-#user-icon, #cart-icon {
+#admin-item {
+    top: 2px;
+}
+
+#user-icon, #cart-icon, #admin-icon {
     display: inline;
     font-size: 1.5rem;
-}
-
-.admin-link {
-    display: block;
-    padding: 0.5rem 1rem;
-    color: black;
-    padding: 8px;
-}
-
-.admin-link:hover {
-    color: #47817F;
-}
-
-#admin-toggle {
-    top: 2px;
 }
 
 .fa-search {
@@ -155,6 +144,22 @@
 
 .continue-browsing, .return-to-bag i {
     padding-right: 10px;
+}
+
+.admin-edit, .admin-delete {
+    display: inline-block;
+}
+
+.admin-links a p i {
+    padding-right: 6px;
+}
+
+.admin-edit {
+    padding-right: 10px;
+}
+
+.admin-edit p:hover, .admin-delete p:hover {
+    color: #47817F;
 }
 
 .size-select {

@@ -77,6 +77,12 @@
                     href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category.friendly_name }}</a></span>
               </h6>
             </div>
+            {% if request.user.is_superuser %}
+            <div class="admin-links">
+              <a class="admin-edit" href="{% url 'edit_product' product.id %}"><p><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit Product</p></a>
+              <a class="admin-delete" href="{% url 'delete_product' product.id %}"><p><i class="fa fa-trash-o" aria-hidden="true"></i>Delete Product</p></a>
+            </div>
+            {% endif %}
           </div>
         </div>
       </div>
