@@ -1,1 +1,1 @@
-web: guinicorn leaf_skateshop.wsgi:application
+web: gunicorn leaf_skateshop.wsgi:application
