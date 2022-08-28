@@ -14,12 +14,40 @@
       </div>
       <div class="col-md-12">
         {% if bag_items %}
-        <div class="table-responsive">
+        <div class="d-block d-md-none">
+          <div class="row">
+            <div class="col">
+              {% include "bag/bag-total.html" %}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              {% include "bag/checkout-buttons.html" %}
+              <p class="text-muted mb-5">A summary of your bag is below:</p>
+            </div>
+          </div>
+          {% for item in bag_items %}
+          <div class="row small-bag-row">
+            <div class="col-12 col-sm-6 mb-2">
+              {% include "bag/product-image.html" %}
+            </div>
+            <div class="col-12 col-sm-6 mb-2">
+              {% include "bag/product-info.html" %}
+              <p><strong>£{{ item.product.price }}</strong></p>
+            </div>
+            <div class="col-12 col-sm-6 mb-2">
+              {% include "bag/quantity-form.html" %}
+              <p>Subtotal:<strong> £{{ item.product.price | calc_subtotal:item.quantity }}</strong></p>
+            </div>
+          </div>
+          <div class="row"><div class="col"><hr></div></div>
+          {% endfor %}
+        </div>
+        <div class="table-responsive d-none d-md-block">
           <table class="table table-sm table-borderless bag-table">
             <thead class="bag-table-header">
               <tr>
                 <th scope="col">Product</th>
-                <!-- <th scope="col"></th> -->
                 <th scope="col">Price</th>
                 <th scope="col">Quantity</th>
                 <th scope="col">Subtotal</th>
@@ -28,54 +56,14 @@
             {% for item in bag_items %}
             <tr class="product-tr">
               <td>
-                {% if item.product.image %}
-                <img class="bag-product-image" src="{{ item.product.image.url }}" alt="{{ product.name }}">
-                {% else %}
-                <img class="bag-product-image" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-                {% endif %}
-                <p><strong>{{ item.product.name }}</strong></p>
-                <p>Size:
-                  {% if item.product.skate_sizes %}{{ item.size|upper }}{% elif item.product.clothes_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}
-                </p>
-                <p>{{ item.product.sku }}</p>
+                {% include "bag/product-image.html" %}
+                {% include "bag/product-info.html" %}
               </td>
               <td>
                 <p><strong>£{{ item.product.price }}</strong></p>
               </td>
               <td>
-                <form class="form update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
-                  {% csrf_token %}
-                  <div class="input-group" id="quantity-group">
-                    <div class="input-group-prepend">
-                      <button class="decrement-qty btn btn-black rounded-0" data-item_id="{{ item.item_id }}"
-                        id="decrement-qty_{{ item.item_id }}">
-                        <i class="fa fa-minus" aria-hidden="true"></i>
-                      </button>
-                    </div>
-                    <input class="qty_input bag-quantity quantity-text" name="quantity" type="number"
-                      value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}"
-                      id="id_qty_{{ item.item_id }}">
-                    <div class="input-group-append">
-                      <button class="increment-qty btn btn-black rounded-0" data-item_id="{{ item.item_id }}"
-                        id="increment-qty_{{ item.item_id }}">
-                        <i class="fa fa-plus" aria-hidden="true"></i>
-                      </button>
-                      {% if item.product.skate_sizes %}
-                      <input type="hidden" name="bag_skate_size" value="{{ item.size }}">
-                      {% elif item.product.clothes_sizes %}
-                      <input type="hidden" name="bag_clothes_size" value="{{ item.size }}">
-                      {% endif %}
-                    </div>
-                  </div>
-                </form>
-                <a class="update-link text-info"><small>Update</small></a>
-                {% if item.product.skate_sizes %}
-                <a class="remove-item remove-skate-item text-danger" id="remove_{{ item.item_id }}"
-                  data-bag_skate_size="{{ item.size }}"><small>Remove</small></a>
-                {% else %}
-                <a class="remove-item remove-clothes-item text-danger" id="remove_{{ item.item_id }}"
-                  data-bag_clothes_size="{{ item.size }}"><small>Remove</small></a>
-                {% endif %}
+                {% include "bag/quantity-form.html" %}
               </td>
               <td>
                 <p><strong>£{{ item.product.price | calc_subtotal:item.quantity }}</strong></p>
@@ -85,22 +73,11 @@
             <hr>
             <tr class="bag-costs">
               <td>
-                <h6>Bag Total: £{{ total|floatformat:2 }}</h6>
-                <h6>Delivery: £{{ delivery|floatformat:2 }}</h6>
-                <h5>Grand Total: £{{ grand_total|floatformat:2 }}</h5>
-                {% if free_delivery_delta > 0 %}
-                <p class="text-danger">Your baskest is £{{ free_delivery_delta }} short for free delivery!</p>
-                {% endif %}
-              </td>
+                {% include "bag/bag-total.html" %}
             </tr>
             <tr>
               <td>
-                <div class="main-button" id="continue-button">
-                  <a href="{% url 'products' %}">Continue Browsing</a>
-                </div>
-                <div class="main-button" id="checkout-button">
-                  <a href="{% url 'checkout' %}">Checkout</a>
-                </div>
+                {% include "bag/checkout-buttons.html" %}
               </td>
               <td>
               </td>
@@ -113,11 +90,6 @@
               aria-hidden="true"></i>Continue browsing</a></h5>
         {% endif %}
       </div>
-      <!-- <div class="col-md-6">
-        <div class="right-content">
-
-        </div>
-      </div> -->
     </div>
   </div>
 </div>
@@ -166,4 +138,5 @@
       });
   })
 </script>
+
 {% endblock %}

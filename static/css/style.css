@@ -480,6 +480,10 @@ select:invalid, select option[value=""] {
     border: none;
 }
 
+.login-prompt {
+    padding-bottom: 10px;
+}
+
 .profile-form {
     padding-bottom: 40px;
 }
@@ -641,5 +645,14 @@ select:invalid, select option[value=""] {
 
     .knowledge-head, .head-spacer-1 {
         display: none !important;
+    }
+
+    #checkout-button, #continue-button {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .small-bag-row {
+        margin: auto;
     }
 }

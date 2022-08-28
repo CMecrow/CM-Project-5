@@ -1,0 +1,6 @@
+<h6>Bag Total: £{{ total|floatformat:2 }}</h6>
+<h6>Delivery: £{{ delivery|floatformat:2 }}</h6>
+<h5>Grand Total: £{{ grand_total|floatformat:2 }}</h5>
+{% if free_delivery_delta > 0 %}
+<p class="text-danger">Your baskest is £{{ free_delivery_delta }} short for free delivery!</p>
+{% endif %}

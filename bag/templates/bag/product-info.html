@@ -1,0 +1,5 @@
+<p><strong>{{ item.product.name }}</strong></p>
+<p>Size:
+{% if item.product.skate_sizes %}{{ item.size|upper }}{% elif item.product.clothes_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}
+</p>
+<p>{{ item.product.sku }}</p>

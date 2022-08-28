@@ -1,0 +1,33 @@
+<form class="form update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
+    {% csrf_token %}
+    <div class="input-group" id="quantity-group">
+      <div class="input-group-prepend">
+        <button class="decrement-qty btn btn-black rounded-0" data-item_id="{{ item.item_id }}"
+          id="decrement-qty_{{ item.item_id }}">
+          <i class="fa fa-minus" aria-hidden="true"></i>
+        </button>
+      </div>
+      <input class="qty_input bag-quantity quantity-text" name="quantity" type="number"
+        value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}"
+        id="id_qty_{{ item.item_id }}">
+      <div class="input-group-append">
+        <button class="increment-qty btn btn-black rounded-0" data-item_id="{{ item.item_id }}"
+          id="increment-qty_{{ item.item_id }}">
+          <i class="fa fa-plus" aria-hidden="true"></i>
+        </button>
+        {% if item.product.skate_sizes %}
+        <input type="hidden" name="bag_skate_size" value="{{ item.size }}">
+        {% elif item.product.clothes_sizes %}
+        <input type="hidden" name="bag_clothes_size" value="{{ item.size }}">
+        {% endif %}
+      </div>
+    </div>
+  </form>
+  <a class="update-link text-info"><small>Update</small></a>
+  {% if item.product.skate_sizes %}
+  <a class="remove-item remove-skate-item text-danger" id="remove_{{ item.item_id }}"
+    data-bag_skate_size="{{ item.size }}"><small>Remove</small></a>
+  {% else %}
+  <a class="remove-item remove-clothes-item text-danger" id="remove_{{ item.item_id }}"
+    data-bag_clothes_size="{{ item.size }}"><small>Remove</small></a>
+  {% endif %}
