@@ -580,6 +580,15 @@ select:invalid, select option[value=""] {
     color: #47817F
 }
 
+.banner-404 {
+	margin-top: 100px;
+	background-image: url(/media/joe_pipe.webp);
+	background-size: cover;
+	background-repeat: no-repeat;
+	padding: 150px 0px;
+	background-position: center center;
+}
+
 @media screen and (max-width: 991px) {
 
     .right-nav {
