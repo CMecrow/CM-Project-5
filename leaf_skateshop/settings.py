@@ -29,8 +29,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 # SECRET_KEY = 'django-insecure-x*i87&z683=o6-7599hy=$vycweq3c8s-90j@+7@@w2e5sr@95'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = 'DEVELOPMENT' in os.environ
-DEBUG = True
+DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = ['leaf-skateshop.herokuapp.com', 'localhost']
 
