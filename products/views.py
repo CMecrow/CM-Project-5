@@ -51,7 +51,7 @@ def all_products(request):
 
     pagination = Paginator(products, 9)
     page_num = request.GET.get('page')
-    products = pagination.get_page(page_num)    
+    products = pagination.get_page(page_num)
 
     context = {
         'products': products,
@@ -88,10 +88,12 @@ def add_product(request):
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             product = form.save()
-            messages.success(request, 'Successfully added product to the store')
+            messages.success(request, 'Successfully added product\
+                             to the store')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Failed to add product to the store, please check form')
+            messages.error(request, 'Failed to add product to the store,\
+                           please check form')
     else:
         form = ProductForm()
 
@@ -119,7 +121,8 @@ def edit_product(request, product_id):
             messages.success(request, f'Successfully updated {product.name}')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, f'Failed to update {product.name}, please check details')
+            messages.error(request, f'Failed to update {product.name},\
+                           please check details')
     else:
         form = ProductForm(instance=product)
         messages.info(request, f'Currently editing {product.name}')

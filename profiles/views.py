@@ -9,9 +9,9 @@ from checkout.models import Order
 @login_required
 def profile(request):
     """Display the user's profile page"""
-    profile = get_object_or_404(UserProfile, user=request.user)  
+    profile = get_object_or_404(UserProfile, user=request.user)
 
-    if request.method == 'POST': 
+    if request.method == 'POST':
         form = UserProfileForm(request.POST, instance=profile)
         if form.is_valid():
             form.save()
@@ -35,7 +35,7 @@ def profile(request):
 def order_history(request, order_number):
     """View to access previous orders"""
     order = get_object_or_404(Order, order_number=order_number)
-    
+
     template = 'checkout/checkout_success.html'
     context = {
         'order': order,
