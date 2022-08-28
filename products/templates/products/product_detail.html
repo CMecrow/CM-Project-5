@@ -90,6 +90,41 @@
   </div>
 </div>
 <!-- Single Page Ends Here -->
+<div class="single-product" id="comment-container">
+  <div class="container">
+    <div class="section-heading">
+      <div class="line-dec"></div>
+      <h1>Customer Queries</h1>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+
+      </div>
+      <div class="col-md-6">
+        <div class="comment-section">
+          {% for comment in product.comments.all %}
+          <div class="individual-comment">
+            <p>{{ comment.author }}:</p>
+            <p><strong>{{ comment.body | linebreaks }}</strong></p>
+            <p class="text-muted">{{ comment.created_on }}</p>
+          </div>
+          <hr class="comment-divider">
+          {% endfor %}
+        </div>
+        {% if user.is_authenticated %}
+        <p>Question about {{ product.name}}? Let us know.</p>
+        <div class="comment-form">
+          <form method="post" class="comment-input">
+            {% csrf_token %}
+            {{ comment_form|crispy }}
+            <button type="submit" class="primaryAction btn btn-outline-primary">Submit</button>
+          </form>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- Similar Starts Here -->
 <div class="container">

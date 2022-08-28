@@ -4,8 +4,8 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 from django.core.paginator import Paginator
-from .models import Product, Category
-from .forms import ProductForm
+from .models import Product, Category, Comment
+from .forms import ProductForm, CommentForm
 
 # Create your views here.
 
@@ -65,16 +65,35 @@ def all_products(request):
 
 def product_detail(request, product_id):
     """Show an individual product"""
+    if request.method == 'POST':
+        product = get_object_or_404(Product, pk=product_id)
+        comments = Comment.objects.order_by('created_on')
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            comment_form.instance.author = request.user
+            comment = comment_form.save(commit=False)
+            comment.product = product
+            comment.save()
+            comment_form = CommentForm()
+            messages.add_message(request, messages.SUCCESS,
+                                 'Comment successfully submitted!')
+            return redirect(reverse('product_detail', args=[product.id]))
+        else:
+            comment_form = CommentForm()
+    else:
+        product = get_object_or_404(Product, pk=product_id)
+        comments = Comment.objects.order_by('created_on')
+        related_products = Product.objects.filter(category=product.category).exclude(pk=product_id).order_by('?')[:4]
+        comment_form = CommentForm()
 
-    product = get_object_or_404(Product, pk=product_id)
-    related_products = Product.objects.filter(category=product.category).exclude(pk=product_id).order_by('?')[:4]
+        context = {
+            'product': product,
+            'comments': comments,
+            'comment_form': comment_form,
+            'related_products': related_products,
+        }
 
-    context = {
-        'product': product,
-        'related_products': related_products,
-    }
-
-    return render(request, 'products/product_detail.html', context)
+        return render(request, 'products/product_detail.html', context)
 
 
 @login_required

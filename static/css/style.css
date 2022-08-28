@@ -180,7 +180,32 @@
 
 #add-to-bag-btn {
     margin-top: 20px;
-    margin-left: 0;
+    margin-left: 0px;
+}
+
+#comment-container {
+    padding-top: 0px;
+}
+
+#comment-container .container .section-heading {
+    margin-top: 40px;
+}
+
+.comment-section {
+    max-height: 300px;
+    overflow: scroll;
+}
+
+.individual-comment {
+    padding-bottom: 5px;
+}
+
+.comment-divider {
+    margin-top: 0px;
+}
+
+.comment-input div label {
+    display: none;
 }
 
 .bag-product-image {

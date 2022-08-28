@@ -31,3 +31,16 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Comment(models.Model):
+    """Model for users to leave a question about a product"""
+    author = models.CharField(max_length=80)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE,
+                                related_name='comments')
+    body = models.CharField(max_length=200)
+    created_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-created_on']
