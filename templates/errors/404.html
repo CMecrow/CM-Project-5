@@ -2,14 +2,14 @@
 {% load static %}
 {% block content %}
 <div class="banner-404">
-    <div class="container">
+    <div class="container" id="container-404">
        <div class="row">
           <div class="col-md-12">
              <div class="caption">
                 <h2 class="banner-logo leaf">Leaf</h2><h2 class="banner-logo skateshop">Skateshop</h2>
                 <div class="line-dec"></div>
-                <h4>Error 404:</h4><br>
-                   <h5>The page you're looking for isn't available!</h5>
+                <h5>Error 404:</h5><br>
+                   <p>The page you're looking for isn't available!</p>
                 <div class="main-button">
                    <a href="{% url 'products' %}">Return to the Store</a>
                 </div>
