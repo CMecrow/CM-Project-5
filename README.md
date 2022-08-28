@@ -108,3 +108,63 @@ These user stories were added to a kanabn board created in Projects in Github. T
 ### New Items
 
 - The template included a 'Featured items' section towards the bottom of the home page. I changed this to be new items, and applied the view appropriatley, to keep the webpage dynamic and up to date without any extra work for the site admin. These products will be automatically updated as new items are added on the backend. 
+
+---
+
+## SEO Considerations
+
+The table below contains keywords considered for the Leaf Skateshop website.
+
+|         Skates        |    Rollerblading   |    Skate Parts   | Gifts for a rollerblader       |
+|:---------------------:|:------------------:|:----------------:|--------------------------------|
+| Rollerblades          | _Skating_          | Skate wheels     | Things to buy a rollerblader   |
+| Inline skates         | Inline skating     | Skate frames     | _Things to buy a skater_       |
+| Aggressive skates     | Aggressive skating | Skate liners     | Rollerblader birthday present  |
+| Complete skates       | _Extreme sports_   | Skate components | _Skater birthday present_      |
+| _Recreational skates_ | Skate park sports  | _Wheels_         | Rollerblader christmas present |
+| _Skate park skates_   |                    | _Frames_         |                                |
+| Freestyle skates      |                    | _Liners_         |                                |
+
+The headings worked as starter points for related keywords, listed below them. The entries in italics were then discounted for the following reasons:
+
+- Leaf skateshop will not sell 'recreational skates'
+- The term 'skater' was too generic and drew too many searches from the more popular sport of skateboarding. This discounted 'Skating', 'Things to buy a skater', 'Skater birthday' with 'Extreme sports' and 'Skate park sports' being discounted for the same reason.
+- Some terms were too generic, 'Wheels', 'Frames' and 'Liners'
+- The term 'Skate park skates' was too infrequently used, only being searched 38 times when entered on [wordtracker.com](https://www.wordtracker.com/)
+
+When researching the above keywords, one factor in related searches that kept appearing was location. Specifically adding 'UK' or 'Newcastle' on to the end of searches. Here are some expansions on the above keywords. The first set when searching 'Rollerblades' were also frequently appearing when searching for any term in the left hand collumn.
+
+Rollerblades:
+
+- Rollerblades for men
+- Rollerblades for women
+- Rollerblades near me
+- Rollerblades kids
+- Rollerblades adults
+- Rollerblades Newcastle
+- Rollerblades UK
+- What's the difference between roller skates and rollerblades?
+- Where to buy rollerblades
+- Which is the best rollerblades
+
+Skate Parts:
+
+- Skate parts UK
+- inline skate wheels
+- Skate laces
+- Inline skate wheels UK
+- What are the parts of a skate called?
+- Pro skates
+
+As the current itteration of the Leaf Skateshop doesn't contain an 'About Us' page, it's difficult to include some of the more long tailed keywords into this project. An about us page would work well as it could offer reference to the store location, hitting the above mentioned factor of locale. Another way that these keywords could be included would be an expansion on the product categories. Instead of just 'parts' we could drill into that further with categories for 'liners', 'wheels', 'frames' etc. This could also be implemented for skates, potentially splitting out that category into 'mens skates', 'womens skates' and 'kids skates'.
+
+We could also add more keywords to a brand categorisation. For example a customer may be looking for a specific skate brand's products, and potentially then for more information about that brand, which could be provided via an link on the page to an external site, which search engines may already consider a high quality result, boosting our own rankings. In the current itteration, all products have the brand and specific product name included. This was very important because there's a lot of variation in skate products, so those who have an interest in the sport are more likely to be specialised and search for a specific item. The included descriptions also include as much information as supplied by the companies, without them getting overly verbose.
+
+The site design is deliberately very image driven so including keywords proved very difficult. One area where certain keywords were easily included was on the landing page, the text on the banner image includes 'rollerbladers', 'skateshop' and 'UK'. As well as giving the company a bit of identity and purpose. 
+
+Product images were all named very literally with the brand and product included in the image name itself.
+
+Finally in the head of base.html, the site description was written to include the keywords 'skateshop', 'skate' 'skate shop', 'Newcastle', 'UK', 'rollerblading', 'rollerblading products'. The remaining keywords were included in the keywords meta element, along with prominent rollerblading brands. 'rollerblades', 'inline skates', 'inline skating', 'aggressive skates', 'aggressive skating', 'freestyle skates', 'complete skates', 'skate parts', 'skate wheels', 'skate frames', 'skate liners,' 'skate components', 'rollerblading gifts'.
+
+The project also contains a sitemap.xml file created [here](https://www.xml-sitemaps.com/), and a robots.txt file, which allows search engine spiders into all points of our site, with the exception of the /admin/ directory.
+
