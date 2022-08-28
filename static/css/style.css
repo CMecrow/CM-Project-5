@@ -597,6 +597,14 @@ select:invalid, select option[value=""] {
     background-color: rgba(250,250,250,0.9);
 }
 
+.caption-404 {
+    padding: 20px;
+}
+
+.text-404 {
+    padding-bottom: 10px;
+}
+
 @media screen and (max-width: 991px) {
 
     .right-nav {
@@ -628,6 +636,11 @@ select:invalid, select option[value=""] {
     .order-history {
         padding-bottom: 40px;
     }
+
+    .banner-404 {
+		border-top: none;
+		margin-top: 0px;
+	}
 
 }
 
