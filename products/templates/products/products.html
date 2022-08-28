@@ -76,13 +76,13 @@
         <ul>
           {% if products.has_previous %}
           <!-- <li><a href="?page=1"></i></a></li> -->
-          <li><a href="{% my_url products.previous_page_number 'page' request.GET.urlencode %}"><i
+          <li><a href="{% my_url products.previous_page_number 'page' request.GET.urlencode %}" aria-label="previous page"><i
                 class="fa fa-arrow-left"></i></a></li>
           {% else %}
           <li class="current-nav"><i class="fa fa-arrow-left"></i></li>
           {% endif %}
           {% if products.has_next %}
-          <li><a href="{% my_url products.next_page_number 'page' request.GET.urlencode %}"><i
+          <li><a href="{% my_url products.next_page_number 'page' request.GET.urlencode %}" aria-label="next page"><i
                 class="fa fa-arrow-right"></i></a></li>
           {% else %}
           <li class="current-nav"><i class="fa fa-arrow-right"></i></li>

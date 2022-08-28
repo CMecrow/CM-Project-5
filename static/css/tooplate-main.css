@@ -26,7 +26,7 @@ a {
 
 .main-button a, .main-button p, .main-button button {
 	cursor: pointer;
-	background-color: #47817F;
+	background-color: #3c774b;
 	border-radius: 5px;
 	padding: 10px 15px;
 	display: inline-block;
@@ -48,7 +48,7 @@ a {
 .section-heading .line-dec {
 	width: 30px;
 	height: 5px;
-	background-color: #47817F;
+	background-color: #3c774b;
 }
 .section-heading h1 {
 	font-size: 22px;
@@ -59,7 +59,7 @@ a {
 
 /* Pre Header Style */
 #pre-header {
-	background-color: #47817F;
+	background-color: #3c774b;
 	text-align: center;
 }
 #pre-header span {
@@ -101,7 +101,7 @@ a {
 .navbar-dark .navbar-nav .nav-link.active,
 .navbar-dark .navbar-nav .nav-link.show,
 .navbar-dark .navbar-nav .show>.nav-link {
-	color: #47817F;
+	color: #3c774b;
 }
 .navbar:after {
 	width: 100%;
@@ -114,8 +114,8 @@ a {
 	background-image: none;
 }
 .navbar-dark .navbar-toggler {
-	border-color: #47817F;
-	background-color: #47817F;	
+	border-color: #3c774b;
+	background-color: #3c774b;	
 	height: 50px;
 	outline: none;
 }
@@ -147,7 +147,7 @@ a {
 .banner .caption .line-dec {
 	width: 30px;
 	height: 5px;
-	background-color: #47817F;
+	background-color: #3c774b;
 }
 .banner .caption p {
 	margin-top: 15px;
@@ -179,10 +179,10 @@ a {
 	transition: all 0.5s;
 }
 .featured-item:hover h4 {
-	color: #47817F;
+	color: #3c774b;
 }
 .featured-item h6 {
-	color: #47817F;
+	color: #3c774b;
 	font-size: 15px;
 	font-weight: 700;
 	margin-bottom: 0px;
@@ -195,7 +195,7 @@ a {
 	outline: none;
 }
 .owl-theme .owl-dots .active span {
-	background-color: #47817F!important;
+	background-color: #3c774b!important;
 }
 .owl-theme .owl-dots .owl-dot span {
 	background-color: #aaa;
@@ -210,7 +210,7 @@ a {
 
 /* Subscribe Style */
 .subscribe-form {
-	background-color: #47817F;
+	background-color: #3c774b;
 	padding: 80px 0px;
 	text-align: center;
 	width: 100%;
@@ -258,11 +258,9 @@ a {
 	border-radius: 5px;
 	padding: 10px 15px;
 	display: inline-block;
-	color: #47817F;
+	color: black;
 	font-size: 14px;
 	text-transform: uppercase;
-	font-weight: 300;
-	letter-spacing: 0.4px;
 	text-decoration: none;
 	transition: all 0.5s;
 	box-shadow: none;
@@ -295,12 +293,12 @@ a {
 }
 .footer .footer-menu a {
 	font-size: 13px;
-	color: #7a7a7a;
+	color: black;
 	text-transform: uppercase;
 	transition: all 0.5s;
 }
 .footer .footer-menu a:hover {
-	color: #47817F;
+	color: #3c774b;
 	text-decoration: none;
 }
 .footer .social-icons {
@@ -322,7 +320,7 @@ a {
 	transition: all 0.5s;
 }
 .footer .social-icons a:hover {
-	background-color: #47817F;
+	background-color: #3c774b;
 }
 
 /* Sub Footer Style */
@@ -332,11 +330,11 @@ a {
 }
 .sub-footer p {
 	font-size: 12px;
-	color: #7a7a7a;
+	color: black;
 	line-height: 60px;
 }
 .sub-footer a {
-	color: #47817F;
+	color: #3c774b;
 	text-decoration: none;
 }
 
@@ -361,14 +359,14 @@ a {
 	transition: all 0.5s;
 }
 .featured .featured-item:hover h4 {
-	color: #47817F;
+	color: #3c774b;
 }
 #filter button {
 	outline: none;
 }
 #filter .btn-primary.focus,
 .btn-primary:focus {
-	color: #47817F!important;
+	color: #3c774b!important;
 	box-shadow: none!important;
 }
 #filters .btn-primary {
@@ -423,15 +421,15 @@ a {
 	border: 1px solid #eee;
 	border-radius: 5px;
 	font-weight: 700;
-	color: #47817F;
+	color: #3c774b;
 	font-size: 15px;
 	text-decoration: none;
 	transition: all 0.5s;
 }
 .page-navigation ul li a:hover,
 .page-navigation ul li.current-page a {
-	background-color: #47817F;
-	border-color: #47817F;
+	background-color: #3c774b;
+	border-color: #3c774b;
 	color: #fff;
 }
 
@@ -458,7 +456,7 @@ a {
 	margin-top: 0px;
 }
 .single-product .right-content h6 {
-	color: #47817F;
+	color: #3c774b;
 	font-size: 17px;
 	font-weight: 700;
 	margin-top: 10px;
@@ -469,7 +467,7 @@ a {
 }
 .single-product .right-content span {
 	font-size: 14px;
-	color: #47817F;
+	color: #3c774b;
 	font-weight: 500;
 	display: inline-block;
 	margin-bottom: 15px;
@@ -494,7 +492,7 @@ a {
 .single-product .right-content .button {
 	margin-left: 15px;
 	cursor: pointer;
-	background-color: #47817F;
+	background-color: #3c774b;
 	outline: none;
 	border-radius: 5px;
 	padding: 10px 15px;
@@ -522,10 +520,10 @@ a {
 	transition: all 0.5s;
 }
 .single-product .right-content .down-content span a:hover {
-	color: #47817F;
+	color: #3c774b;
 }
 .single-product .right-content .down-content span a:hover i {
-	background-color: #47817F;
+	background-color: #3c774b;
 }
 .single-product .right-content .down-content span a i {
 	transition: all 0.5s;
@@ -599,7 +597,7 @@ a {
 	font-weight: 400;
 }
 .about-page .right-content span a:hover i {
-	background-color: #47817F;
+	background-color: #3c774b;
 }
 
 
@@ -654,11 +652,11 @@ a {
 	font-weight: 400;
 }
 .contact-page .right-content span a:hover i {
-	background-color: #47817F;
+	background-color: #3c774b;
 }
 .contact-page .right-content .button {
 	cursor: pointer;
-	background-color: #47817F;
+	background-color: #3c774b;
 	outline: none;
 	border-radius: 5px;
 	padding: 10px 15px;

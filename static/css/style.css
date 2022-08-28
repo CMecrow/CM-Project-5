@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 .form-control:focus {
-    border-color: #47817F;
+    border-color: #3c774b;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(71, 129, 127, 0.6);
 }
 
@@ -12,7 +12,7 @@
 
 .leaf {
     font-family: 'Bebas Neue', Arial, Helvetica, sans-serif;
-    color: #47817F !important;
+    color: #3c774b !important;
     display: inline;
     padding-right: 4px;
 }
@@ -49,7 +49,7 @@
     top: 2px;
 }
 
-#user-icon, #cart-icon, #admin-icon {
+#user-icon, #cart-icon, #admin-icon, #login-icon {
     display: inline;
     font-size: 1.5rem;
 }
@@ -98,7 +98,7 @@
 }
 
 .product-sorting:hover {
-    color: #47817F;
+    color: #3c774b;
 }
 
 #sort-new {
@@ -113,7 +113,7 @@
 }
 
 .custom-select:focus {
-    border-color: #47817F;
+    border-color: #3c774b;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(71, 129, 127, 0.6);
 }
 
@@ -139,7 +139,7 @@
 }
 
 .continue-browsing a:hover, .return-to-bag a:hover {
-	color: #47817F;
+	color: #3c774b;
 }
 
 .continue-browsing, .return-to-bag i {
@@ -365,7 +365,7 @@ select:invalid, select option[value=""] {
     width: 13px;
     height: 13px;
     border-radius: 50%;
-    background: #47817F;
+    background: #3c774b;
     animation-timing-function: cubic-bezier(0, 1, 1, 0);
   }
   .lds-ellipsis div:nth-child(1) {
@@ -458,7 +458,7 @@ select:invalid, select option[value=""] {
 }
 
 .account-container p a {
-    color: #47817F;
+    color: #3c774b;
 }
 
 #forgot-password {
@@ -468,7 +468,7 @@ select:invalid, select option[value=""] {
 }
 
 #forgot-password p:hover {
-    color: #47817F;
+    color: #3c774b;
 }
 
 .account-spacing {
@@ -493,7 +493,7 @@ select:invalid, select option[value=""] {
 }
 
 .profile-form:focus {
-    border-color: #47817F;
+    border-color: #3c774b;
     box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 8px rgb(71 129 127 / 60%);
 }
 
@@ -542,7 +542,7 @@ select:invalid, select option[value=""] {
 }
 
 .admin-edit p:hover, .admin-delete p:hover {
-    color: #47817F;
+    color: #3c774b;
 }
 
 .btn-file {
@@ -562,12 +562,12 @@ select:invalid, select option[value=""] {
 
 .custom-checkbox .custom-control-label::before {
     border-radius: 0;
-    border-color: #47817F;
+    border-color: #3c774b;
 }
 
 .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
-    background-color: #47817F;
-    border-color: #47817F;
+    background-color: #3c774b;
+    border-color: #3c774b;
     border-radius: 0;
 }
 
@@ -577,7 +577,7 @@ select:invalid, select option[value=""] {
 }
 
 #select-image-widget:hover {
-    color: #47817F
+    color: #3c774b
 }
 
 .banner-404 {
