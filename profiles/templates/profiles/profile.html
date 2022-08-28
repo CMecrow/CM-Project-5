@@ -11,6 +11,7 @@
                     <h1 class="checkout-head">My Details</h1>
                 </div>
                 <hr>
+                <p class="text-muted">{{ user }}</p>
                 <form class="mt-3 profile-form" action="{% url 'profile' %}" method="POST" id="profile-update-form">
                     {% csrf_token %}
                     {{ form|crispy }}
