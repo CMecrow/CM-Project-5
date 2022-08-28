@@ -1,1 +1,1 @@
-Leaf Skateshop - Order Confirmation for Order:{{ order.order_number }}
+Leaf Skateshop - Order Confirmation for Order: {{ order.order_number }}
