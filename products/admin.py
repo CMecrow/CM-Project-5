@@ -27,7 +27,8 @@ class CategoryAdmin(admin.ModelAdmin):
 class CommentAdmin(admin.ModelAdmin):
     list_display = (
         'author',
-        'body'
+        'body',
+        'product',
     )
 
 

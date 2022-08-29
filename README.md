@@ -196,8 +196,9 @@ These user stories were added to a kanabn board created in Projects in Github. T
 
 ### User Queries
 
-- The user queries feature was added late in development. On the left hand side on desktop, above the comments on mobile, there's a heading and a few paragraphs to explain to the user what the feature is for, and why it's advantageous to them. This information reiterates the incentives listed in the top banner It provides the user with the ability to ask a question about the product whose page they're on, as well as providing an additional contact email, should it be more suitable for their query. Next to this info box, any comments already left on the product are displayed in order of date created with the author's username, comment and date and time of posting. For clarity's sake the comments are separated by a horizontal rule. Beneatht this is the input box. The ability to leave these questions is hidden to users that are not logged in via the html template, instead linking them to the login page with a prompt 'Question about (product name)? Login here to ask us.' If the user is logged in, there's a clear input box below the prompt 'Question about (product name)? Let us know.
+- The user queries feature was added late in development. On the left hand side on desktop, above the comments on mobile, there's a heading and a few paragraphs to explain to the user what the feature is for, and why it's advantageous to them. This information reiterates the incentives listed in the top banner It provides the user with the ability to ask a question about the product whose page they're on, as well as providing an additional contact email, should it be more suitable for their query. Next to this info box, any comments already left on the product are displayed in order of date created with the author's username, comment and date and time of posting. For clarity's sake the comments are separated by a horizontal rule. Beneath this is the input box. The ability to leave these questions is hidden to users that are not logged in via the html template, instead linking them to the login page with a prompt 'Question about (product name)? Login here to ask us.' If the user is logged in, there's a clear input box below the prompt 'Question about (product name)? Let us know.
 - Development of this feature is discussed further in the future features section of the readme.
+- A negative of the current iteration of this feature is that admins can only moderate comments from the admin interface rather than having easily accessibly links to delete or hide comments on the front end, similar to those present to edit or delete products.
 
 ### Related Products
 
@@ -261,11 +262,23 @@ These user stories were added to a kanabn board created in Projects in Github. T
 
 ### About Us / FAQ
 
-- Pre header information
+- As mentioned in the business model / site role section, the Leaf Skateshop site can grow to be more than just transactional. It can develop in stages to be a bigger resource for the business to share information about themselves and rollerblading, deepening their relationships with users which would be beneficial for both parties. One way of sharing more information would be the inclusion of an 'About Us' page. This would give the business a more personal feel and give them room to tell their start-up story as a small business. From a customer point of view, it would be a resource to learn more about the business, to see if they're people they'd like to interact with and purchase from. From a business point of view an about us page would be a point to sell themselves, promote their staff and emphasise the mentioned incentive of 'expert knowledge'. If this came across to the customers, they may be more likely to query products, increasing the liklihood of them making a purchase, or reaching out via another future feature, a 'Contact Us' page.
+Another perk for the business is that this sort of page would provide them with a good platform for including more keywords into the site in an appropriate manner.
+
+- An FAQ page could be created easily through an existing feature on the site, the customer comments that can be left on products. If the business collected data on the common questions asked about products for a month or two, they could use that data to come up with the top 10 most common questions, and provide consise solutions for them. Were this to be implimented, it'd be well worth linking to it through base.html but also in the customer comment info section on the individual product pages.
+
+- A final benefit of the FAQ page would be to double down on the incentives promised in the pre nav header. This information may not be visible on the smallest of screens, so it'd be important to have a point where all users can access it. A described perk of 'Free size swap' may sound great but it doesn't answer the question of how it works, how is shipping handled etc. A FAQ page would fill this requirement.
+
+- While the above points are undoubtedly useful, they were not achievable in this iteration of the project due to time constraints. In general, they build on some of the 'must have' features or information already present on the site, rather than offering anything new so had to be considered a low priority.
 
 ### Product Information
 
-- Break down into categories
+- One considered development of the product model / displayed options would be adding further categories to products to help with keywords, for example, having a wheels category easily accessible on the site, may increase the rankings of our site for the search 'Rollerblade wheels'. Keywords as a concept are discussed in detail later in the readme. Rather than having a category of 'Parts' we could go further and have categories for 'wheels', 'frames' and 'liners', making it easier for users to find the product they're looking for. Another additional category could be 'brand', which could prove useful for users who are particularly loyal to a certain company, or are looking for a product that they know will work well with their current skates.
+- While this would diversify the model and provide more options going forward, it wasn't considered a needed feature because of the inclusion of the search bar. The searchbar is a feature that aids customers find a specific product or brand, and does so while searching through product descriptions as well, widening the net. Though this can admittedly be more effort for the user.
+
+### Customer Queries
+
+- The included feature that currently requires the most work to live up to it's potential is the customer queries section. The feature would ideally have the function for site admin's to specifically reply to customer questions, with their response being displayed beneath the question and highlighted. This could then be developed further and have the customer who asked the question sent an email notification that their question has been responded to, and for the admin, a notification that a question has been left, and where to find it. From both an admin and customer perspective the feature needs some work. For admins, the only moderation that can be carried out is within the 
 
 ---
 
@@ -351,3 +364,12 @@ The project also contains a sitemap.xml file created [here](https://www.xml-site
 
 ![https://i.imgur.com/R3Z8aQU](https://i.imgur.com/R3Z8aQU.jpg "Leaf Skateshop Facebook page")
 
+---
+
+## Deployment
+
+
+
+---
+
+## Credits

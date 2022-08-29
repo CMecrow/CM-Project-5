@@ -297,6 +297,10 @@ tr.product-tr>td, tr.bag-costs>td {
     display: inline-block;
 }
 
+.toast-close-btn {
+    margin-right: 30px;
+}
+
 .message-product-row {
     height: 120px;
     width: 100%;

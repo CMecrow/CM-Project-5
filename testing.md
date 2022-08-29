@@ -102,5 +102,28 @@ One fallout from the above fix was that instead of using page selectors at the b
 
 When writing the view for all_products, I built it in stages, for example first ensuring that all products were displayed with pagination applied, then filters could be applied and also paginated etc etc. Because of this approach, I ended up repeating the pagination in each section unnecessarily. This then caused issue when trying to impliment the Sort By dropdown menu, where sorting could be applied on All Products, but as soon as a filter or search query was applied, the sorting would not work. This tripped me up for a long time until I decided to simplify the code in the view and apply the pagination at the end of the view. This fixed the error and caused the sorting to work as expected.
 
+### Toasts
+
+One of the longest running bugs when developing the project was that the toasts would not be closable on certain pages. I tried various scripts located at the bottom of base.html to close them without success. I spent hours trying to target the toast class but it seemed unreachable on certain pages, despite working fine and closing on others. A breakthrough came through when I tried relocating the original seemingly misfiring script:
+
+        <script type="text/javascript">
+                $('.toast').toast('show');
+        </script>
+
+ From the bottom of base.html, to elsewhere in the template, and into other templates where it wasn't previously. Through inspecting the pages source, I could determine when the script was loading and when it wasn't. From here I could get the script to load when I relocated it in base.html. Although far from ideal, time constraints meant that I could not commit to finding the likely unclosed element that was causing the issue. A quick solution was to relocate it into the if statement that would only load when a toast was called.
+
+ Though this meant that script was reachable, it gave rise to another problem, that closing the toast did not close all divs inside it. This was a particular issue when the 'bag' section of a message was called, which is quite sizable across the top of the screen. This div not being closed meant that the navbar was unusable so I added to the script from bootstrap:
+
+        <script type="text/javascript">
+                $('.toast').toast('show');
+                $('.toast').on('hidden.bs.toast', function () {
+                        $('.toast').hide();
+                });
+        </script>
+
+This extra function was called when the hide instance was called and called some Jquery to hide the element. [Bootstrap Toast documentation here](https://getbootstrap.com/docs/4.3/components/toasts/).
+
+ What I also realised is that this exact same problem of unreachable scripts would be affecting the Mailchimp Javascript also at the bottom of base.html. Again due to time constraints, I relocated the Mailchimp js to the header, far from ideal but a workable solution for the time being.
+
 
 
