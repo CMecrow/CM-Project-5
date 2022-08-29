@@ -70,6 +70,16 @@ These user stories were added to a kanabn board created in Projects in Github. T
 - In Progress: Where all user stories that are currently being worked on are located.
 - Done: All completed user stories.
 
+## Leaf Skateshop business model
+
+- This project is creating an ecommerse website for a skate shop called Leaf Skateshop. The shop and site will be business to consumer and the site will sell products directly to consumers. Leaf Skateshop as a whole would be clasified as a small business, and they have requested this ecommerse site be built for them so they don't need to sell through any online intermediaries. This is beneficial to them as they can theefore have more control over the site, as well as make more profit from each sale as there's no partner to split with. The business to consumer model will also go on to suit them in the future, as more features are added to the site to increase user engagement. Features like an about us, FAQs, contact us and product wishlists would all deepen the relationships between the business and it's customers, as well as providing extra knowledge to the business as to which products are sought after, which aren't, as well as identifying customer questions and issues to tailor the website to answer them.
+- The overall structure between business, website and consumer on a transactional basis will run as below:
+
+    ![https://i.imgur.com/Yx2KNuQ](https://i.imgur.com/Yx2KNuQ.jpg "Leaf Skateshop business structure")
+
+- As you can see in the above, the business passes information through the website about available products to the customer. The customer turns the available products into orders on the website. These orders are then picked up from the website by the business who then ship the ordered products to the customer.
+- Though at this stage the above process is purely transactional, as mentioned above, the relationships between business and customer can be developed through further content on the website, meaning it's a place users visit not only to make purchases, but to learn more about the subject at hand a whole, namely rollerblading.
+
 --- 
 
 ### Site Theme
