@@ -1,6 +1,6 @@
 # Testing
 
-Testing on this project has been done both manually and through validators and linters. Detailed below are some of the test conducted, issues found and workarounds implimented.
+Testing on this project has been done both manually and through validators and linters. Detailed below are some of the tests conducted, issues found and workarounds implimented.
 
 ---
 

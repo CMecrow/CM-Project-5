@@ -378,7 +378,49 @@ The project also contains a sitemap.xml file created [here](https://www.xml-site
 
 ---
 
-## Deployment
+## Deployment procedure
+
+- Created an app on Heroku named leaf-skateshop.
+- Added a postgres database to the app in Heroku.
+- I downloaded my current product database into a json file as shown [here](https://code-institute-room.slack.com/archives/C01C4AU8ULA/p1641488400004200)
+- Installed dj-database-url in GitPod (Problem encountered: Installing dj-database-url, updated my installation of django. I reinstalled django 3.2 and installed an earlier version of dj-database-url to work around this issue).
+- Installed psycopg2-binary in GitPod.
+- Made sure they were then included in my requirements.txt.
+- Imported dj_database_url into my settings.py.
+- Altered the DATABASES variable to use the database url from postgres in Heroku.
+- Attempted to makemigrations and migrate over the data models to postgres.
+- Now that I was connected to the postgres database, I uploaded my products.json file again as shown [here](https://code-institute-room.slack.com/archives/C01C4AU8ULA/p1641488400004200) to avoid the slow task of manually updating via admin.
+- Then created a new superuser for the postgres database.
+- As I was wanting to ensure the new database was uploaded correctly, I created an env.py file containing the new postgres database url so it could still be accessed by GitPod without being commited. This also meant I could authenticate my new superuser.
+- Then installed guinicorn on GitPod and updated my requirements.txt.
+- Procfile created to tell Heroku to create a web Dyno, explained [here.](https://www.heroku.com/dynos)
+- As all static filed would be passed over via S3, I added DISABLE_COLLECTSTATIC 1 to Heroku's config vars.
+- Updated the new Heroku link to allowed_hosts in settings.py.
+- Attempted to push to Heroku (Problem encountered: ERROR: Failed building wheel for backports.zoneinfo, the resolution to this was to specify which version of Python I wanted to use in a file named runetime.txt, and also to add the following code to my requirements.txt 'backports.zoneinfo;python_version<"3.9"' this fix was detailed [here](https://stackoverflow.com/questions/71712258/error-could-not-build-wheels-for-backports-zoneinfo-which-is-required-to-insta) as well as digging through the Heroku documentation [here](https://devcenter.heroku.com/articles/python-support)).
+- Enabled automatic deployment on Heroku, linking to GitHub.
+- Generated a new secret key to add to Heroku config vars.
+- Updated settings.py to retrieve secret key from env.py file, for DEBUG to only be true should there be a variable named 'DEVELOPMENT' (again located in env.py but not on Heroku).
+- Created a new public bucket on S3 to store static files, enabled static website hosting, applied a CORS configuration to grant our Heroku app access and generated a security policy for the bucket, all in permissions. Detailed walkthrough of these steps available [here.](https://codeinstitute.s3.amazonaws.com/fullstack/AWS%20changes%20sheet.pdf)
+- Still within AWS, I navigated to IAM to create a user to access the newly created bucket. This required a group for the user, coupled with a suitable access policy. Walkthrough followed [here.](https://codeinstitute.s3.amazonaws.com/fullstack/AWS%20changes%20sheet.pdf).
+- Once the above step was complete, I had access to the newly created user's access key and secret access key, both of which were then added as config vars on Heroku, along with 'USE_AWS', which would be used in the next step.
+- Back in GitPod, I installed boto3 and django-storages, updating my requirements.txt. Django-storages was added to my installed apps in settings.py. Still in settings, I added an if statement to check if the variable 'USE_AWS' was present, ensuring it wouldn't be in GitPod, but was in Heroku. Within the if statement, I added details of the S3 bucket, along with a way of the access key and secret access keys being reached on Heroku.
+- Since the static files are almost ready to be used on the deployed Heroku site, I removed the DISABLE_COLLECTSTATIC variable.
+- Because of the previous step, I needed to let Django know that we now wanted to use S3 to store any static files either when they're uploaded or requested via get static. The steps to achieve this involved making a new file of custom_storages.py, importing settings into it, as well as the S3 storage class within previously mentioned boto3 / django-storages packages.
+- Within custom_storages.py I created a custom class called StaticStorage, inheriting from the imported packages, then passing the information that we want static files installed to a newly created variable in settings.py. This was then repeated for a class named MediaStorage, which would accomplish the same goal but for media files.
+- Within settings.py, I set the static file storage to use the newly created StaticStorage class, and created the variable that would be past into that class, saving static files into a folder named 'static'. This was then repeated for media files.
+- The urls for static and media files within S3 were then set using the previously created domain and location variables.
+- Now upon deployment, Heroku will run collect static through python which will pull all static files from the project and use the created location and url variables to save the files within the S3 bucket.
+- For the media files however, I uploaded these manually into the bucket within a folder named 'media', and granted public read access to the uploaded images.
+- The variable AWS_S3_OBJECT_PARAMETERS was added to settings, the role of which is to communicate to the browser that static files can be cached for a long period of time, improving the user experience on future visits as loading speeds will be quicker.
+- The first step to get Stripe up and running with the new deployed site was to ensure both the public and secret API keys were stored as config vars on Heroku.
+- Then a new webhook was created to link up with the Heroku page, identical to the original, just with a new endpoint URL. The signing secret attached to the webhook was then also stored as a config var on Heroku.
+- The new webhook was then tested on the deployed site, which were successful (issues arose at a later point when confirmation emails were introduced to the webhook handler, detailed in the testing document.)
+- Success! Deployment complete.
+
+- As mentioned I have kept my GitPod workspace using the postgres database as I was keen to manage the feature that was added late in development, the customer queries, with ease from GitPod. This will not be the case for anyone else using GitPod as the required variables are stored in an env.py which is seperate to version control as it's listed in .gitignore.
+
+
+
 
 
 
