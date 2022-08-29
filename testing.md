@@ -4,6 +4,10 @@ Testing on this project has been done both manually and through validators and l
 
 ---
 
+## Colour Choice
+
+The site originally used a colour that fitted the style and theme of the site, and was something I was happy with from the begining of the project until right at the end. However, whe running Lighthouse accessibility testing, it became clear that the chosen colour, which was implemented on the info bar at the top of the page, on all buttons as well as the sign up form, did not provide enough contrast with white text. Although I had used the colour through out the site, I had no option to keep it. I selected a darker green to provide more contrast with the white text, and when running this through Lighthouse testing, it was passed.
+
 ## Homepage
 
 ### Searchbar

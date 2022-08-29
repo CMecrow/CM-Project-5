@@ -103,7 +103,7 @@
         <h5>If you have a question about this product, let's hear it!</h5>
         <p>At Leaf Skateshop we pride ourselves on our product and industry knowledge. We make sure we know every product we sell inside and out
           to give you, the customer, the best possible experience when visiting our store.</p>        
-        <p>Whether there's something you're not sure about or you're just after some expert advise about a product, make sure to drop us a comment
+        <p>Whether there's something you're not sure about or you're just after some expert advice about a product, make sure to drop us a comment
           about it and we'll get back to you as soon as we can.</p>
         <p>If you'd like to go into a bit more detail, please feel free to send us an email at info@leafskateshop.co.uk</p>
         <p class="font-italic">Please note that once a comment is submitted it can not be edited or deleted so make sure you're
@@ -122,7 +122,7 @@
           {% endfor %}
         </div>
         {% if user.is_authenticated %}
-        <p class="question-prompt"><strong>Question about {{ product.name}}? Let us know.</strong></p>
+        <p class="question-prompt"><strong>Question about {{ product.name }}? Let us know.</strong></p>
         <div class="comment-form">
           <form method="post" class="comment-input">
             {% csrf_token %}
@@ -134,6 +134,8 @@
           </button>
           </form>
         </div>
+        {% else %}
+        <p class="question-prompt"><strong>Question about {{ product.name }}?<a class="login-link" href="{% url 'account_login' %}"> Login here</a> to ask us.</strong></p>
         {% endif %}
       </div>
     </div>

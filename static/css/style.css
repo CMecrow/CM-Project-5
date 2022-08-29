@@ -26,6 +26,7 @@
 .footer-logo {
     padding-top: 20px;
     padding-bottom: 20px;
+    margin-left: 20px;
 }
 
 .right-nav {
@@ -365,7 +366,7 @@ select:invalid, select option[value=""] {
 }
 
 #submit-button, #checkout-button, #edit-button,
-#comment-button {
+#comment-button, #add-button {
     padding-left: 0;
     padding-bottom: 40px;
     background-color: white;
@@ -533,6 +534,14 @@ select:invalid, select option[value=""] {
     padding-bottom: 10px;
 }
 
+.login-link {
+    color: black;
+}
+
+.login-link:hover {
+    color: #3c774b;
+}
+
 .profile-form {
     padding-bottom: 40px;
 }
@@ -672,6 +681,7 @@ select:invalid, select option[value=""] {
     height: 20px;
     padding-top: 10px;
 }
+
 
 @media screen and (max-width: 991px) {
 
