@@ -626,7 +626,7 @@ select:invalid, select option[value=""] {
 }
 
 #select-image-widget:hover {
-    color: #3c774b
+    color: #3c774b;
 }
 
 .banner-404 {
@@ -652,6 +652,25 @@ select:invalid, select option[value=""] {
 
 .text-404 {
     padding-bottom: 10px;
+}
+
+.mc-field-group input::placeholder {
+    color: white;
+}
+
+#mc-embedded-subscribe {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+#mc-embedded-subscribe:hover {
+   color: #3c774b;
+}
+
+#mce-responses {
+    height: 20px;
+    padding-top: 10px;
 }
 
 @media screen and (max-width: 991px) {
