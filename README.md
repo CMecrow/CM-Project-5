@@ -120,7 +120,7 @@ These user stories were added to a kanabn board created in Projects in Github. T
 
 - As mentioned, one of the main goals with the navbar was to give space to the site name 'Leaf Skateshop'. The logo font was chosen because it was bold and angular, and because it looked stylish in full caps, rather than overbearing. The colour scheme of the logo was chosen to fit the leaf, nature theme, as well as being a colour that would work well in other areas of the site, and provide enough distinction to other text for accessibility. All of the links present in the nav were originally going to be spread across the top of the page (see wireframes), however when making the site, they looked good centered underneath the strong logo, as it really draws the eye on the page. To keep the navbar from becoming slightly bloated with too many links, it was split into two rows with the top row being the priority links to the available products, and the second row being further product filtering in the search bar, along with icons for Account, Admin and Basket. These icons were chosen as they fit standard ecommerce convention, and don't clutter the navbar with too much text. While mouseovering any of the icons and nav links, the colours will change to indicate that the item is a link that can be clicked and will take the user away from the current page. The navbar is also responsive in that as soon as the display falls below 992px, it will become a button which will provide a dropdown list of all links. The searchbar is excluded from this as it moves to the top of the page.
 - The shopping bag icon will also display the amount of items in the bag, a useful feature for that purpose but also for indicating to the user, on top of the displayed message, that an item has been added.
-- With regards to the Account button, to make the user journey as smooth as possible, I was keen for the user not to have to select a page from a list of options if possible. So rather than include a drop down menu that would list 'Account', 'Log in', 'Sign Out' and 'Register' I included logic in the html template to display one link for users to either log in (which includes a link to registration), and if the user was already logged in, the original link would be hidden and instead an identical link would be displayed to take the user to the accounts page which includes a button to sign out.
+- With regards to the Account button, to make the user journey as smooth as possible, I was keen for the user not to have to select a page from a list of options if possible. So rather than include a drop down menu that would list 'Account', 'Log in', 'Sign Out' and 'Register' I included logic in the html template to display one link for users to either log in (which includes a link to registration), and if the user was already logged in, the original link would be hidden and instead an almost identical link would be displayed to take the user to the accounts page which includes a button to sign out. This differs slightly on mobile because of the implementation of the dropdown menu. One consideration I had was how to display to the user that they are logged in already. To remedy this, for mobile if the user is already logged in, the nav link will read 'My Account', if they aren't logged in, it'll read 'Log in / Register'. For desktop, when the user is logged in, the account icon would be displayed in the site green, leaning on the convention that green indicates 'success' or 'active'. When logged out it'd be displayed black.
 
 ### Searchbar
 
@@ -197,7 +197,7 @@ These user stories were added to a kanabn board created in Projects in Github. T
 
 --- 
 
-## Shopping Bag
+### Shopping Bag
 
 - The shopping bag page contains logic to check whether the user has anything in their shopping bag. If they don't, they're told as much and given a link to return to the store.
 - The shopping bag page is quite simple in design as this is when the user want's to be clear on their purchase. All elements on the page before the sign up form contain information about that particular order. Firstly the product details for the products in the basket. Then, displayed in a table, we have the image, name, size if applicable and sku number. We also have columns for individual price, an quantity selector which shows how many of that product are in the bag, and this can be adjusted as required, and finally a subtotal. This is calculated from the product price multiplied by it's quantity. Underneath the table we have the total costs, broken down into bag total, delivery if applicable and grand total.
@@ -206,7 +206,7 @@ These user stories were added to a kanabn board created in Projects in Github. T
 
 ---
 
-## Checkout
+### Checkout
 
 - The checkout page is split in to three sections, 'Delivery', 'Order Summary' and 'Payment'.
 - Delivery contains a form where the user is prompted to enter their delivery details, with a dropdown selector for 'Country' to help navigate around the payment system, Stripe's tricky country verification. If the user is not logged in at this stage, there is a prompt with links underneath the form for them to create an account or log in, should they wish for a quicker checkout next time around by saving their delivery information. If the user is already logged in, in the prompts place there is a checkbox to save their details.
@@ -226,7 +226,7 @@ These user stories were added to a kanabn board created in Projects in Github. T
 
 ### Account Pages
 
-### Login Page
+### Login
 
 - The account process has been designed to contain as few pages as possible. Using all-auth meant the initial set up was very quick but the pages themselves do not contain any content so don't hold a huge amount of value for the site outside of their main purpose. The main login page contains the header 'Already Registered?' and the prompt 'If you have an account with us, please log in', with the form to do so below. Below the sign in button there's a muted link for resetting a password as well. 
 - I decided to include a link to register in the login page to reduce the amount of pages used, and also to help the nav be as uncluttered and clean as possible. The header and prompt of 'New Here?' and 'Registration is quick and easy' mirror those of the log in form above, and act as an incentive for the unregistered user, describing the process as quick and easy. 
@@ -234,6 +234,22 @@ These user stories were added to a kanabn board created in Projects in Github. T
 ### Create an Account
 
 - The previous incentive didn't lie. The process for creating an account is quick and easy! All that's required is an email, username and password. Any further details would be unnecisary at this point as they can be completed at a later date in the account page or copied over from a checkout form. Just incase the user has clicked the wrong button on the previous login page, there's another prompt underneath the header containing a link back to the login page, ensuring the customer always has multiple options of exiting the page they're on should they have found their way there by mistake. Upon submiting their registration, the user is redirected to an email verification page alerting them that they will be emailed over a link they need to follow to verify their email before they can log in. This link takes the user to a page asking them to verify the address and if that's submitted they're redirected back to the login page. 
+
+### My Account / Logout
+
+- The account page is split into two sections.
+- The 'My Details' section, which contains the user's username, followed by a form for their delivery details. It's worth noting that should the user have already completed an order while logged in and ticked the option to save their details to their profile, the form will already be completed. If the user wants to make any changes to their delivery details, they can do so via adjusting the form and clicking 'Update My Details'. Floated to the right of this section at the bottom is also a 'Logout' button. This was included to help achieve the goal of having as few account pages as possible, and it seemed a logical place the customer may go to to log out of their account. To give the customer a chance to remain logged in, should they have got this far by accident, they're taken to a confirmation screen which includes a link head back to the store, as well as log out.
+- The 'My Orders' section containers brief order summaries for any completed orders they've made while logged in. The order number is shrank as it's not as immediately useful for the user, with more room given to the date the order was placed, the products contained in the order, and the total charged. Should the user wish to see
+
+---
+
+### 404 Page
+
+- A 404 page has been included should the user follow a link for a product that is no longer available, or should they lose their way elsewhere. The page is similar to the landing page in that it's dominated by a large image with a text box placed on top. The image itself was chosen because the skater is upside down / somewhere unexpected, much like the user has been to find the page. Not only is it eye catching but it also contained a large amount of blank colour on the left hand side where the text box could sit nicely. (This may not be the case on the smallest of displays). The text itself contains a clear message of "Error 404: the page you're looking for isn't available", a nice blame free explanation for the customer that everything is under control but whatever they're trying to access isn't currently accessible. This is acompanied by a large 'Return to the store' button to redirect the customer.
+
+![https://i.imgur.com/7eQwCL0.](https://i.imgur.com/7eQwCL0.jpg "404 page")
+
+---
 
 ## Future Features
 
@@ -249,9 +265,9 @@ These user stories were added to a kanabn board created in Projects in Github. T
 
 ## Data Model
 
-[https://i.imgur.com/mqCvnrw](https://i.imgur.com/mqCvnrw.jpg "Data Model for Leaf Skateshop ecommerse site")
+- The data models use share a lot of the same data. For example 'User' in the User Profile model, will be the same that's used as 'Author' in the Comment data model and 'User Profile' in the Order data model. These links are required to be able to attach the pieces of data together. For example, for orders to be attributed to the correct user, or comments to the correct product. Some of the data is purely for the backend, for example in the checkout app, a user would interact with the Order data model, rather than the Order Line Item model. Some data is purely for the business, the 'Sku' in product is an example of this. Though it is displayed to the customer at various points in the user journey, it is primarily for the store to identify the correct product. There are some data points that are not currently used, but are included to aid the development of the site with extra features in the future. The Comment model includes an 'Updated on' field, though not currently in use, this will be nesicary when the user is given the ability to edit their own comments / questions on the products page in the future.
 
-- The data models use share a lot of the same data. For example 'User' in the User Profile model, will be the same that's used as 'Author' in the Comment data model and 'User Profile' in the Order data model. These links are required to be able to attach the pieces of data together. For example, for orders to be attributed to the correct user, or comments to the correct product. Some of the data is purely for the backend, for example in the checkout app, a user would interact with the Order data model, rather than the Order Line Item model. Some data is purely for the business, the 'Sku' in product is an example of this. Though it is displayed to the customer at various points in the user journey, it is primarily for the store to identify the correct product. There are some data points that are not currently used, but are included to aid the development of the site with extra features in the future. The Comment model includes an 'Updated on' field, though not currently in use, this will be nesicary when the user is given the ability to edit their own comments / questions on the products page.
+[https://i.imgur.com/mqCvnrw](https://i.imgur.com/mqCvnrw.jpg "Data Model for Leaf Skateshop ecommerse site")
 
 ---
 
