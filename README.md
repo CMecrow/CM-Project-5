@@ -97,15 +97,21 @@ These user stories were added to a kanabn board created in Projects in Github. T
 
 ### Pre navbar header
 
-- Across the top of all pages, a header is displayed, detailing some strong incentives for users to purchase from the store. One feature that is repeated across the site is the incentive of hitting the 'free delivery' mark of £100. Obviously the larger the order the better for the store, but it also provides an incentive for the user, a potential reason for them to top up their shopping bag with an extra purchase to avoid paying shipping costs. The second incentive is the stores 'Expert knowledge and advice', this is included to communicate to customers that the store staff understand the products and are open to giving advice where required. This is important because rollerblading as a sport can seem fairly inaccessible to someone without previous knowledge, with the varying features of products hidden behind jargon and other industry terms. 
+- Across the top of all pages, a header is displayed, detailing some strong incentives for users to purchase from the store. One feature that is repeated across the site is the incentive of hitting the 'free delivery' mark of £100. Obviously the larger the order the better for the store, but it also provides an incentive for the user, a potential reason for them to top up their shopping bag with an extra purchase to avoid paying shipping costs. The second incentive is the stores 'Expert knowledge and advice', this is included to communicate to customers that the store staff understand the products and are open to giving advice where required. This is important because rollerblading as a sport can seem fairly inaccessible to someone without previous knowledge, with the varying features of products hidden behind jargon and other industry terms. This knowledge is accessible for the customers within each product page, where they can ask a question about a specific product, and the admin can respond. The final incentive is a 'Free size swap'. This is something that various other skate shops offer and advertise so it's important for our store to match them. Within rollerblading, different brand's skates, or event models of skates within the same brand, have a very different fit on the foot. Because of this, offering a free size swap releives one of the main worries that someone may have when buying new skates.
+- To avoid this head becoming overbearing on smaller screens with the long text, the choice was made to filter off the less important incentives one by one, maintaining the header's height at the top of the page. The highest importance was assigned to 'Free Delivery on all orders over £100', second priority to 'Expert knowledge and advice' with 'Free size swap' being placed last. The downside to this is that the latter two incentives would be hidden to customer who only view the site on a small display. One solution to this in a future iteration would be to include the incentives in an 'About Us' or 'FAQ' page, discussed in the future features section.
 
 ### Navbar
 
 - As mentioned, one of the main goals with the navbar was to give space to the site name 'Leaf Skateshop'. The logo font was chosen because it was bold and angular, and because it looked stylish in full caps, rather than overbearing. The colour scheme of the logo was chosen to fit the leaf, nature theme, as well as being a colour that would work well in other areas of the site, and provide enough distinction to other text for accessibility. All of the links present in the nav were originally going to be spread across the top of the page (see wireframes), however when making the site, they looked good centered underneath the strong logo, as it really draws the eye on the page. To keep the navbar from becoming slightly bloated with too many links, it was split into two rows with the top row being the priority links to the available products, and the second row being further product filtering in the search bar, along with icons for Account, Admin and Basket. These icons were chosen as they fit standard ecommerce convention, and don't clutter the navbar with too much text. While mouseovering any of the icons and nav links, the colours will change to indicate that the item is a link that can be clicked and will take the user away from the current page. The navbar is also responsive in that as soon as the display falls below 992px, it will become a button which will provide a dropdown list of all links. The searchbar is excluded from this as it moves to the top of the page.
+- With regards to the Account button, to make the user journey as smooth as possible, I was keen for the user not to have to select a page from a list of options if possible. So rather than include a drop down menu that would list 'Account', 'Log in', 'Sign Out' and 'Register' I included logic in the html template to display one link for users to either log in (which includes a link to registration), and if the user was already logged in, the original link would be hidden and instead an identical link would be displayed to take the user to the accounts page which includes a button to sign out.
 
 ### Searchbar
 
 - The searchbar was an important must have feature within the user stories. On a xl display it sits alongside the lower nav icons neatly, using another font awesome icon as the submit button. I had a choice to make with the searchbar as soon as the display hits 992px, and the responsive navbar kicks in. One option was to include the searchbar in the dropdown with the other links however this felt a bit awkward to use and I quickly decided to keep it seperate and relocate it to the top of the page for easy access for the user. As this was not included in the original template, it meant a fair amount of tweaks to the css to implement. This is discussed in more detail in the [testing file.]((https://github.com/CMecrow/CM-Project-5/blob/main/docs/testing.md))
+
+### Messages
+
+- 
 
 ### Banner Image and Call to Action
 
@@ -130,9 +136,52 @@ These user stories were added to a kanabn board created in Projects in Github. T
 
 ### Product Pages
 
-## Product header and sort options
+### Product header and sort options
 
 - The product list page looks the same whatever the chosen category, filter or search term. The page contains a heading to display to the user what they're currently browsing, this extends to a user's search, displaying 'Results for: (search term)'. The page will also always include a drop down menu to select how the products should be sorted. This includes all expected options of 'date', 'name' and 'price', in both ascending and descending order.
+- The products themselves are displayed in the same manner as those in the 'new products' section on the home page, leading with a strong image, product name and price.
+- To keep the site tidy I included pagination on all products pages, with the maximum amount of products displayed being 9 per page. This stops any product selection from becoming sprawling and unwieldly, especially on smaller devices. It also keeps the site wide sign up form and social links included in the footer, more relevant because they'll never fall too far down the page itself. The buttons to control the pagination did differ from the intial ideas included in the wireframes, and this is discussed in more detail in the testing document. In terms of function, they opperate in a similar manner to the other buttons across the site with a strong hover effect, and also fit website convention with the icons being greyed out, rather than the usual colour, when the option isn't available. For example, going back a page when the user is on the first page.
+- To select an individual product, the user can click anywhere within the applied border.
+
+### Individual Product Pages
+
+### Product Information and Editing
+
+- The individual product page carries the product name as a header in the same style as other headers across the site, such as 'New items' or 'All Products'. This consistency is better visually for the user and builds into an overall style for the website. The main information about the product is displayed, the image, product name, price, description and sizing. The product descriptions are taken directly from the company's own description or website and could in future be broken down into smaller categories. This is discussed in the future features section. When added to the database via frontend or backend of the website, all products can be allocated a 'Clothes sizes' category:
+
+    - S
+    - M 
+    - L 
+    - XL
+    
+    or a 'Skate sizes' category:
+
+    - UK6 / EU40
+    - UK7 / EU41
+    - UK8 / EU42
+    - UK9 / EU43
+    - UK10 / EU45
+    - UK11 / EU46
+
+    This is then displayed to the customer on the product page in a dropdown menu, detailing the choices. The user can then select the quantity of the product they'd like to add to their bag and click the 'Add to Bag' button when happy to do so.
+- The product category is also displayed, with a clickable link should the user wish to see more products within that category.
+- One feature that is only displayed to the site admin, is the links to edit or delete a product. The edit product link takes the user to a new page, pre populated with the product's information. Any of these fields can be updated to suit quick and easily via the 'Update Product' button. The delete button does not take the user to a new page, instead deleting the product from the store and redirecting to the products page. Both these links are hidden via logic in the html template and views.py.
+
+### Customer Queries
+
+- The customer queries feature was added late in development. On the left hand side on desktop, above the comments on mobile, there's a heading and a few paragraphs to explain to the customer what the feature is for, and why it's advantageous to them. This information reiterates the incentives listed in the top banner It provides the customer with the ability to ask a question about the product whose page they're on. This feature is hidden to users that are not logged in via the html template, instead linking them to the login page with a prompt 'Question about (product name)? Login here to ask us.' If the user is logged in, there's a clear input box below the prompt 'Question about (product name)? Let us know.
+
+---
+
+## Future Features
+
+### About Us / FAQ
+
+- Pre header information
+
+### Product Information
+
+- Break down into categories
 
 ## SEO Considerations
 
