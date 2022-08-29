@@ -10,6 +10,12 @@ This project has been made using Django / Python, HTML, CSS and JavaScript.
 
 [Here is the live version of this project](https://leaf-skateshop.herokuapp.com/)
 
+## Test Purchases
+
+- Should you wish to put through a test purchase, please enter the following in the Stripe payment element at checkout.
+
+![https://i.imgur.com/zcfkB4A](https://i.imgur.com/zcfkB4A.jpg "Payment details for a test purchase")
+
 ## Project Goals
 
 ## User Stories
@@ -103,6 +109,7 @@ These user stories were added to a kanabn board created in Projects in Github. T
 ### Navbar
 
 - As mentioned, one of the main goals with the navbar was to give space to the site name 'Leaf Skateshop'. The logo font was chosen because it was bold and angular, and because it looked stylish in full caps, rather than overbearing. The colour scheme of the logo was chosen to fit the leaf, nature theme, as well as being a colour that would work well in other areas of the site, and provide enough distinction to other text for accessibility. All of the links present in the nav were originally going to be spread across the top of the page (see wireframes), however when making the site, they looked good centered underneath the strong logo, as it really draws the eye on the page. To keep the navbar from becoming slightly bloated with too many links, it was split into two rows with the top row being the priority links to the available products, and the second row being further product filtering in the search bar, along with icons for Account, Admin and Basket. These icons were chosen as they fit standard ecommerce convention, and don't clutter the navbar with too much text. While mouseovering any of the icons and nav links, the colours will change to indicate that the item is a link that can be clicked and will take the user away from the current page. The navbar is also responsive in that as soon as the display falls below 992px, it will become a button which will provide a dropdown list of all links. The searchbar is excluded from this as it moves to the top of the page.
+- The shopping bag icon will also display the amount of items in the bag, a useful feature for that purpose but also for indicating to the user, on top of the displayed message, that an item has been added.
 - With regards to the Account button, to make the user journey as smooth as possible, I was keen for the user not to have to select a page from a list of options if possible. So rather than include a drop down menu that would list 'Account', 'Log in', 'Sign Out' and 'Register' I included logic in the html template to display one link for users to either log in (which includes a link to registration), and if the user was already logged in, the original link would be hidden and instead an identical link would be displayed to take the user to the accounts page which includes a button to sign out.
 
 ### Searchbar
@@ -125,8 +132,8 @@ These user stories were added to a kanabn board created in Projects in Github. T
 
 - The website's sign up form is included on every page of the website. It fits with the colour theme of the site with an eye catching background and stand out bold white text as a call to action. Rather than a formal 'Newsletter sign up' or 'Sign Up Form', I used the prompt 'Stay in touch', as it is more casual and inviting than formal and demanding. The paragraph beneath the call to action outlines the benefits that the user can gain from signing up. Namely 'Keep up to date with our latest products and offers, as well as signing up to receive our monthly newsletter, covering everything rollerblading.' The form is clear and simple with no labels or required field notices, keeping it as hassle free and inviting for the user to use. The form itself is a restyled Mailchimp sign up form, which means that email addresses successfuly entered receive a notice underneath the submit button of "Thank you for subscribing!" and are added onto the store's Mailchimp newsletter list.
 
-![Ihttps://i.imgur.com/FFRJjuj](https://i.imgur.com/FFRJjuj.jpg "Email signup")
-![https://i.imgur.com/mqjH9Qu](https://i.imgur.com/mqjH9Qu.jpg "Mailchimp success")
+    ![Ihttps://i.imgur.com/FFRJjuj](https://i.imgur.com/FFRJjuj.jpg "Email signup")
+    ![https://i.imgur.com/mqjH9Qu](https://i.imgur.com/mqjH9Qu.jpg "Mailchimp success")
 
 ### Footer
 
@@ -142,6 +149,8 @@ These user stories were added to a kanabn board created in Projects in Github. T
 - The products themselves are displayed in the same manner as those in the 'new products' section on the home page, leading with a strong image, product name and price.
 - To keep the site tidy I included pagination on all products pages, with the maximum amount of products displayed being 9 per page. This stops any product selection from becoming sprawling and unwieldly, especially on smaller devices. It also keeps the site wide sign up form and social links included in the footer, more relevant because they'll never fall too far down the page itself. The buttons to control the pagination did differ from the intial ideas included in the wireframes, and this is discussed in more detail in the testing document. In terms of function, they opperate in a similar manner to the other buttons across the site with a strong hover effect, and also fit website convention with the icons being greyed out, rather than the usual colour, when the option isn't available. For example, going back a page when the user is on the first page.
 - To select an individual product, the user can click anywhere within the applied border.
+
+---
 
 ### Individual Product Pages
 
@@ -176,7 +185,32 @@ These user stories were added to a kanabn board created in Projects in Github. T
 
 - The related products section uses the same layout as the 'new products' section on the home page. This time however it displays a random selection of 4 products from the same category of product already being shown. A key element to this is that the currently viewed product is excluded from this list, as it would unintuitive to advertise the same product again to the user, as well as being useless for the user themselves!
 
+--- 
+
+## Shopping Bag
+
+- The shopping bag page contains logic to check whether the user has anything in their shopping bag. If they don't, they're told as much and given a link to return to the store.
+- The shopping bag page is quite simple in design as this is when the user want's to be clear on their purchase. All elements on the page before the sign up form contain information about that particular order. Firstly the product details for the products in the basket. Then, displayed in a table, we have the image, name, size if applicable and sku number. We also have columns for individual price, an quantity selector which shows how many of that product are in the bag, and this can be adjusted as required, and finally a subtotal. This is calculated from the product price multiplied by it's quantity. Underneath the table we have the total costs, broken down into bag total, delivery if applicable and grand total.
+- The user has the option at this point of 'Continue browsing' as it's feasible that they want to double check the total cost of their basket before going on to make more purchases, and also 'Checkout' should they wish to proceed to payment.
+- One difference to the shopping bag page from those discussed previously is that the 'bag' section of any success messages will not be displayed while on it. This is because the user already has a clear breakdown of their bag on this page, so the extra notification wouldn't serve a purpose and would be annoying for the user, were they to prompt the message by adjusting quantities.
+
 ---
+
+## Checkout
+
+- The checkout page is split in to three sections, 'Delivery', 'Order Summary' and 'Payment'.
+- Delivery contains a form where the user is prompted to enter their delivery details, with a dropdown selector for 'Country' to help navigate around the payment system, Stripe's tricky country verification. If the user is not logged in at this stage, there is a prompt with links underneath the form for them to create an account or log in, should they wish for a quicker checkout next time around by saving their delivery information. If the user is already logged in, in the prompts place there is a checkbox to save their details.
+- The Order Summary section displays the products that are being purchased in a compact display, acompanied by a 'Return to Shopping Bag' link should any changes need to made. Underneath the products, again there's a breakdown of costs displayed to the user so they can confirm the total one last time before payment. The 'Complete Purchase' button is also located here as I thought it was beneficial to locate it right next to the total payment.
+- Payment contains an element created by Stripe which will provide the users errors should the entered details be incorrect. Please see 'Test Purchases' at the top of the readme should you wish to test a purchase.
+- Another feature of the checkout page is when details have been added successfuly and the user has clicked 'Complete Purchase' the below overlay appears to indicate to the user that their order is being processed. Not only are they told 'Placing Order...' on the overlay itself, the triple dot indicate that there's a process happening, and the included rotating dots underneath, code taken from [here](https://loading.io/css/), also work to tell the user to wait. This is important as if they user were to refresh the page as they were not aware the order was going through, they could re-enter their details and be charged twice.
+
+    ![https://i.imgur.com/lRCNif3](https://i.imgur.com/lRCNif3.jpg "Placing Order overlay")
+
+---
+
+### Checkout Success
+
+- If the order goes through successfuly, the user is taken to a seperate 'checkout success' page, this page acts as confirmation for the user that the order has been successful, as well as giving them a table to view their order details. There is a link to return to the store underneath the table. I chose for this link to be slightly more muted than the large buttons elsewhere on the site, as it seemed more respectful to the user who's already made a purchase, rather than a button with capital letters saying 'back to the store!'
 
 ## Future Features
 
