@@ -46,6 +46,10 @@
     margin-right: 0;
 }
 
+.active-login {
+    color: #3c774b !important;
+}
+
 #admin-item {
     top: 2px;
 }

@@ -93,11 +93,11 @@
                     </li>
                     {% if request.user.is_authenticated %}
                     <li class="nav-item d-lg-none">
-                        <a class="nav-link" href="{% url 'profile' %}">Account</a>
+                        <a class="nav-link" href="{% url 'profile' %}">My Account</a>
                     </li>
                     {% else %}
                     <li class="nav-item d-lg-none">
-                        <a class="nav-link" href="{% url 'account_login' %}">Account</a>
+                        <a class="nav-link" href="{% url 'account_login' %}">Log In</a>
                     </li>
                     {% endif %}
                     {% if request.user.is_superuser %}
@@ -130,7 +130,7 @@
                     </li>
                     {% if request.user.is_authenticated %}
                     <li class="nav-item d-none d-lg-block" id="user-item">
-                        <a class="nav-link" id="user-icon" aria-label="user profile" href="{% url 'profile' %}"><i
+                        <a class="nav-link active-login" id="user-icon" aria-label="user profile" href="{% url 'profile' %}"><i
                                 class="fa fa-user"></i></a>
                     </li>
                     {% else %}
