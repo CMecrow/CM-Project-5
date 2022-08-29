@@ -737,6 +737,10 @@ select:invalid, select option[value=""] {
     .size-head, .head-spacer-2 {
         display: none !important;
     }
+
+    .subtotal-bag {
+       padding-top: 10px;
+    }
 }
 
 @media screen and (max-width: 576px) {

@@ -37,7 +37,7 @@
             </div>
             <div class="col-12 col-sm-6 mb-2">
               {% include "bag/quantity-form.html" %}
-              <p>Subtotal:<strong> £{{ item.product.price | calc_subtotal:item.quantity }}</strong></p>
+              <p class="subtotal-bag">Subtotal:<strong> £{{ item.product.price | calc_subtotal:item.quantity }}</strong></p>
             </div>
           </div>
           <div class="row"><div class="col"><hr></div></div>
