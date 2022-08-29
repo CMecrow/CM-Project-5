@@ -64,7 +64,7 @@ These epics can then be broken down further into individual user stories:
     - Post a question about a specific product
     - Answer user questions
 
-These user stories were added to a kanabn board created in Projects in Github. The kanban board contains four columns:
+These user stories were added to a kanabn board created in Projects in Github [here](https://github.com/users/CMecrow/projects/2). The kanban board contains four columns:
 - Backlog: This is where user stories that may not be added in this iteration of the project are kept. Refering to the MoSCoW prioritization categories, these can be considered 'could have'.
 - Todo: Where all essential user stories that have not yet been worked on are stored, these can be considered 'must have'.
 - In Progress: Where all user stories that are currently being worked on are located.
@@ -401,7 +401,7 @@ The project also contains a sitemap.xml file created [here](https://www.xml-site
 - Generated a new secret key to add to Heroku config vars.
 - Updated settings.py to retrieve secret key from env.py file, for DEBUG to only be true should there be a variable named 'DEVELOPMENT' (again located in env.py but not on Heroku).
 - Created a new public bucket on S3 to store static files, enabled static website hosting, applied a CORS configuration to grant our Heroku app access and generated a security policy for the bucket, all in permissions. Detailed walkthrough of these steps available [here.](https://codeinstitute.s3.amazonaws.com/fullstack/AWS%20changes%20sheet.pdf)
-- Still within AWS, I navigated to IAM to create a user to access the newly created bucket. This required a group for the user, coupled with a suitable access policy. Walkthrough followed [here.](https://codeinstitute.s3.amazonaws.com/fullstack/AWS%20changes%20sheet.pdf).
+- Still within AWS, I navigated to IAM to create a user to access the newly created bucket. This required a group for the user, coupled with a suitable access policy. Again walkthrough followed [here.](https://codeinstitute.s3.amazonaws.com/fullstack/AWS%20changes%20sheet.pdf).
 - Once the above step was complete, I had access to the newly created user's access key and secret access key, both of which were then added as config vars on Heroku, along with 'USE_AWS', which would be used in the next step.
 - Back in GitPod, I installed boto3 and django-storages, updating my requirements.txt. Django-storages was added to my installed apps in settings.py. Still in settings, I added an if statement to check if the variable 'USE_AWS' was present, ensuring it wouldn't be in GitPod, but was in Heroku. Within the if statement, I added details of the S3 bucket, along with a way of the access key and secret access keys being reached on Heroku.
 - Since the static files are almost ready to be used on the deployed Heroku site, I removed the DISABLE_COLLECTSTATIC variable.
@@ -419,14 +419,21 @@ The project also contains a sitemap.xml file created [here](https://www.xml-site
 
 - As mentioned I have kept my GitPod workspace using the postgres database as I was keen to manage the feature that was added late in development, the customer queries, with ease from GitPod. This will not be the case for anyone else using GitPod as the required variables are stored in an env.py which is seperate to version control as it's listed in .gitignore.
 
-
-
-
-
-
 ---
 
 ## Credits
 
-Boutique
-Project 4 comments
+- The project took its roots and structure from Code Institute's Boutique Ado walkthrough project.
+- The Comments model present in Products/models.py was taken and adjusted from my 4th Project, link [here.](https://github.com/CMecrow/CM-Project-4)
+- The banner and 404 images used were taken from [here.](https://www.adamkola.com/rollerblading/) Ideally I'd use royalty free open source images, but due to the niche nature of the subject matter, high quality photos are extremely hard to come by.
+- The product images and descriptions were taken from [here.](https://www.thisissoul.com/)
+- The [site template](https://www.tooplate.com/templates/2114_pixie/) used.
+- Stackoverflow on how to edit bootstrap's input glow [here.](https://stackoverflow.com/questions/14820952/change-bootstrap-input-focus-blue-glow)
+- Django pagination documentation available [here](https://docs.djangoproject.com/en/4.0/topics/pagination/), with assisting youtube video [here](https://www.youtube.com/watch?v=dkJ3uqkdCcY).
+- Related product youtube video [here](https://www.youtube.com/watch?v=fqIBA2Vpws0&t=136s).
+- A useful document on QueryStrings [here](https://simpleisbetterthancomplex.com/snippet/2016/08/22/dealing-with-querystring-parameters.html).
+- The Placing Order CSS loader taken from [here](https://loading.io/css/).
+- The walkthrough for creating a json file containing my product database [here](https://code-institute-room.slack.com/archives/C01C4AU8ULA/p1641488400004200).
+- Stackoverflow for issues during deployment to Heroku [here](https://stackoverflow.com/questions/71712258/error-could-not-build-wheels-for-backports-zoneinfo-which-is-required-to-insta#:~:text=Avoid%20installing%20backports.zoneinfo%20when%20using%20python%20%3E%3D%203.9).
+- CodeInstitute deployment walkthrough [here.](https://codeinstitute.s3.amazonaws.com/fullstack/AWS%20changes%20sheet.pdf) and 
+
