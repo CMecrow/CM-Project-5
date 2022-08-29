@@ -216,8 +216,6 @@ These user stories were added to a kanabn board created in Projects in Github. T
 
     ![https://i.imgur.com/lRCNif3](https://i.imgur.com/lRCNif3.jpg "Placing Order overlay")
 
----
-
 ### Checkout Success
 
 - If the order goes through successfuly, the user is taken to a seperate 'checkout success' page, this page acts as confirmation for the user that the order has been successful, as well as giving them a table to view their order details. There is a link to return to the store underneath the table. I chose for this link to be slightly more muted than the large buttons elsewhere on the site, as it seemed more respectful to the user who's already made a purchase, rather than a button with capital letters saying 'back to the store!'
@@ -267,7 +265,7 @@ These user stories were added to a kanabn board created in Projects in Github. T
 
 - The data models use share a lot of the same data. For example 'User' in the User Profile model, will be the same that's used as 'Author' in the Comment data model and 'User Profile' in the Order data model. These links are required to be able to attach the pieces of data together. For example, for orders to be attributed to the correct user, or comments to the correct product. Some of the data is purely for the backend, for example in the checkout app, a user would interact with the Order data model, rather than the Order Line Item model. Some data is purely for the business, the 'Sku' in product is an example of this. Though it is displayed to the customer at various points in the user journey, it is primarily for the store to identify the correct product. There are some data points that are not currently used, but are included to aid the development of the site with extra features in the future. The Comment model includes an 'Updated on' field, though not currently in use, this will be nesicary when the user is given the ability to edit their own comments / questions on the products page in the future.
 
-[https://i.imgur.com/mqCvnrw](https://i.imgur.com/mqCvnrw.jpg "Data Model for Leaf Skateshop ecommerse site")
+![https://i.imgur.com/mqCvnrw](https://i.imgur.com/mqCvnrw.jpg "Data Model for Leaf Skateshop ecommerse site")
 
 ---
 
@@ -327,4 +325,21 @@ Product images were all named very literally with the brand and product included
 Finally in the head of base.html, the site description was written to include the keywords 'skateshop', 'skate' 'skate shop', 'Newcastle', 'UK', 'rollerblading', 'rollerblading products'. The remaining keywords were included in the keywords meta element, along with prominent rollerblading brands. 'rollerblades', 'inline skates', 'inline skating', 'aggressive skates', 'aggressive skating', 'freestyle skates', 'complete skates', 'skate parts', 'skate wheels', 'skate frames', 'skate liners,' 'skate components', 'rollerblading gifts'.
 
 The project also contains a sitemap.xml file created [here](https://www.xml-sitemaps.com/), and a robots.txt file, which allows search engine spiders into all points of our site, with the exception of the /admin/ directory.
+
+---
+
+## Leaf Skateshop Facebook account
+
+- A Facebook Business page was created for Leaf Skateshop. Key elements included were:
+    - Use of logo as profile picture to reinforce the brand name
+    - Reuse of the strong banner image to give facebook users a clear indication as to the purpose of the site and the nature of the products sold
+    - Inclusion of keywords in the short bio section: 'Skateshop', 'UK'
+    - Added location 'Newcastle' as that was a query that appeared a lot in the keyword research above
+    - Included an email address for any enquiries. (If this were a real business you'd not want to include the email as a gmail account, instead you'd want to use a domain name to seem more professional and inspire customer confidence)
+    - A direct link to the shop site, along with the use of the 'Call To Action' button being a 'Shop Now' linking to the site.
+    - A positive first post linking to the site, prompting users to sign up with all the incentives.
+
+- I have deactivated the page to avoid it being taken down or any misuse. Please see screenshot below
+
+![https://i.imgur.com/R3Z8aQU](https://i.imgur.com/R3Z8aQU.jpg "Leaf Skateshop Facebook page")
 
