@@ -125,5 +125,21 @@ This extra function was called when the hide instance was called and called some
 
  What I also realised is that this exact same problem of unreachable scripts would be affecting the Mailchimp Javascript also at the bottom of base.html. Again due to time constraints, I relocated the Mailchimp js to the header, far from ideal but a workable solution for the time being.
 
+ ### Stripe Webhooks
+
+ I was stuck for a worrying amount of time trying to find a reason why all submitted orders were prompting a 500 Server Error on one of the Stripe webhooks. After hours of headscratching I noticed an error was being printed in the terminal that a filed called in the following code:
+
+        def _send_confirmation_email(self, order):
+                """Send the user a confirmation email"""
+                cust_email = order.email
+                subject = render_to_string(
+                'checkout/confirmation_emails/confirmation_email_subject.txt',
+                {'order': order})
+                body = render_to_string(
+                'checkout/confirmation_emails/confirmation_email_body.txt',
+                {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
+
+Namely the confirmation_email_subject.txt, could not be located. The fix was simple as I moved the file to the correct location.
+
 
 

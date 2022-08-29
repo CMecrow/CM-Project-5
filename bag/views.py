@@ -3,7 +3,6 @@ from django.shortcuts import (
 )
 from django.contrib import messages
 from products.models import Product
-# Create your models here.
 
 
 def view_bag(request):
@@ -36,7 +35,6 @@ def add_to_bag(request, item_id):
 
     if skate_size:
         if item_id in list(bag.keys()):
-            print(bag)
             if skate_size in list(bag[item_id]['skates_by_size'].keys()):
                 bag[item_id]['skates_by_size'][skate_size] += quantity
                 messages.success(request, f'Updated {product.name} size\

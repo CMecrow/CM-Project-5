@@ -7,8 +7,6 @@ from django.core.paginator import Paginator
 from .models import Product, Category, Comment
 from .forms import ProductForm, CommentForm
 
-# Create your views here.
-
 
 def all_products(request):
     """ A view to show all products, including sorting and search queries """

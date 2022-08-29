@@ -5,10 +5,14 @@
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(71, 129, 127, 0.6);
 }
 
+/* Pre header CSS */
+
 .head-spacer-1, .head-spacer-2 {
     margin-left: 10px;
     margin-right: 10px;
 }
+
+/* Logo CSS */
 
 .leaf {
     font-family: 'Bebas Neue', Arial, Helvetica, sans-serif;
@@ -28,6 +32,8 @@
     padding-bottom: 20px;
     margin-left: 20px;
 }
+
+/* Navbar CSS */
 
 .right-nav {
     z-index: 999;
@@ -84,26 +90,14 @@
     color: #bbbaba;
 }
 
+/* Products Page CSS */
+
 #page-pagination {
     margin: auto;
 }
 
 .single-product {
     padding-top: 60px;
-}
-
-.product-sorting {
-    font-family: Roboto, sans-serif;
-    display: inline-block;
-    padding-left: 10px;
-    font-size: 17px;
-    font-weight: 700;
-    color: #1e1e1e;
-    transition: all 0.5s;
-}
-
-.product-sorting:hover {
-    color: #3c774b;
 }
 
 #sort-new {
@@ -121,6 +115,8 @@
     border-color: #3c774b;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(71, 129, 127, 0.6);
 }
+
+/* Shopping Bag CSS */
 
 .continue-browsing {
     padding-top: 40px;
@@ -150,6 +146,42 @@
 .continue-browsing, .return-to-bag i {
     padding-right: 10px;
 }
+
+.bag-product-image {
+    width: 200px;
+}
+
+.bag-quantity {
+    border: none;
+    text-align: center;
+}
+
+.update-link, .remove-item {
+    cursor: pointer;
+}
+
+.remove-item {
+    padding-left: 30px;
+}
+
+tr.product-tr>td, tr.bag-costs>td {
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+}
+
+.product-tr {
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+#continue-button {
+    padding-right: 20px;
+}
+
+#checkout-button, #continue-button {
+    display: inline-block;
+}
+
+/* Product Detail CSS */
 
 .size-select {
     margin-left: 10px;
@@ -232,39 +264,7 @@
     color: #3c774b;
 }
 
-.bag-product-image {
-    width: 200px;
-}
-
-.bag-quantity {
-    border: none;
-    text-align: center;
-}
-
-.update-link, .remove-item {
-    cursor: pointer;
-}
-
-.remove-item {
-    padding-left: 30px;
-}
-
-tr.product-tr>td, tr.bag-costs>td {
-    padding-bottom: 1rem;
-    padding-top: 1rem;
-}
-
-.product-tr {
-    border-bottom: 1px solid rgba(0,0,0,.1);
-}
-
-#continue-button {
-    padding-right: 20px;
-}
-
-#checkout-button, #continue-button {
-    display: inline-block;
-}
+/* Toast CSS */
 
 .message-container {
     text-align: center;
@@ -337,6 +337,8 @@ tr.product-tr>td, tr.bag-costs>td {
 .message-success-bag {
     background: white;
 }
+
+/* Checkout CSS */
 
 .checkout-head {
     margin-bottom: 40px;
@@ -498,6 +500,8 @@ select:invalid, select option[value=""] {
     border: 1px solid #dee2e6!important;
 }
 
+/* Checkout Success CSS */
+
 .order-section {
     padding-top: 10px;
 }
@@ -505,6 +509,8 @@ select:invalid, select option[value=""] {
 .order-confirmation-wrapper {
     padding-bottom: 40px;
 }
+
+/* Accounts CSS */
 
 .account-container {
     margin-top: 80px;
@@ -650,6 +656,8 @@ select:invalid, select option[value=""] {
     color: #3c774b;
 }
 
+/* 404 Page CSS */
+
 .banner-404 {
     height: 600px;
 	margin-top: 100px;
@@ -674,6 +682,8 @@ select:invalid, select option[value=""] {
 .text-404 {
     padding-bottom: 10px;
 }
+
+/* Mailchimp Custom CSS */
 
 .mc-field-group input::placeholder {
     color: white;

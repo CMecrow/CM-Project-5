@@ -25,11 +25,6 @@
         </div>
       </div>
       <div class="col-md-8 col-sm-12 align-items-end">
-        <!-- <div id="filters">
-          <a class="product-sorting" id="sort-new" href="{% url 'products' %}?sort=date_added&direction=desc"><h6>Newest</h6></a>
-          <a class="product-sorting" href="{% url 'products' %}?sort=price&direction=asc"><h6>Lowest Price</h6></a>
-          <a class="product-sorting" href="{% url 'products' %}?sort=price&direction=desc"><h6>Highest Price</h6></a>
-        </div> -->
         <div class="search-container">
           <select id="sort-selector"
             class="custom-select custom-select-sm border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
@@ -75,7 +70,6 @@
       <div class="col-md-12">
         <ul>
           {% if products.has_previous %}
-          <!-- <li><a href="?page=1"></i></a></li> -->
           <li><a href="{% my_url products.previous_page_number 'page' request.GET.urlencode %}" aria-label="previous page"><i
                 class="fa fa-arrow-left"></i></a></li>
           {% else %}

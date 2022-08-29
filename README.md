@@ -136,7 +136,18 @@ These user stories were added to a kanabn board created in Projects in Github. T
 
 ### Messages
 
-- 
+- Messages are employed throughout the site to give instant feedback to the user as to whether their action has succeeded or failed. It is also used as a display of an alert in some rare cases, for example to the admin to display which product they're currently editing. The most indepth message on the site is the message sent for a successful action.
+- This message contains an extra feature of displaying to the user all the items in their shopping bag, along with some select information about the product, namely its image, name, size if applicable and quantity. This information extends further should the customer's bag be under the free delivery threshold of £100. If this is the case then an extra banner is shown indicating how much they'd have to spend to qualify. All of this is acompanied by the total cost of the items in the bag, and a link to take them to the checkout. All of this information however, feels a bit redundant on certain pages:
+    - If the user is on the account page, updating their information, a large message would get in the way and not aid their current goals.
+    - If the user is on the checkout or shopping bag page, they already have the items listed on the page so an extra display is redundant.
+    - If a site admin is adding a product to the store, it's unlikely they'd have items in their basket, but it still feels unnecessary.
+- The final unique feature of the success alerts is that they automatically hide after six seconds. This was not included on other messages such as alerts as they may be more unexpected, so require greater attention.
+
+### Confirmation emails
+
+- Confirmation or verification emails are sent to users either when they're verifying their email when registering and also upon a successful purchase.
+- The email verification is simple and sent when the registration form is completed with a link for the user to follow to authenticate their email address.
+- The order confirmation email is more complex and is triggered upon receiving a successful webhook back from Stipe when the order has been found in the database or when the order itself has been created by the webhook when the order could not be found.
 
 ### Banner Image and Call to Action
 
@@ -278,7 +289,8 @@ Another perk for the business is that this sort of page would provide them with 
 
 ### Customer Queries
 
-- The included feature that currently requires the most work to live up to it's potential is the customer queries section. The feature would ideally have the function for site admin's to specifically reply to customer questions, with their response being displayed beneath the question and highlighted. This could then be developed further and have the customer who asked the question sent an email notification that their question has been responded to, and for the admin, a notification that a question has been left, and where to find it. From both an admin and customer perspective the feature needs some work. For admins, the only moderation that can be carried out is within the 
+- The included feature that currently requires the most work to live up to it's potential is the customer queries section. The feature would ideally have the function for site admin's to specifically reply to customer questions, with their response being displayed beneath the question and highlighted. This could then be developed further and have the customer who asked the question sent an email notification that their question has been responded to, and for the admin, a notification that a question has been left, and where to find it. From both an admin and customer perspective the feature needs some work. For admins, the only moderation that can be carried out is within the admin page, built in to django, and as previously mentioned, any moderation should be achievable from the front end. For customers there should be the option to edit their submitted comments. Though the information present about the feature on the page does advise this isn't possible.
+- All in all I decided that the skeleton version of this feature was still worth implementing, and it would provide a starting block for further expansion of the site.
 
 ---
 
@@ -373,3 +385,6 @@ The project also contains a sitemap.xml file created [here](https://www.xml-site
 ---
 
 ## Credits
+
+Boutique
+Project 4 comments
