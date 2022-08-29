@@ -68,8 +68,10 @@
                 </button>
               </div>
             </div>
-            <input id="add-to-bag-btn" type="submit" class="button" value="Add To Bag">
-            <input type="hidden" name="redirect_url" value="{{ request.path }}">
+            <div class="main-button">
+              <input id="add-to-bag-btn" type="submit" class="button" value="Add To Bag">
+              <input type="hidden" name="redirect_url" value="{{ request.path }}">
+            </div>
           </form>
           <div class="down-content">
             <div class="categories">
@@ -97,8 +99,16 @@
       <h1>Customer Queries</h1>
     </div>
     <div class="row">
-      <div class="col-md-6">
-
+      <div class="col-md-6 comment-notice">
+        <h5>If you have a question about this product, let's hear it!</h5>
+        <p>At Leaf Skateshop we pride ourselves on our product and industry knowledge. We make sure we know every product we sell inside and out
+          to give you, the customer, the best possible experience when visiting our store.</p>        
+        <p>Whether there's something you're not sure about or you're just after some expert advise about a product, make sure to drop us a comment
+          about it and we'll get back to you as soon as we can.</p>
+        <p>If you'd like to go into a bit more detail, please feel free to send us an email at info@leafskateshop.co.uk</p>
+        <p class="font-italic">Please note that once a comment is submitted it can not be edited or deleted so make sure you're
+          happy before hitting submit!</p>
+        <p class="tagline"><strong>Leaf Skateshop, for rollerbladers, by rollerbladers.</strong></p>
       </div>
       <div class="col-md-6">
         <div class="comment-section">
@@ -112,12 +122,16 @@
           {% endfor %}
         </div>
         {% if user.is_authenticated %}
-        <p>Question about {{ product.name}}? Let us know.</p>
+        <p class="question-prompt"><strong>Question about {{ product.name}}? Let us know.</strong></p>
         <div class="comment-form">
           <form method="post" class="comment-input">
             {% csrf_token %}
             {{ comment_form|crispy }}
-            <button type="submit" class="primaryAction btn btn-outline-primary">Submit</button>
+            <button id="comment-button">
+              <div class="main-button">
+                  <p>Submit</p>
+              </div>
+          </button>
           </form>
         </div>
         {% endif %}

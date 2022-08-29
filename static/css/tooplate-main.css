@@ -24,7 +24,7 @@ a {
 	text-transform: uppercase;
 }
 
-.main-button a, .main-button p, .main-button button {
+.main-button a, .main-button p, .main-button button, .main-button input {
 	cursor: pointer;
 	background-color: #3c774b;
 	border-radius: 5px;
@@ -38,7 +38,8 @@ a {
 	text-decoration: none;
 	transition: all 0.5s;
 }
-.main-button a:hover, .main-button p:hover, .main-button button:hover {
+.main-button a:hover, .main-button p:hover, .main-button button:hover,
+.main-button input:hover {
 	opacity: 0.7;
 }
 .section-heading {

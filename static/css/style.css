@@ -191,6 +191,21 @@
     margin-top: 40px;
 }
 
+.comment-notice {
+    background-color: #EEEEEE;
+    padding: 20px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.comment-notice h5 {
+    padding-bottom: 10px;
+}
+
+.comment-notice p {
+    padding-bottom: 10px;
+}
+
 .comment-section {
     max-height: 300px;
     overflow: scroll;
@@ -206,6 +221,10 @@
 
 .comment-input div label {
     display: none;
+}
+
+.question-prompt {
+    color: #3c774b;
 }
 
 .bag-product-image {
@@ -345,16 +364,21 @@ select:invalid, select option[value=""] {
     width: 100%;
 }
 
-#submit-button {
+#submit-button, #checkout-button, #edit-button,
+#comment-button {
     padding-left: 0;
     padding-bottom: 40px;
-}
-
-#submit-button, #submit-button:focus, #submit-button:hover {
     background-color: white;
     border: none;
     box-shadow: none!important;
     outline: 0;
+}
+
+#submit-button:focus, #submit-button:hover,
+#checkout-button:focus, #checkout-button:hover,
+#edit-button:focus, #edit-button:hover,
+#add-button:focus, #add-button:hover,
+#comment-button:focus, #comment-button:hover {
     cursor: pointer;
 }
 
