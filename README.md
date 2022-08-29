@@ -70,7 +70,15 @@ These user stories were added to a kanabn board created in Projects in Github. T
 - In Progress: Where all user stories that are currently being worked on are located.
 - Done: All completed user stories.
 
-## Leaf Skateshop business model
+- Please note that User stories have been reviewed upon completion of the project with notes added to each.
+
+## Site Development Schedule
+
+- First planning this project, I realised that I would mainly have time to work over the weekends. Because of the size of the project, I applied an agile methodology to plan out the user stories and epics described above, to try and manage my time and calculate what features were must haves and which were could haves. With my working strucure, I tried to work in one or two weekend sprints, to try and acheive at least basic functionality of the chosen epics over these periods. This helped me get my head around the task at hand, as I could focus on specific userstories to work towards epics, ensuring the basic functionality at least was there before moving on. The structure of the Code Institute walkthrough project, Boutique Ado, did also assist here as it could work as real boost to refer back to videos when I was slowed down by any bugs. I was very keen to try and impliment as many features as I could and may have bitten off more than I could chew with the final implimentation of the 'User questions' epic. Because of this the feature is not as well rounded as I would have liked, this is discussed further in the future features section.
+
+---
+
+## Leaf Skateshop business model / Site role
 
 - This project is creating an ecommerse website for a skate shop called Leaf Skateshop. The shop and site will be business to consumer and the site will sell products directly to consumers. Leaf Skateshop as a whole would be clasified as a small business, and they have requested this ecommerse site be built for them so they don't need to sell through any online intermediaries. This is beneficial to them as they can theefore have more control over the site, as well as make more profit from each sale as there's no partner to split with. The business to consumer model will also go on to suit them in the future, as more features are added to the site to increase user engagement. Features like an about us, FAQs, contact us and product wishlists would all deepen the relationships between the business and it's customers, as well as providing extra knowledge to the business as to which products are sought after, which aren't, as well as identifying customer questions and issues to tailor the website to answer them.
 - The overall structure between business, website and consumer on a transactional basis will run as below:
