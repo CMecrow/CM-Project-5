@@ -64,6 +64,12 @@
         {% endwith %}
         {% endfor %}
     </div>
+    <script type="text/javascript">
+        $('.toast').toast('show');
+        $('.toast').on('hidden.bs.toast', function () {
+            $('.toast').hide();
+        });
+    </script>
     {% endif %}
 
     <!-- Navigation -->
@@ -268,26 +274,7 @@
     </div>
     <!-- Sub Footer Ends Here -->
 
-    <!-- <script type="text/javascript">
-    console.log($('.toast'));
-    $(".toast").on('shown.bs.toast',function(){
-        console.log('Second Hello');
-        $(".close").click(function() {
-            $('.toast').toast('dispose');
-        });
-    });
-    // document.addEventListener("DOMContentReady", function() {
-    //     $(".toast").on('shown.bs.toast',function(){
-    //     console.log('Second Hello');
-    //     $(".close").click(function() {
-    //         $('.toast').toast('dispose');
-    //     });
-    // });      
-    </script> -->
     {% block postloadjs %}
-    <script type="text/javascript">
-        $('.toast').toast('show');
-    </script>
 
     <!-- Mailchimp JavaScript -->
     <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>

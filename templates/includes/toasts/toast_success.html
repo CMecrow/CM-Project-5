@@ -12,8 +12,7 @@
                 {{ message }}
             </div>
         </div>
-    </div>
-    {% if product_count > 0 and not hide_message_bag %}
+        {% if product_count > 0 and not hide_message_bag %}
     <div class="message-product-wrap">
         <p class="logo-font bg-white text-black py-1">Your Bag ({{ product_count }})</p>
         <div class="row bag-notification-wrapper">
@@ -60,4 +59,5 @@
     </div>
     {% endif %}
     <div class="w-100 toast-capper bg-success"></div>
+    </div>
 </div>
