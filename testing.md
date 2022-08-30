@@ -22,9 +22,9 @@ However, this had the unintended consiquence of having the searchbar appear at t
 
 The responsive resizing of the searchbar is not completed in as smoother a manner as I'd like in relation to the navbar below it, I simply used resizing via media queries. Ideally it should match the resizing of the logo and nav buttons, instead of over or underlapping. This is a small aesthetic issue and does not effect the functionality, however it may be revisited later in the project, should there be time.
 
-### New Items
+### Featured Items
 
-- The template did include some js and custom css to have a carousell feature to the featured items. This wasn't something that felt necessary for this project
+- The template did include some js and custom css to have a carousell feature to the featured items. This wasn't something that felt necessary for this project and was instead redesigned into 'New items' which would automatically update, reducing any extra tasks for the site admin.
 
 ---
 
@@ -140,6 +140,12 @@ This extra function was called when the hide instance was called and called some
                 {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
 
 Namely the confirmation_email_subject.txt, could not be located. The fix was simple as I moved the file to the correct location.
+
+## Lighthouse Testing
+
+- The site's overall accessibility was considered through out the development process with changes being made to meet guidelines in terms of both styling and addition of extra html to help screen readers navigate the page.
+
+![https://i.imgur.com/8GbOI21](https://i.imgur.com/8GbOI21.jpg "Leaf Skateshop's Lighthouse rating")
 
 ## Validator Testing
 
