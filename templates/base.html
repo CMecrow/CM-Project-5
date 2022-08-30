@@ -53,7 +53,7 @@
         }(jQuery));
         var $mcj = jQuery.noConflict(true);
     </script>
-    
+
 </head>
 
 <body>
@@ -158,9 +158,9 @@
                         </form>
                     </li>
                     {% if request.user.is_authenticated %}
-                    <li class="nav-item d-none d-lg-block" id="user-item">
-                        <a class="nav-link active-login" id="user-icon" aria-label="user profile" href="{% url 'profile' %}"><i
-                                class="fa fa-user"></i></a>
+                    <li class="nav-item d-none d-lg-block" id="profile-item">
+                        <a class="nav-link active-login" id="user-icon" aria-label="user profile"
+                            href="{% url 'profile' %}"><i class="fa fa-user"></i></a>
                     </li>
                     {% else %}
                     <li class="nav-item d-none d-lg-block" id="user-item">

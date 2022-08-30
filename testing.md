@@ -143,7 +143,7 @@ Namely the confirmation_email_subject.txt, could not be located. The fix was sim
 
 ## Validator Testing
 
-- HTML - HTML was difficult to validate due to amount of Django present, however while running through the templates any errors were rectified. One exception were the labels present in product_detail. As these were taken from the Boutique Ado walk through project, they've been left in as is.
+- HTML - HTML was difficult to validate due to amount of Django present, however while running through the templates any errors were rectified with two exceptions. First were the labels present in product_detail. As these were taken from the Boutique Ado walk through project, they've been left in as is. Second was the head of base.html taken from the initial site template, where validators were picking up a stray doctype and html tag. [W3Validation](https://validator.w3.org/)
 
 - CSS - Errors returned here where present in the imported template css, due to time constraints and a lack of understanding of their specific function, these were left included. Custom CSS written in static/css/style.css contains no errors. [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/)
 
