@@ -124,7 +124,7 @@ These user stories were added to a kanban board created in Projects in Github [h
 - Across the top of all pages, a header is displayed, detailing some strong incentives for users to purchase from the store. One feature that is repeated across the site is the incentive of hitting the 'free delivery' mark of £100. Obviously the larger the order the better for the store, but it also provides an incentive for the user, a potential reason for them to top up their shopping bag with an extra purchase to avoid paying shipping costs. The second incentive is the stores 'Expert knowledge and advice', this is included to communicate to users that the store staff understand the products and are open to giving advice where required. This is important because rollerblading as a sport can seem fairly inaccessible to someone without previous knowledge, with the varying features of products hidden behind jargon and other industry terms. This knowledge is accessible for the users within each product page, where they can ask a question about a specific product, and the admin can respond. The final incentive is a 'Free size swap'. This is something that various other skate shops offer and advertise so it's important for our store to match them. Within rollerblading, different brand's skates, or event models of skates within the same brand, have a very different fit on the foot. Because of this, offering a free size swap relieves one of the main worries that someone may have when buying new skates.
 - To avoid this head becoming overbearing on smaller screens with the long text, the choice was made to filter off the less important incentives one by one, maintaining the header's height at the top of the page. The highest importance was assigned to 'Free Delivery on all orders over £100', second priority to 'Expert knowledge and advice' with 'Free size swap' being placed last. The downside to this is that the latter two incentives would be hidden to user who only view the site on a small display. One solution to this in a future iteration would be to include the incentives in an 'About Us' or 'FAQ' page, discussed in the future features section.
 
-![https://i.imgur.com/DSpIQ5u](https://i.imgur.com/DSpIQ5u.jpg "Pre nav header")
+    ![https://i.imgur.com/DSpIQ5u](https://i.imgur.com/DSpIQ5u.jpg "Pre nav header")
 
 ### Navbar
 
@@ -132,9 +132,9 @@ These user stories were added to a kanban board created in Projects in Github [h
 - The shopping bag icon will also display the amount of items in the bag, a useful feature for that purpose but also for indicating to the user, on top of the displayed message, that an item has been added.
 - With regards to the Account button, to make the user journey as smooth as possible, I was keen for the user not to have to select a page from a list of options if possible. So rather than include a drop down menu that would list 'Account', 'Log in', 'Sign Out' and 'Register' I included logic in the html template to display one link for users to either log in (which includes a link to registration), and if the user was already logged in, the original link would be hidden and instead an almost identical link would be displayed to take the user to the accounts page which includes a button to sign out. This differs slightly on mobile because of the implementation of the drop down menu. One consideration I had was how to display to the user that they are logged in already. To remedy this, for mobile if the user is already logged in, the nav link will read 'My Account', if they aren't logged in, it'll read 'Log in / Register'. For desktop, when the user is logged in, the account icon would be displayed in the site green, leaning on the convention that green indicates 'success' or 'active'. When logged out it'd be displayed black.
 
-![https://i.imgur.com/N9m9b1d](https://i.imgur.com/N9m9b1d.jpg "Navbar")
+    ![https://i.imgur.com/N9m9b1d](https://i.imgur.com/N9m9b1d.jpg "Navbar")
 
-![https://i.imgur.com/1sjIIDK](https://i.imgur.com/1sjIIDK.jpg "Mobile Nav")
+    ![https://i.imgur.com/1sjIIDK](https://i.imgur.com/1sjIIDK.jpg "Mobile Nav")
 
 ### Searchbar
 
@@ -149,7 +149,7 @@ These user stories were added to a kanban board created in Projects in Github [h
     - If a site admin is adding a product to the store, it's unlikely they'd have items in their basket, but it still feels unnecessary.
 - The final unique feature of the success alerts is that they automatically hide after six seconds. This was not included on other messages such as alerts as they may be more unexpected, so require greater attention.
 
-![https://i.imgur.com/mBpakXh](https://i.imgur.com/mBpakXh.jpg "Success message with bag notification")
+    ![https://i.imgur.com/mBpakXh](https://i.imgur.com/mBpakXh.jpg "Success message with bag notification")
 
 ### Confirmation emails
 
@@ -161,26 +161,26 @@ These user stories were added to a kanban board created in Projects in Github [h
 
 - I included a large eye catching banner image to complement the site's content and purpose. The image is high quality so looks good on larger screens and isn't overly cluttered so still looks good on smaller devices, though the rollerblader may be cropped on small devices, the skatepark ramps are still present. The call to action overlayed on the image gives a brief introduction to the shop as well as the site's logo, letting the user know a bit about the business and where they're based. These features are accompanied by the call to action button 'Shop now!', providing an access point to the store products straight from the eye catching banner image. This button styling is replicated across the site, to make it clear to users when an element is interactable for them. They also include a hover effect to reinforce this.
 
-![https://i.imgur.com/zQWI8sP](https://i.imgur.com/zQWI8sP.jpg "Banner image with call to action")
+    ![https://i.imgur.com/zQWI8sP](https://i.imgur.com/zQWI8sP.jpg "Banner image with call to action")
 
 ### New Items
 
 - The template included a 'Featured items' section towards the bottom of the home page. I changed this to be new items, and applied the view appropriately, to keep the webpage dynamic and up to date without any extra work for the site admin. These products will be automatically updated as new items are added on the back or frontend by the site admin. These products have a grey small border to separate them, along with an eye catching image, bold product name with accompanying price in the site colour.
 
-![https://i.imgur.com/WnKY1ab](https://i.imgur.com/WnKY1ab.jpg "New Items")
+    ![https://i.imgur.com/WnKY1ab](https://i.imgur.com/WnKY1ab.jpg "New Items")
 
 ### Sign Up Form
 
 - The website's sign up form is included on every page of the website. It fits with the colour theme of the site with an eye catching background and stand out bold white text as a call to action. Rather than a formal 'Newsletter sign up' or 'Sign Up Form', I used the prompt 'Stay in touch', as it is more casual and inviting than formal and demanding. The paragraph beneath the call to action outlines the benefits that the user can gain from signing up. Namely 'Keep up to date with our latest products and offers, as well as signing up to receive our monthly newsletter, covering everything rollerblading.' The form is clear and simple with no labels or required field notices, keeping it as hassle free and inviting for the user to use. The form itself is a restyled Mailchimp sign up form, which means that email addresses successfully entered receive a notice underneath the submit button of "Thank you for subscribing!" and are added onto the store's Mailchimp newsletter list.
 
-![Ihttps://i.imgur.com/FFRJjuj](https://i.imgur.com/FFRJjuj.jpg "Email signup")
-![https://i.imgur.com/mqjH9Qu](https://i.imgur.com/mqjH9Qu.jpg "Mailchimp success")
+    ![Ihttps://i.imgur.com/FFRJjuj](https://i.imgur.com/FFRJjuj.jpg "Email signup")
+    ![https://i.imgur.com/mqjH9Qu](https://i.imgur.com/mqjH9Qu.jpg "Mailchimp success")
 
 ### Footer
 
 - The footer again features the site's bold eye catching logo, sat centerally above links to the store's social media pages, all opening on a separate tab, with attributes for screen readers and also for search engines to disregard them when considering rankings. The links themselves are the individual page's icons / logos, all of which are so well embedded in popular culture, it's fine for them to be used instead of text links. The icons are monochrome to not clutter the footer with blues and reds. A small copyright notice is also included underneath a horizontal rule.
 
-![https://i.imgur.com/uhhD4ih](https://i.imgur.com/uhhD4ih.jpg "Footer")
+    ![https://i.imgur.com/uhhD4ih](https://i.imgur.com/uhhD4ih.jpg "Footer")
 
 ---
 
@@ -193,7 +193,7 @@ These user stories were added to a kanban board created in Projects in Github [h
 - To keep the site tidy I included pagination on all products pages, with the maximum amount of products displayed being 9 per page. This stops any product selection from becoming sprawling and unwieldy, especially on smaller devices. It also keeps the site wide sign up form and social links included in the footer, more relevant because they'll never fall too far down the page itself. The buttons to control the pagination did differ from the initial ideas included in the wireframes, and this is discussed in more detail in the testing document. In terms of function, they operate in a similar manner to the other buttons across the site with a strong hover effect, and also fit website convention with the icons being greyed out, rather than the usual colour, when the option isn't available. For example, going back a page when the user is on the first page.
 - To select an individual product, the user can click anywhere within the applied border.
 
-![https://i.imgur.com/ZOPuuoo](https://i.imgur.com/ZOPuuoo.jpg "All Products")
+    ![https://i.imgur.com/ZOPuuoo](https://i.imgur.com/ZOPuuoo.jpg "All Products")
 
 ---
 
@@ -221,7 +221,7 @@ These user stories were added to a kanban board created in Projects in Github [h
 - The product category is also displayed, with a clickable link should the user wish to see more products within that category.
 - One feature that is only displayed to the site admin, is the links to edit or delete a product. The edit product link takes the user to a new page, pre populated with the product's information. Any of these fields can be updated to suit quick and easily via the 'Update Product' button. The delete button does not take the user to a new page, instead deleting the product from the store and redirecting to the products page. Both these links are hidden via logic in the html template and views.py.
 
-![https://i.imgur.com/MLq2MV5](https://i.imgur.com/MLq2MV5.jpg "Individual product page")
+    ![https://i.imgur.com/MLq2MV5](https://i.imgur.com/MLq2MV5.jpg "Individual product page")
 
 ### User Queries
 
@@ -229,7 +229,7 @@ These user stories were added to a kanban board created in Projects in Github [h
 - Development of this feature is discussed further in the future features section of the readme.
 - A negative of the current iteration of this feature is that admins can only moderate comments from the admin interface rather than having easily accessibly links to delete or hide comments on the front end, similar to those present to edit or delete products.
 
-![https://i.imgur.com/hvs2nOV](https://i.imgur.com/hvs2nOV.jpg "Customer queries")
+    ![https://i.imgur.com/hvs2nOV](https://i.imgur.com/hvs2nOV.jpg "Customer queries")
 
 ### Related Products
 
@@ -244,7 +244,7 @@ These user stories were added to a kanban board created in Projects in Github [h
 - The user has the option at this point of 'Continue browsing' as it's feasible that they want to double check the total cost of their basket before going on to make more purchases, and also 'Checkout' should they wish to proceed to payment.
 - One difference to the shopping bag page from those discussed previously is that the 'bag' section of any success messages will not be displayed while on it. This is because the user already has a clear breakdown of their bag on this page, so the extra notification wouldn't serve a purpose and would be annoying for the user, were they to prompt the message by adjusting quantities.
 
-![https://i.imgur.com/JlEIDzc](https://i.imgur.com/JlEIDzc.jpg "Shopping bag")
+    ![https://i.imgur.com/JlEIDzc](https://i.imgur.com/JlEIDzc.jpg "Shopping bag")
 
 ---
 
@@ -264,7 +264,7 @@ These user stories were added to a kanban board created in Projects in Github [h
 
 - If the order goes through successfully, the user is taken to a separate 'checkout success' page, this page acts as confirmation for the user that the order has been successful, as well as giving them a table to view their order details. There is a link to return to the store underneath the table. I chose for this link to be slightly more muted than the large buttons elsewhere on the site, as it seemed more respectful to the user who's already made a purchase, rather than a button with capital letters saying 'back to the store!'
 
-![https://i.imgur.com/Q4coVOm](https://i.imgur.com/Q4coVOm.jpg "Checkout Success")
+    ![https://i.imgur.com/Q4coVOm](https://i.imgur.com/Q4coVOm.jpg "Checkout Success")
 
 ---
 
@@ -275,13 +275,13 @@ These user stories were added to a kanban board created in Projects in Github [h
 - The account process has been designed to contain as few pages as possible. Using all-auth meant the initial set up was very quick but the pages themselves do not contain any content so don't hold a huge amount of value for the site outside of their main purpose. The main login page contains the header 'Already Registered?' and the prompt 'If you have an account with us, please log in', with the form to do so below. Below the sign in button there's a muted link for resetting a password as well. 
 - I decided to include a link to register in the login page to reduce the amount of pages used, and also to help the nav be as uncluttered and clean as possible. The header and prompt of 'New Here?' and 'Registration is quick and easy' mirror those of the log in form above, and act as an incentive for the unregistered user, describing the process as quick and easy. 
 
-![https://i.imgur.com/3SmaHGY](https://i.imgur.com/3SmaHGY.jpg "Login")
+    ![https://i.imgur.com/3SmaHGY](https://i.imgur.com/3SmaHGY.jpg "Login")
 
 ### Create an Account
 
 - The previous incentive didn't lie. The process for creating an account is quick and easy! All that's required is an email, username and password. Any further details would be unnecessary at this point as they can be completed at a later date in the account page or copied over from a checkout form. Just in case the user has clicked the wrong button on the previous login page, there's another prompt underneath the header containing a link back to the login page, ensuring the customer always has multiple options of exiting the page they're on should they have found their way there by mistake. Upon submitting their registration, the user is redirected to an email verification page alerting them that they will be emailed over a link they need to follow to verify their email before they can log in. This link takes the user to a page asking them to verify the address and if that's submitted they're redirected back to the login page. 
 
-![https://i.imgur.com/h8lrYKK](https://i.imgur.com/h8lrYKK.jpg "Register")
+    ![https://i.imgur.com/h8lrYKK](https://i.imgur.com/h8lrYKK.jpg "Register")
 
 ### My Account / Logout
 
@@ -289,9 +289,9 @@ These user stories were added to a kanban board created in Projects in Github [h
 - The 'My Details' section, which contains the user's username, followed by a form for their delivery details. It's worth noting that should the user have already completed an order while logged in and ticked the option to save their details to their profile, the form will already be completed. If the user wants to make any changes to their delivery details, they can do so via adjusting the form and clicking 'Update My Details'. Floated to the right of this section at the bottom is also a 'Logout' button. This was included to help achieve the goal of having as few account pages as possible, and it seemed a logical place the customer may go to to log out of their account. To give the customer a chance to remain logged in, should they have got this far by accident, they're taken to a confirmation screen which includes a link head back to the store, as well as log out.
 - The 'My Orders' section containers brief order summaries for any completed orders they've made while logged in. The order number is shrank as it's not as immediately useful for the user, with more room given to the date the order was placed, the products contained in the order, and the total charged. Should the user wish to see an order in more detail, they can do so via clicking on the order number to take them to the order confirmation page, as they would have seen when the order was confirmed.
 
-![https://i.imgur.com/fOqOj25](https://i.imgur.com/fOqOj25.jpg "My Account")
+    ![https://i.imgur.com/fOqOj25](https://i.imgur.com/fOqOj25.jpg "My Account")
 
-![https://i.imgur.com/qeGKNaR](https://i.imgur.com/qeGKNaR.jpg "Logout")
+    ![https://i.imgur.com/qeGKNaR](https://i.imgur.com/qeGKNaR.jpg "Logout")
 
 ---
 
@@ -299,7 +299,7 @@ These user stories were added to a kanban board created in Projects in Github [h
 
 - A 404 page has been included should the user follow a link for a product that is no longer available, or should they lose their way elsewhere. The page is similar to the landing page in that it's dominated by a large image with a text box placed on top. The image itself was chosen because the skater is upside down / somewhere unexpected, much like the user has been to find the page. Not only is it eye catching but it also contained a large amount of blank colour on the left hand side where the text box could sit nicely. (This may not be the case on the smallest of displays). The text itself contains a clear message of "Error 404: the page you're looking for isn't available", a nice blame free explanation for the customer that everything is under control but whatever they're trying to access isn't currently accessible. This is accompanied by a large 'Return to the store' button to redirect the customer.
 
-![https://i.imgur.com/7eQwCL0.](https://i.imgur.com/7eQwCL0.jpg "404 page")
+    ![https://i.imgur.com/7eQwCL0.](https://i.imgur.com/7eQwCL0.jpg "404 page")
 
 ---
 
@@ -332,7 +332,7 @@ Another perk for the business is that this sort of page would provide them with 
 
 - The data models use share a lot of the same data. For example 'User' in the User Profile model, will be the same that's used as 'Author' in the Comment data model and 'User Profile' in the Order data model. These links are required to be able to attach the pieces of data together. For example, for orders to be attributed to the correct user, or comments to the correct product. Some of the data is purely for the backend, for example in the checkout app, a user would interact with the Order data model, rather than the Order Line Item model. Some data is purely for the business, the 'Sku' in product is an example of this. Though it is displayed to the customer at various points in the user journey, it is primarily for the store to identify the correct product. There are some data points that are not currently used, but are included to aid the development of the site with extra features in the future. The Comment model includes an 'Updated on' field, though not currently in use, this will be necessary when the user is given the ability to edit their own comments / questions on the products page in the future.
 
-![https://i.imgur.com/mqCvnrw](https://i.imgur.com/mqCvnrw.jpg "Data Model for Leaf Skateshop ecommerce site")
+    ![https://i.imgur.com/mqCvnrw](https://i.imgur.com/mqCvnrw.jpg "Data Model for Leaf Skateshop ecommerce site")
 
 ---
 
@@ -408,7 +408,7 @@ The project also contains a sitemap.xml file created [here](https://www.xml-site
 
 - I have deactivated the page to avoid it being taken down or any misuse. Please see screenshot below
 
-![https://i.imgur.com/R3Z8aQU](https://i.imgur.com/R3Z8aQU.jpg "Leaf Skateshop Facebook page")
+    ![https://i.imgur.com/R3Z8aQU](https://i.imgur.com/R3Z8aQU.jpg "Leaf Skateshop Facebook page")
 
 ---
 
@@ -469,5 +469,5 @@ The project also contains a sitemap.xml file created [here](https://www.xml-site
 - The Placing Order CSS loader taken from [here](https://loading.io/css/).
 - The walk through for creating a json file containing my product database [here](https://code-institute-room.slack.com/archives/C01C4AU8ULA/p1641488400004200).
 - Stackoverflow for issues during deployment to Heroku [here](https://stackoverflow.com/questions/71712258/error-could-not-build-wheels-for-backports-zoneinfo-which-is-required-to-insta#:~:text=Avoid%20installing%20backports.zoneinfo%20when%20using%20python%20%3E%3D%203.9).
-- CodeInstitute deployment walk through [here.](https://codeinstitute.s3.amazonaws.com/fullstack/AWS%20changes%20sheet.pdf) and 
+- CodeInstitute deployment walk through [here.](https://codeinstitute.s3.amazonaws.com/fullstack/AWS%20changes%20sheet.pdf)
 
