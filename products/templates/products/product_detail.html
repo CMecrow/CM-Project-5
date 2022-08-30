@@ -43,7 +43,7 @@
             {% endif %}
             {% if product.clothes_sizes %}
             <label for="size">Size:</label>
-            <select class="size-select" name="clothes_size" id="id_skate_size">
+            <select class="size-select" name="clothes_size" id="id_clothes_size">
               <option value="s">Small</option>
               <option value="m" selected>Medium</option>
               <option value="l">Large</option>
@@ -124,12 +124,12 @@
         <div class="comment-form">
           <form method="post" class="comment-input">
             {% csrf_token %}
-            {{ comment_form|crispy }}
-            <button id="comment-button">
-              <div class="main-button">
-                  <p>Submit</p>
-              </div>
-          </button>
+            {{ comment_form|crispy }}            
+            <div class="main-button">
+              <button id="comment-button">
+                <b>Submit</b>
+              </button>
+            </div>
           </form>
         </div>
         {% else %}

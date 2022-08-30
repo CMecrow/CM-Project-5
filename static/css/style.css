@@ -317,7 +317,6 @@ tr.product-tr>td, tr.bag-costs>td {
 .message-product-image {
     width: auto;
     height: 100px;
-    float: top;
 }
 
 .message-image-container {
@@ -391,6 +390,10 @@ select:invalid, select option[value=""] {
 #add-button:focus, #add-button:hover,
 #comment-button:focus, #comment-button:hover {
     cursor: pointer;
+}
+
+#submit-button {
+    padding-top: 0px;
 }
 
 #loading-overlay {
@@ -575,6 +578,12 @@ select:invalid, select option[value=""] {
 
 #update-details-btn, #logout-btn {
     border: none;
+}
+
+#update-details-btn {
+    max-width: 200px;
+    margin-right: 0px;
+    display: inline-block
 }
 
 #profile-update-form .form-control {

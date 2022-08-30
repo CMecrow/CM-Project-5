@@ -141,5 +141,11 @@ This extra function was called when the hide instance was called and called some
 
 Namely the confirmation_email_subject.txt, could not be located. The fix was simple as I moved the file to the correct location.
 
+## Validator Testing
+
+- HTML - HTML was difficult to validate due to amount of Django present, however while running through the templates any errors were rectified. One exception were the labels present in product_detail. As these were taken from the Boutique Ado walk through project, they've been left in as is.
+
+- CSS - Errors returned here where present in the imported template css, due to time constraints and a lack of understanding of their specific function, these were left included. Custom CSS written in static/css/style.css contains no errors. [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/)
+
 
 
