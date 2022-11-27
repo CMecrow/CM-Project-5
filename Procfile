@@ -1,1 +1,0 @@
-web: gunicorn leaf_skateshop.wsgi:application
