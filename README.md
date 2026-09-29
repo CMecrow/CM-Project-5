@@ -10,7 +10,7 @@ This project has been made using Django / Python, HTML, CSS and JavaScript.
 
 ~~[Here is the live version of this project](https://leaf-skateshop.herokuapp.com/)~~
 
-The project was redeployed via Render because of the changes to free Heroku hosting. [Link here.](https://cm-project-5.onrender.com/)
+The project was redeployed via Render because of the changes to free Heroku hosting. [Link here.](https://cm-project-5-deploy-iota.vercel.app/)
 
 ## Test Purchases
 
